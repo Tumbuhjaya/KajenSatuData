@@ -3,7 +3,7 @@
     <ion-content :fullscreen="true" id="page-landing">
       <div class="box-content-one">
         <ion-img
-        src="../../../public/assets/landing.png"
+        src="/assets/landing.png"
         alt=""
         ></ion-img>
       </div>
@@ -59,7 +59,7 @@ export default defineComponent({
 #page-landing .box-content-two{
   width: 100%;
   height: 50vh;
-  background-image: url('../../../public/assets/landing-2.png');
+  background-image: url('/assets/landing-2.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

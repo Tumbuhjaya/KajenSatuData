@@ -16,11 +16,11 @@
     <ion-content :fullscreen="true" id="page-dashboard">
       <div style="width: 100%;height: 50px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:100px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
-      <ion-img src="../../../public/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 15px 30px !important;">
         <ion-row>
           <ion-col style="padding-top: 0;">
-            <ion-img src="../../../public/assets/slide-1.png" style="width: 100%;position: relative;z-index: 999;border-radius: 16px;"></ion-img>
+            <ion-img src="/assets/slide-1.png" style="width: 100%;position: relative;z-index: 999;border-radius: 16px;"></ion-img>
           </ion-col>
         </ion-row>
 
@@ -34,7 +34,7 @@
           <ion-col size="3">
             <div class="box-menu" @click="$router.push('/info_lokasi')">
               <div class="box-menu-circle">
-                <ion-img src="../../../public/assets/info-lokasi.png"></ion-img>
+                <ion-img src="/assets/info-lokasi.png"></ion-img>
               </div>
               <h6 class="font-title-circle" style="margin-top: 10px !important;">Info<br/>Lokasi</h6>
             </div>
@@ -42,7 +42,7 @@
           <ion-col size="3">
             <div class="box-menu" @click="$router.push('/info_grafis')">
               <div class="box-menu-circle">
-                <ion-img src="../../../public/assets/info-grafis.png"></ion-img>
+                <ion-img src="/assets/info-grafis.png"></ion-img>
               </div>
               <h6 class="font-title-circle" style="margin-top: 10px !important;">Info<br/>Grafis</h6>
             </div>
@@ -50,7 +50,7 @@
           <ion-col size="3">
             <div class="box-menu" @click="$router.push('/media_sosial')">
               <div class="box-menu-circle">
-                <ion-img src="../../../public/assets/media-sosial.png"></ion-img>
+                <ion-img src="/assets/media-sosial.png"></ion-img>
               </div>
               <h6 class="font-title-circle" style="margin-top: 10px !important;">Media<br/>Sosial</h6>
             </div>
@@ -58,7 +58,7 @@
           <ion-col size="3">
             <div class="box-menu">
               <div class="box-menu-circle">
-                <ion-img src="../../../public/assets/seni-budaya.png"></ion-img>
+                <ion-img src="/assets/seni-budaya.png"></ion-img>
               </div>
               <h6 class="font-title-circle" style="margin-top: 10px !important;">Seni & Budaya</h6>
             </div>
@@ -73,10 +73,10 @@
 
         <ion-row>
           <ion-col size="6">
-            <ion-img src="../../../public/assets/sid.png"></ion-img>
+            <ion-img src="/assets/sid.png"></ion-img>
           </ion-col>
           <ion-col size="6" @click="$router.push('/berita')">
-            <ion-img src="../../../public/assets/berita.png"></ion-img>
+            <ion-img src="/assets/berita.png"></ion-img>
           </ion-col>
         </ion-row>
 
@@ -90,7 +90,7 @@
           <ion-col size="3">
             <div class="box-menu" @click="$router.push('/nomor_penting')">
               <div class="box-menu-circle">
-                <ion-img src="../../../public/assets/no-penting.png"></ion-img>
+                <ion-img src="/assets/no-penting.png"></ion-img>
               </div>
               <h6 class="font-title-circle" style="margin-top: 10px !important;">Nomor<br/>Penting</h6>
             </div>
@@ -98,7 +98,7 @@
           <ion-col size="3">
             <div class="box-menu">
               <div class="box-menu-circle">
-                <ion-img src="../../../public/assets/lapor-bupati.png"></ion-img>
+                <ion-img src="/assets/lapor-bupati.png"></ion-img>
               </div>
               <h6 class="font-title-circle" style="margin-top: 10px !important;">Lapor<br/>Bupati</h6>
             </div>
@@ -106,7 +106,7 @@
           <ion-col size="3">
             <div class="box-menu" @click="$router.push('/web_app')">
               <div class="box-menu-circle">
-                <ion-img src="../../../public/assets/web-app.png"></ion-img>
+                <ion-img src="/assets/web-app.png"></ion-img>
               </div>
               <h6 class="font-title-circle" style="margin-top: 10px !important;">Website<br/>App</h6>
             </div>
@@ -114,7 +114,7 @@
           <ion-col size="3">
             <div class="box-menu" @click="$router.push('/kantor_pemerintahan')">
               <div class="box-menu-circle">
-                <ion-img src="../../../public/assets/kantor-pemerintah.png"></ion-img>
+                <ion-img src="/assets/kantor-pemerintah.png"></ion-img>
               </div>
               <h6 class="font-title-circle" style="margin-top: 10px !important;">Kantor<br/>Pemerintah</h6>
             </div>

@@ -12,11 +12,11 @@
     <ion-content :fullscreen="true" id="page-dashboard">
       <!-- <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div> -->
 
-      <ion-img src="../../../public/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 20px !important;">
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
-            <ion-img src="./../../public/assets/banner-info-grafis.png"></ion-img>
+            <ion-img src="/assets/banner-info-grafis.png"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="padding: 0;">
@@ -28,7 +28,7 @@
 
         <ion-row>
           <ion-col size="12" style="padding: 0;">
-            <ion-img src="./../../public/assets/banner-info-grafis.png"></ion-img>
+            <ion-img src="/assets/banner-info-grafis.png"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="padding: 0;">

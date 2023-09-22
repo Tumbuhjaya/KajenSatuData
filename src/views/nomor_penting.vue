@@ -12,7 +12,7 @@
     <ion-content :fullscreen="true" id="page-dashboard">
       <!-- <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div> -->
 
-      <ion-img src="../../../public/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 20px !important;">
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
@@ -22,7 +22,7 @@
                 <h6>(0285) 381905</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <ion-img src="../../../public/assets/fb.png" style="width: 100%;"></ion-img>
+                <ion-img src="https://placehold.co/80" style="width: 100%;"></ion-img>
               </div>
             </div>
           </ion-col>
@@ -36,7 +36,7 @@
                 <h6>(0285) 381513</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <ion-img src="../../../public/assets/tube.png" style="width: 100%;"></ion-img>
+                <ion-img src="https://placehold.co/80" style="width: 100%;"></ion-img>
               </div>
             </div>
           </ion-col>
@@ -50,7 +50,7 @@
                 <h6>(0285) 381740 / 0823 2521 1118</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <ion-img src="../../../public/assets/ig.png" style="width: 100%;"></ion-img>
+                <ion-img src="https://placehold.co/80" style="width: 100%;"></ion-img>
               </div>
             </div>
           </ion-col>
@@ -64,7 +64,7 @@
                 <h6>0811 2512 119</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <ion-img src="../../../public/assets/tube.png" style="width: 100%;"></ion-img>
+                <ion-img src="https://placehold.co/80" style="width: 100%;"></ion-img>
               </div>
             </div>
           </ion-col>

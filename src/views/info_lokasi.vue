@@ -12,7 +12,7 @@
     <ion-content :fullscreen="true" id="page-dashboard">
       <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
-      <ion-img src="../../../public/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 0 30px !important;">
         <ion-row style="margin-top: 5px;">
           <ion-col style="padding-top: 0;">
@@ -37,47 +37,47 @@
 
         <ion-row class="list" v-if="segment == 'data1'">
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="../../../public/assets/apotek.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/apotek.png" style="width:100%;"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="../../../public/assets/klinik.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/Klinik.png" style="width:100%;"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="../../../public/assets/praktek-dokter.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/praktek-dokter.png" style="width:100%;"></ion-img>
           </ion-col>
         </ion-row>
                 
         <ion-row class="list" v-if="segment == 'data2'">
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="../../../public/assets/pasar.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/pasar.png" style="width:100%;"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="./../../public/assets/pom-bensin.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/pom-bensin.png" style="width:100%;"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="./../../public/assets/terminal-bus.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/terminal-bus.png" style="width:100%;"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="./../../public/assets/taman-kota.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/taman-kota.png" style="width:100%;"></ion-img>
           </ion-col>
         </ion-row>
 
         <ion-row class="list" v-if="segment == 'data3'">
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="./../../public/assets/wisata-alam.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/wisata-alam.png" style="width:100%;"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="./../../public/assets/wisata-kuliner.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/wisata-kuliner.png" style="width:100%;"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="./../../public/assets/wisata-religi.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/wisata-religi.png" style="width:100%;"></ion-img>
           </ion-col>
         </ion-row>
       </ion-grid>

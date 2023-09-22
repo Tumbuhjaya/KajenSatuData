@@ -3,7 +3,7 @@
     <ion-content :fullscreen="true" id="page-login">
       <div class="box-content-one">
         <ion-img
-        src="../../../public/assets/login.png"
+        src="/assets/login.png"
         alt=""
         ></ion-img>
       </div>

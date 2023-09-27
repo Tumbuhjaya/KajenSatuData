@@ -49,6 +49,16 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
+    path: '/seni_budaya',
+    component: () => import('@/views/seni_budaya.vue')
+  },
+
+  {
+    path: '/seni_budaya/detail',
+    component: () => import('@/views/detail_seni_budaya.vue')
+  },
+
+  {
     path: '/berita',
     component: () => import('@/views/berita.vue')
   },

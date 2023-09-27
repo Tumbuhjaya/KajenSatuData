@@ -54,7 +54,7 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: '/seni_budaya/detail',
+    path: '/seni_budaya/detail/:id',
     component: () => import('@/views/detail_seni_budaya.vue')
   },
 

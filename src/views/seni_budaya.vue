@@ -34,8 +34,28 @@
 
         <ion-row v-if="segment == 'data1'">
           <ion-col>
-            <ion-row style="margin-bottom: 15px;">
-              <ion-col size="6"  @click="$router.push('/seni_budaya/detail')">
+            <ion-row style="margin-bottom: 15px;"  v-for="(item,id) in seni_tari" :key="id"  >
+              <ion-col size="6"   v-for="(item2,id) in item" :key="id"  @click="$router.push('/seni_budaya/detail/'+item2.id_seni_budaya)">
+                <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+                  <ion-img v-if="!item2.foto" src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <ion-img v-else-if="item2.foto" :src="item2.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                    <h6 style="font-size: 16px;text-align: center;"><strong>{{ item2.nama }}</strong></h6>
+                  </div>
+                </div>
+              </ion-col>
+              <!-- <ion-col size="6" >
+                <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+                  <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                    <h6 style="font-size: 16px;text-align: center;"><strong>Nama Tari B</strong></h6>
+                  </div>
+                </div>
+              </ion-col> -->
+            </ion-row>
+
+            <!-- <ion-row style="margin-bottom: 15px;">
+              <ion-col size="6" @click="$router.push('/seni_budaya/detail')">
                 <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
                   <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                   <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
@@ -70,52 +90,34 @@
                   </div>
                 </div>
               </ion-col>
-            </ion-row>
-
-            <ion-row style="margin-bottom: 15px;">
-              <ion-col size="6">
-                <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
-                  <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-                  <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
-                    <h6 style="font-size: 16px;text-align: center;"><strong>Nama Tari A</strong></h6>
-                  </div>
-                </div>
-              </ion-col>
-              <ion-col size="6" >
-                <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
-                  <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-                  <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
-                    <h6 style="font-size: 16px;text-align: center;"><strong>Nama Tari B</strong></h6>
-                  </div>
-                </div>
-              </ion-col>
-            </ion-row>
+            </ion-row> -->
           </ion-col>
         </ion-row>
                 
         <ion-row v-if="segment == 'data2'">
           <ion-col>
-            <ion-row style="margin-bottom: 15px;">
-              <ion-col size="6" @click="$router.push('/seni_budaya/detail')">
+            <ion-row style="margin-bottom: 15px;" v-for="(item,id) in kebudayaan" :key="id" >
+              <ion-col size="6"  v-for="(item2,id) in item" :key="id"  @click="$router.push('/seni_budaya/detail/'+item2.id_seni_budaya)">
                 <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
-                  <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <ion-img v-if="item2.foto" :src="item2.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                   <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
-                    <h6 style="font-size: 16px;text-align: center;"><strong>Nama Acara Aaaa</strong></h6>
+                    <h6 style="font-size: 16px;text-align: center;"><strong>{{ item2.nama }}</strong></h6>
                   </div>
                 </div>
               </ion-col>
-              <ion-col size="6" >
+              <!-- <ion-col size="6" >
                 <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
                   <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                   <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
                     <h6 style="font-size: 16px;text-align: center;"><strong>Nama Acara B</strong></h6>
                   </div>
                 </div>
-              </ion-col>
+              </ion-col> -->
             </ion-row>
 
-            <ion-row style="margin-bottom: 15px;">
-              <ion-col size="6">
+            <!-- <ion-row style="margin-bottom: 15px;">
+              <ion-col size="6"  @click="$router.push('/seni_budaya/detail')">
                 <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
                   <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                   <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
@@ -150,7 +152,7 @@
                   </div>
                 </div>
               </ion-col>
-            </ion-row>
+            </ion-row> -->
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -210,7 +212,7 @@ export default defineComponent({
         url:`https://ksd.pekalongankab.go.id/api/seni-tari.php`,
       })
       console.log(hsl);
-      for (let i = 0; i < hsl.data.length; i+2) {
+      for (let i = 0; i < hsl.data.length; i+=2) {
         let x =[]
         if (hsl.data[i]) {
           x.push(hsl.data[i])
@@ -227,8 +229,16 @@ export default defineComponent({
         url:`https://ksd.pekalongankab.go.id/api/kebudayaan.php`,
       })
       console.log(hsl);
-      for (let i = 0; i < hsl.data.length; i++) {
-        this.kebudayaan.push(hsl.data[i])
+      for (let i = 0; i < hsl.data.length; i+=2) {
+        // this.kebudayaan.push(hsl.data[i])
+        let x =[]
+        if (hsl.data[i]) {
+          x.push(hsl.data[i])
+        }
+        if (hsl.data[i+1]) {
+          x.push(hsl.data[i+1])
+        }
+        this.kebudayaan.push(x)
       }
     },
   },

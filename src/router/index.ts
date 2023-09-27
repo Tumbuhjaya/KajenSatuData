@@ -59,12 +59,12 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: '/website/:tipe',
+    path: '/website',
     component: () => import('@/views/website.vue')
   },
 
   {
-    path: '/aplikasi/:tipe',
+    path: '/aplikasi',
     component: () => import('@/views/aplikasi.vue')
   },
 

@@ -50,7 +50,7 @@
         </ion-row>
                 
         <ion-row class="list" v-if="segment == 'data2'">
-          <ion-col size="12" style="margin-top: 15px;">
+          <ion-col size="12" style="margin-top: 15px;" @click="$router.push('/info_lokasi/fasum')">
             <ion-img src="/assets/pasar.png" style="width:100%;"></ion-img>
           </ion-col>
 

@@ -44,12 +44,12 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: '/website',
+    path: '/website/:tipe',
     component: () => import('@/views/website.vue')
   },
 
   {
-    path: '/aplikasi',
+    path: '/aplikasi/:tipe',
     component: () => import('@/views/aplikasi.vue')
   },
 

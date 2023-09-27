@@ -19,20 +19,17 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: '/info_lokasi/apotek',
-    component: () => import('@/views/info_lokasi_apotek.vue')
+    path: '/info_lokasi_faskes/:tipe',
+    component: () => import('@/views/detail_info_lokasi_faskes.vue')
   },
-
   {
-    path: '/info_lokasi/klinik',
-    component: () => import('@/views/info_lokasi_apotek.vue')
+    path: '/info_lokasi_fasum/:tipe',
+    component: () => import('@/views/detail_info_lokasi_fasum.vue')
   },
-
   {
-    path: '/info_lokasi/dokter',
-    component: () => import('@/views/info_lokasi_apotek.vue')
+    path: '/info_lokasi_wisata/:tipe',
+    component: () => import('@/views/detail_info_lokasi_wisata.vue')
   },
-
   {
     path: '/info_grafis',
     component: () => import('@/views/info_grafis.vue')

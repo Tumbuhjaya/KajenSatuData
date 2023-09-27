@@ -56,7 +56,7 @@
             </div>
           </ion-col>
           <ion-col size="3">
-            <div class="box-menu">
+            <div class="box-menu" @click="$router.push('/seni_budaya')">
               <div class="box-menu-circle">
                 <ion-img src="/assets/seni-budaya.png"></ion-img>
               </div>

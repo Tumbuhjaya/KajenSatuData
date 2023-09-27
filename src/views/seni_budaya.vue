@@ -163,6 +163,9 @@ import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, Io
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
+import axios  from "axios";
+import moment from "moment";
+moment.locale("id");
 export default defineComponent({
   components: {
     IonPage,
@@ -183,6 +186,8 @@ export default defineComponent({
     },
   data() {
     return {
+      seni_tari:[],
+      kebudayaan:[],
       segment: "data1",
     };
   },
@@ -199,8 +204,38 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_seni_tari(){
+      let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/seni-tari.php`,
+      })
+      console.log(hsl);
+      for (let i = 0; i < hsl.data.length; i+2) {
+        let x =[]
+        if (hsl.data[i]) {
+          x.push(hsl.data[i])
+        }
+        if (hsl.data[i+1]) {
+          x.push(hsl.data[i+1])
+        }
+        this.seni_tari.push(x)
+      }
+    },
+    async get_kebudayaan(){
+      let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/kebudayaan.php`,
+      })
+      console.log(hsl);
+      for (let i = 0; i < hsl.data.length; i++) {
+        this.kebudayaan.push(hsl.data[i])
+      }
+    },
   },
-});
+  async created() {
+    await this.get_seni_tari()
+    await this.get_kebudayaan()
+  }});
 </script>
 
 <style scoped>

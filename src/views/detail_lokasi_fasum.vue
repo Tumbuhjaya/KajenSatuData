@@ -97,7 +97,9 @@ export default defineComponent({
     },
   data() {
     return {
+      data:[],
       segment: "data1",
+      tipe: this.$route.params.tipe
     };
   },
   methods: {
@@ -113,8 +115,20 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_data(){
+      let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/${this.tipe}.php`,
+      })
+      console.log(hsl);
+      for (let i = 0; i < hsl.data.length; i++) {
+        this.data.push(hsl.data[i])
+      }
+    },
   },
-});
+  async created() {
+    await this.get_data()
+  }});
 </script>
 
 <style scoped>

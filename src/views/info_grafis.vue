@@ -14,7 +14,20 @@
 
       <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 20px !important;">
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
+        <ion-row   v-for="(item,id) in info" :key="id"   style="margin-top: 5px;margin-bottom: 15px;">
+          <ion-col size="12" style="padding: 0;">
+            <ion-img v-if="!item.foto" src="/assets/banner-info-grafis.png"></ion-img>
+            <ion-img v-else-if="item.foto" :src="item.foto"></ion-img>
+          </ion-col>
+
+          <ion-col size="12" style="padding: 0;">
+            <div style="width:100%;padding:30px;background-color: #FFD82B;">
+              <h6 style="margin: 0;"><strong>{{ item.ket }}</strong></h6>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <!-- <ion-row>
           <ion-col size="12" style="padding: 0;">
             <ion-img src="/assets/banner-info-grafis.png"></ion-img>
           </ion-col>
@@ -24,19 +37,7 @@
               <h6 style="margin: 0;"><strong>RLPPD TA 2022</strong></h6>
             </div>
           </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col size="12" style="padding: 0;">
-            <ion-img src="/assets/banner-info-grafis.png"></ion-img>
-          </ion-col>
-
-          <ion-col size="12" style="padding: 0;">
-            <div style="width:100%;padding:30px;background-color: #FFD82B;">
-              <h6 style="margin: 0;"><strong>RLPPD TA 2022</strong></h6>
-            </div>
-          </ion-col>
-        </ion-row>
+        </ion-row> -->
       </ion-grid>
       
     </ion-content>
@@ -48,6 +49,9 @@ import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg } from 
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
+import axios  from "axios";
+import moment from "moment";
+moment.locale("id");
 export default defineComponent({
   components: {
     IonPage,
@@ -65,6 +69,7 @@ export default defineComponent({
   data() {
     return {
       segment: "data1",
+      info:[]
     };
   },
   methods: {
@@ -80,8 +85,19 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_info(){
+      let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/infografis.php`,
+      })
+      for (let i = 0; i < hsl.data.length; i++) {
+        this.info.push(hsl.data[i])
+      }
+    },
   },
-});
+  async created() {
+    await this.get_info()
+  }});
 </script>
 
 <style scoped>

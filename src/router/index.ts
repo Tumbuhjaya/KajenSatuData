@@ -19,6 +19,21 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
+    path: '/info_lokasi/apotek',
+    component: () => import('@/views/info_lokasi_apotek.vue')
+  },
+
+  {
+    path: '/info_lokasi/klinik',
+    component: () => import('@/views/info_lokasi_apotek.vue')
+  },
+
+  {
+    path: '/info_lokasi/dokter',
+    component: () => import('@/views/info_lokasi_apotek.vue')
+  },
+
+  {
     path: '/info_grafis',
     component: () => import('@/views/info_grafis.vue')
   },

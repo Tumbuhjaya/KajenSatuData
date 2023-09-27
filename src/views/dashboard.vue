@@ -8,7 +8,7 @@
         </div>
         <div class="right">
           <div class="box-menu-circle">
-            <ion-img src="https://placehold.co/68"></ion-img>
+            <ion-img src="/assets/locked.png" style="height: 68px;"></ion-img>
           </div>
         </div>
       </div>

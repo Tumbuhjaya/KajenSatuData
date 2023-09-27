@@ -5,7 +5,7 @@
         <div class="box-title">
           <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/info_lokasi')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">APOTEK</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">NAMA KATEGORI FASUM</h6>
       </div>
       </div>
     </ion-header>
@@ -15,72 +15,104 @@
       <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 60px 20px !important;">
         <ion-row style="margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
-              <div style="width: 50%;">
-                <ion-img src="https://placehold.co/100" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+          <ion-col size="6" id="open-modal">
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                <h6 style="font-size: 16px;text-align: center;"><strong>SPBU KARANGANYAR</strong></h6>
               </div>
-              <div style="width:50%;margin-left: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 14px;"><strong>Nama Apotek</strong></h6>
-                <h6 style="font-size: 12px;margin-top: 5px !important;">Alamat Apotek</h6>
+            </div>
+          </ion-col>
+          <ion-col size="6" >
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                <h6 style="font-size: 16px;text-align: center;"><strong>SPBU KARANGANYAR</strong></h6>
               </div>
             </div>
           </ion-col>
         </ion-row>
         <ion-row style="margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
-              <div style="width: 50%;">
-                <ion-img src="https://placehold.co/100" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+          <ion-col size="6" id="open-modal">
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                <h6 style="font-size: 16px;text-align: center;"><strong>SPBU KARANGANYAR</strong></h6>
               </div>
-              <div style="width:50%;margin-left: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 14px;"><strong>Nama Apotek</strong></h6>
-                <h6 style="font-size: 12px;margin-top: 5px !important;">Alamat Apotek</h6>
+            </div>
+          </ion-col>
+          <ion-col size="6" >
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                <h6 style="font-size: 16px;text-align: center;"><strong>SPBU KARANGANYAR</strong></h6>
               </div>
             </div>
           </ion-col>
         </ion-row>
         <ion-row style="margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
-              <div style="width: 50%;">
-                <ion-img src="https://placehold.co/100" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-              </div>
-              <div style="width:50%;margin-left: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 14px;"><strong>Nama Apotek</strong></h6>
-                <h6 style="font-size: 12px;margin-top: 5px !important;">Alamat Apotek</h6>
+          <ion-col size="6" id="open-modal">
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                <h6 style="font-size: 16px;text-align: center;"><strong>SPBU KARANGANYAR</strong></h6>
               </div>
             </div>
           </ion-col>
-        </ion-row>
-        <ion-row style="margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
-              <div style="width: 50%;">
-                <ion-img src="https://placehold.co/100" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-              </div>
-              <div style="width:50%;margin-left: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 16px;"><strong>Adi Farma</strong></h6>
-                <h6 style="font-size: 12px;margin-top: 5px !important;">Jl. Diponegoro No. 814 Bandung Wetan Nyamok Kec. Kajen Pekalongan Jawa tengah</h6>
+          <ion-col size="6" >
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                <h6 style="font-size: 16px;text-align: center;"><strong>SPBU KARANGANYAR</strong></h6>
               </div>
             </div>
           </ion-col>
         </ion-row>
       </ion-grid>
-      
+      <ion-modal ref="modal" trigger="open-modal" >
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Nama Fasum </ion-title>
+            <ion-buttons slot="end">
+              <ion-button @click="dismiss()">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-row>
+            <ion-col>
+              <div style="width: 100%;padding: 15px;">
+                <div style="width: 100%;position: relative;">
+                  <ion-img src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+                  <div style="width: 100%;position: absolute;left:0;right:0;bottom:0;padding:10px;background-color: rgba(255,255,255,0.5);">
+                    <h6 style="font-weight: normal;font-size: 12px;">Jl. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, necessitatibus!</h6>
+                  </div>
+                </div>
+                
+
+                <h6 style="margin-top: 15px !important;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis laborum asperiores earum ducimus quidem dolor, quis officia quisquam saepe numquam exercitationem sapiente et accusamus.</h6>
+                
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-content>
+      </ion-modal>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons, IonModal } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
+
 export default defineComponent({
   components: {
     IonPage,
     IonHeader,
+    IonToolbar,
+    IonTitle,
     IonContent,
     IonGrid,
     IonRow, 
@@ -90,7 +122,9 @@ export default defineComponent({
     IonLabel,
     IonImg,
     IonButton,
-    IonIcon 
+    IonButtons,
+    IonIcon ,
+    IonModal
   },
   setup() {
       return { arrowBackCircleOutline };
@@ -98,9 +132,13 @@ export default defineComponent({
   data() {
     return {
       segment: "data1",
+      isOpen:false,
     };
   },
   methods: {
+    dismiss() {
+        this.$refs.modal.$el.dismiss();
+      },
     toLogin() {
       this.$router.push("/login");
     },
@@ -135,20 +173,20 @@ export default defineComponent({
   position: relative;
 }
 
-ion-segment-button{
-  background-color: #fff;
-  border-radius: 30px;
-  margin: 0 2.5px 2.5px 2.5px;
-  box-shadow: 0px 2px 4px 0px #00000040;
+ion-modal {
+  --width:90%;
+  --height: 75%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-ion-segment-button label{
-  color: #000;
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
 }
 
-ion-segment-button::part(indicator-background) {
-  background: transparent;
+ion-modal ion-toolbar {
+  --background: #4c87f2;
+  --color: white;
 }
-
-
 </style>

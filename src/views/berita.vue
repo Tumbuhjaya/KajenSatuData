@@ -36,7 +36,17 @@
         </ion-row>
 
         <ion-row class="list" v-if="segment == 'data1'">
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
+          <ion-col size="12" v-for="(item,id) in data" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
+            <ion-img v-if="item.foto" :src="item.foto" style="width:100%;"></ion-img>
+            <ion-img v-else src="https://placehold.co/600x400" style="width:100%;"></ion-img>
+            <h6 style="font-size: 14px;margin-top: 10px !important;"><strong>{{ item.judul }}</strong></h6>
+            <h6 style="font-size: 12px;margin-top: 5px !important;">{{ item.waktu }}</h6>
+          </ion-col>
+
+          <ion-col size="12">
+            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
+          </ion-col>
+          <!-- <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
             <ion-img src="https://placehold.co/600x400" style="width:100%;"></ion-img>
             <h6 style="font-size: 14px;margin-top: 10px !important;"><strong>BUPATI LAUNCHING PASDAR UMKM DI DESA LOLONG DAN LEGOK KALONG</strong></h6>
             <h6 style="font-size: 12px;margin-top: 5px !important;">00/00/0000 00:00</h6>
@@ -60,15 +70,33 @@
             <ion-img src="https://placehold.co/600x400" style="width:100%;"></ion-img>
             <h6 style="font-size: 14px;margin-top: 10px !important;"><strong>BUPATI LAUNCHING PASDAR UMKM DI DESA LOLONG DAN LEGOK KALONG</strong></h6>
             <h6 style="font-size: 12px;margin-top: 5px !important;">00/00/0000 00:00</h6>
-          </ion-col>
+          </ion-col> 
 
           <ion-col size="12">
             <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
+          </ion-col> -->
         </ion-row>
                 
         <ion-row class="list" v-if="segment == 'data2'">
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
+          <ion-col size="12" v-for="(item,id) in pengumuman" :key="id"  style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
+            <div style="width: 100%;display: flex;">
+              <div style="width: 25%;">
+                <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
+                <ion-img v-else src="https://placehold.co/90" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
+              </div>
+
+              <div style="width: 75%;padding-left: 15px;">
+                <h6 style="font-size: 14px;"><strong>{{ item.judul }}</strong></h6>
+                <h6 style="font-size: 12px;margin-top: 10px !important;">{{ item.waktu }}</h6>
+              </div>
+            </div>
+          </ion-col>
+
+          <ion-col size="12">
+            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
+          </ion-col>
+
+          <!-- <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
             <div style="width: 100%;display: flex;">
               <div style="width: 25%;">
                 <ion-img src="https://placehold.co/90" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
@@ -151,27 +179,19 @@
 
           <ion-col size="12">
             <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <div style="width: 100%;display: flex;">
-              <div style="width: 25%;">
-                <ion-img src="https://placehold.co/90" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
-              </div>
-
-              <div style="width: 75%;padding-left: 15px;">
-                <h6 style="font-size: 14px;"><strong>PENGUMUMAN TENDER DGN PASCA KUALIFIKASI PENGADAAN ASPAL ..... </strong></h6>
-                <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-              </div>
-            </div>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
+          </ion-col> -->
         </ion-row>
 
         <ion-row class="list" v-if="segment == 'data3'">
+          <ion-col size="12"  v-for="(item,id) in lelang" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
+            <h6 style="font-size: 14px;"><strong>{{ item.judul }}</strong></h6>
+            <h6 style="font-size: 12px;margin-top: 10px !important;">{{ item.waktu }}</h6>
+          </ion-col>
+
+          <ion-col size="12">
+            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
+          </ion-col>
+<!-- 
           <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
             <h6 style="font-size: 14px;"><strong>HASIL  SELEKSI  PRA  SANGGAH   PENGADAAN PEGAWAI PEMERINTAH DENGAN PERJANJIAN KERJA UNTUK JABATAN FUNGSIONAL GURU...</strong></h6>
             <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
@@ -224,17 +244,14 @@
 
           <ion-col size="12">
             <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <h6 style="font-size: 14px;"><strong>HASIL  SELEKSI  PRA  SANGGAH   PENGADAAN PEGAWAI PEMERINTAH DENGAN PERJANJIAN KERJA UNTUK JABATAN FUNGSIONAL GURU...</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
+          </ion-col> -->
+          
         </ion-row>
+        <ion-infinite-scroll threshold="10%" @ionInfinite="loadData">
+            <ion-infinite-scroll-content loading-spinner="bubbles" loading-text=" Loading more item">
+              
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
       </ion-grid>
       
     </ion-content>
@@ -242,12 +259,17 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
+import { IonInfiniteScroll,IonInfiniteScrollContent, IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
+import axios  from "axios";
+import moment from "moment";
+moment.locale("id");
 export default defineComponent({
   components: {
+    IonInfiniteScroll,
+    IonInfiniteScrollContent,
     IonPage,
     IonHeader,
     IonContent,
@@ -267,6 +289,10 @@ export default defineComponent({
   data() {
     return {
       segment: "data1",
+      data:[],
+      pengumuman:[],
+      lelang:[],
+      hal:1,
     };
   },
   methods: {
@@ -282,7 +308,46 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_berita(){
+      let berita = await axios({
+      method: "get",
+        url:`https://pekalongankab.go.id/public/api/berita-pekalongankab.php?halaman=${this.hal}`,
+      })
+      for (let i = 0; i < berita.data.length; i++) {
+        this.data.push(berita.data[i])
+      }
+    },
+    async get_pengumuman(){
+      let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/pengumuman.php`,
+      })
+      for (let i = 0; i < hsl.data.length; i++) {
+        this.pengumuman.push(hsl.data[i])
+      }
+    },
+    async get_lelang(){
+      let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/lelang.php`,
+      })
+      for (let i = 0; i < hsl.data.length; i++) {
+        this.lelang.push(hsl.data[i])
+      }
+    },
+    async  loadData(ev){
+      this.hal++ 
+      await this.get_berita()
+      setTimeout(function () {
+      ev.target.complete();
+      },setTimeout(5000))
+    }
   },
+  async created() {
+    await this.get_berita()
+    await this.get_pengumuman()
+    await this.get_lelang()
+  }
 });
 </script>
 

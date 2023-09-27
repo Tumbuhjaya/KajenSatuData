@@ -15,7 +15,7 @@
       <ion-img src="../../../public/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 20px !important;">
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;" @click="$router.push('/website')">
+          <ion-col size="12" style="padding: 0;" @click="$router.push('/website/opd')">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 20px;border-radius: 8px;background-color: #EFF0F7">
               <div style="width: 85%;height: 80px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 20px;font-weight: 600;">Website OPD</h6>
@@ -28,7 +28,7 @@
         </ion-row>
 
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;" @click="$router.push('/website')">
+          <ion-col size="12" style="padding: 0;" @click="$router.push('/website/web-kelurahan')">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 20px;border-radius: 8px;background-color: #EFF0F7">
               <div style="width: 85%;height: 80px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 20px;font-weight: 600;">Website Kelurahan</h6>
@@ -41,7 +41,7 @@
         </ion-row>
 
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;" @click="$router.push('/website')">
+          <ion-col size="12" style="padding: 0;" @click="$router.push('/website/web-desa')">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 20px;border-radius: 8px;background-color: #EFF0F7">
               <div style="width: 85%;height: 80px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 20px;font-weight: 600;">Website Desa</h6>
@@ -54,7 +54,7 @@
         </ion-row>
 
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;" @click="$router.push('/website')">
+          <ion-col size="12" style="padding: 0;" @click="$router.push('/website/web-vertikal')">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 20px;border-radius: 8px;background-color: #EFF0F7">
               <div style="width: 85%;height: 80px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 20px;font-weight: 600;">Website Instansi Vertikal</h6>
@@ -67,7 +67,7 @@
         </ion-row>
 
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;" @click="$router.push('/aplikasi')">
+          <ion-col size="12" style="padding: 0;" @click="$router.push('/aplikasi/ap-pemerintah')">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 20px;border-radius: 8px;background-color: #EFF0F7">
               <div style="width: 85%;height: 80px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 20px;font-weight: 600;">Aplikasi Layanan Pemerintah</h6>
@@ -80,7 +80,7 @@
         </ion-row>
 
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;" @click="$router.push('/aplikasi')">
+          <ion-col size="12" style="padding: 0;" @click="$router.push('/aplikasi/ap-publik')">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 20px;border-radius: 8px;background-color: #EFF0F7">
               <div style="width: 85%;height: 80px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 20px;font-weight: 600;">Aplikasi Layanan Publik</h6>

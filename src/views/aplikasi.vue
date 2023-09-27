@@ -14,7 +14,25 @@
 
       <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 20px !important;">
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
+        <ion-row  v-for="(item,id) in aplikasi" :key="id"  style="margin-top: 5px;margin-bottom: 15px;">
+          <ion-col size="12" style="padding: 0;">
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #EFF0F7">
+              <div style="width: 100%;">
+                <h6 style="font-size: 20px;font-weight: 600;">{{ item.nama }}</h6>
+                <h6 style="font-size: 12px;margin-top: 5px !important;">{{ item.ket }}</h6>
+              </div>
+              <div style="width: 100%;margin-top: 5px;">
+                <div style="width: 100%;min-height: 25px;display: flex;justify-content: flex-start;align-items: center;">
+                  <ion-icon :icon="linkOutline" style="margin-right: 10px;"></ion-icon> <p @click="pindah(item.web)"
+                  >{{ item.web }}
+                </p>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <!-- <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #EFF0F7">
               <div style="width: 100%;">
@@ -92,23 +110,7 @@
               </div>
             </div>
           </ion-col>
-        </ion-row>
-
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #EFF0F7">
-              <div style="width: 100%;">
-                <h6 style="font-size: 20px;font-weight: 600;">Judul Aplikasi</h6>
-                <h6 style="font-size: 12px;margin-top: 5px !important;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, veniam.</h6>
-              </div>
-              <div style="width: 100%;margin-top: 5px;">
-                <div style="width: 100%;min-height: 25px;display: flex;justify-content: flex-start;align-items: center;">
-                  <ion-icon :icon="linkOutline" style="margin-right: 10px;"></ion-icon> Link Aplikasi
-                </div>
-              </div>
-            </div>
-          </ion-col>
-        </ion-row>
+        </ion-row> -->
       </ion-grid>
       
     </ion-content>
@@ -120,6 +122,9 @@ import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg } from 
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline, linkOutline } from 'ionicons/icons';
+import axios  from "axios";
+import moment from "moment";
+moment.locale("id");
 export default defineComponent({
   components: {
     IonPage,
@@ -136,6 +141,8 @@ export default defineComponent({
     },
   data() {
     return {
+      aplikasi:[],
+      tipe: this.$route.params.tipe,
       segment: "data1",
     };
   },
@@ -152,7 +159,22 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_aplikasi(){
+      let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/${this.tipe}.php`,
+      })
+      for (let i = 0; i < hsl.data.length; i++) {
+        this.aplikasi.push(hsl.data[i])
+      }
+    },
+    pindah(page){
+      location.href='https://'+page
+    },
   },
+  async created() {
+    await this.get_aplikasi()
+  }
 });
 </script>
 

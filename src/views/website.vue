@@ -12,9 +12,26 @@
     <ion-content :fullscreen="true" id="page-dashboard">
       <!-- <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div> -->
 
-      <ion-img src="../../../public/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 20px !important;">
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
+        <ion-row  v-for="(item,id) in website" :key="id"  style="margin-top: 5px;margin-bottom: 15px;">
+          <ion-col size="12" style="padding: 0;">
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #EFF0F7">
+              <div style="width: 100%;">
+                <h6 style="font-size: 20px;font-weight: 600;">{{ item.nama }}</h6>
+              </div>
+              <div style="width: 100%;margin-top: 5px;">
+                <div style="width: 100%;min-height: 25px;display: flex;justify-content: flex-start;align-items: center;">
+                  <ion-icon :icon="linkOutline" style="margin-right: 10px;"></ion-icon><p @click="pindah(item.web)"
+                  >{{ item.web }}
+                </p>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <!-- <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #EFF0F7">
               <div style="width: 100%;">
@@ -87,22 +104,7 @@
               </div>
             </div>
           </ion-col>
-        </ion-row>
-
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #EFF0F7">
-              <div style="width: 100%;">
-                <h6 style="font-size: 20px;font-weight: 600;">Judul Website</h6>
-              </div>
-              <div style="width: 100%;margin-top: 5px;">
-                <div style="width: 100%;min-height: 25px;display: flex;justify-content: flex-start;align-items: center;">
-                  <ion-icon :icon="linkOutline" style="margin-right: 10px;"></ion-icon> Link Website
-                </div>
-              </div>
-            </div>
-          </ion-col>
-        </ion-row>
+        </ion-row> -->
       </ion-grid>
       
     </ion-content>
@@ -114,6 +116,9 @@ import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg } from 
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline, chevronForwardOutline, linkOutline } from 'ionicons/icons';
+import axios  from "axios";
+import moment from "moment";
+moment.locale("id");
 export default defineComponent({
   components: {
     IonPage,
@@ -130,7 +135,9 @@ export default defineComponent({
     },
   data() {
     return {
+      website:[],
       segment: "data1",
+      tipe: this.$route.params.tipe
     };
   },
   methods: {
@@ -146,7 +153,22 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    pindah(page){
+      location.href='https://'+page
+    },
+    async get_website(){
+      let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/${this.tipe}.php`,
+      })
+      for (let i = 0; i < hsl.data.length; i++) {
+        this.website.push(hsl.data[i])
+      }
+    },
   },
+  async created() {
+    await this.get_website()
+  }
 });
 </script>
 

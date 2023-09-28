@@ -88,6 +88,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/kantor_pemerintahan.vue')
   },
 
+  {
+    path: '/sid',
+    component: () => import('@/views/sid.vue')
+  },
+
+  {
+    path: '/sid/detail_by_kec',
+    component: () => import('@/views/detail_sid.vue')
+  },
+
 
   {
     path: '/tabs-dashboard/',

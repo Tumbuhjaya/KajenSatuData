@@ -72,7 +72,7 @@
         </ion-row>
 
         <ion-row>
-          <ion-col size="6">
+          <ion-col size="6" @click="$router.push('/sid')">
             <ion-img src="/assets/sid.png"></ion-img>
           </ion-col>
           <ion-col size="6" @click="$router.push('/berita')">

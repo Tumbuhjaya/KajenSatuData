@@ -5,21 +5,22 @@
         <div class="box-title">
           <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/seni_budaya')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">Judul Seni / Budaya</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">{{ nama }}</h6>
       </div>
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
       <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
-
       <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 30px 15px !important;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col>
             <div style="width: 100%;padding: 15px;">
-              <ion-img src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+              <ion-img v-if="foto" :src="foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+
+              <ion-img  v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
               
-              <h6 style="margin-top: 15px !important;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis laborum asperiores earum ducimus quidem dolor, quis officia quisquam saepe numquam exercitationem sapiente et accusamus.</h6>
+              <h6 style="margin-top: 15px !important;">{{ isi }}</h6>
                 
             </div>
           </ion-col>
@@ -34,7 +35,9 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, 
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
-
+import axios  from "axios";
+import moment from "moment";
+moment.locale("id");
 export default defineComponent({
   components: {
     IonPage,
@@ -59,6 +62,11 @@ export default defineComponent({
     },
   data() {
     return {
+      foto: "",
+      id_seni_budaya: "",
+      isi: "",
+      jenis: "",
+      nama: "",
       segment: "data1",
     };
   },
@@ -76,8 +84,22 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_seni(){
+      let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/seni-id.php?id=`+this.$route.params.id,
+      })
+      console.log(hsl);
+      this.foto=hsl.data.foto;
+      this.id_seni_budaya=hsl.data.id_seni_budaya;
+      this.isi=hsl.data.isi;
+      this.jenis=hsl.data.jenis;
+      this.nama=hsl.data.nama;
+    },
   },
-});
+  async created() {
+    await this.get_seni()
+  }});
 </script>
 
 <style scoped>

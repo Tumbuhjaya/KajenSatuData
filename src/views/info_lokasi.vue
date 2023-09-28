@@ -69,15 +69,15 @@
 
         <ion-row class="list" v-if="segment == 'data3'">
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="/assets/wisata-alam.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/wisata-alam.png" style="width:100%;"   @click="$router.push('/info_lokasi_wisata/wisata-alam')"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="/assets/wisata-kuliner.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/wisata-kuliner.png" style="width:100%;"   @click="$router.push('/info_lokasi_wisata/wisata-kuliner')"></ion-img>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-img src="/assets/wisata-religi.png" style="width:100%;"></ion-img>
+            <ion-img src="/assets/wisata-religi.png" style="width:100%;"   @click="$router.push('/info_lokasi_wisata/wisata-religi')"></ion-img>
           </ion-col>
         </ion-row>
       </ion-grid>

@@ -5,7 +5,7 @@
         <div class="box-title">
           <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/info_lokasi')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">NAMA KATEGORI FASUM</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">{{ tipe.toUpperCase() }}</h6>
       </div>
       </div>
     </ion-header>
@@ -14,7 +14,27 @@
 
       <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 60px 20px !important;">
-        <ion-row style="margin-bottom: 15px;">
+        <ion-row style="margin-bottom: 15px;"   v-for="(item,id) in data" :key="id"  >
+          <ion-col size="6" id="open-modal"   @click="setOpen(item2)"   v-for="(item2,id) in item" :key="id"  >
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img v-if="!item2.foto" src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                <ion-img v-else-if="item2.foto" :src="item2.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                <h6 style="font-size: 16px;text-align: center;"><strong>{{ item2.nama }}</strong></h6>
+              </div>
+            </div>
+          </ion-col>
+          <!-- <ion-col size="6" >
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img v-if="!item2.foto" src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <ion-img v-else-if="item2.foto" :src="item2.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
+                <h6 style="font-size: 16px;text-align: center;"><strong>SPBU KARANGANYAR</strong></h6>
+              </div>
+            </div>
+          </ion-col> -->
+        </ion-row>
+        <!-- <ion-row style="margin-bottom: 15px;">
           <ion-col size="6" id="open-modal">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
@@ -49,30 +69,12 @@
               </div>
             </div>
           </ion-col>
-        </ion-row>
-        <ion-row style="margin-bottom: 15px;">
-          <ion-col size="6" id="open-modal">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
-              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
-                <h6 style="font-size: 16px;text-align: center;"><strong>SPBU KARANGANYAR</strong></h6>
-              </div>
-            </div>
-          </ion-col>
-          <ion-col size="6" >
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
-              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
-                <h6 style="font-size: 16px;text-align: center;"><strong>SPBU KARANGANYAR</strong></h6>
-              </div>
-            </div>
-          </ion-col>
-        </ion-row>
+        </ion-row> -->
       </ion-grid>
-      <ion-modal ref="modal" trigger="open-modal" >
+      <ion-modal ref="modal" :is-open="isOpen"  trigger="open-modal" >
         <ion-header>
           <ion-toolbar>
-            <ion-title>Nama Fasum </ion-title>
+            <ion-title>{{ nama }}</ion-title>
             <ion-buttons slot="end">
               <ion-button @click="dismiss()">Close</ion-button>
             </ion-buttons>
@@ -83,14 +85,15 @@
             <ion-col>
               <div style="width: 100%;padding: 15px;">
                 <div style="width: 100%;position: relative;">
-                  <ion-img src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+                  <ion-img v-if="foto" :src="foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+                  <ion-img v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
                   <div style="width: 100%;position: absolute;left:0;right:0;bottom:0;padding:10px;background-color: rgba(255,255,255,0.5);">
-                    <h6 style="font-weight: normal;font-size: 12px;">Jl. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, necessitatibus!</h6>
+                    <h6 style="font-weight: normal;font-size: 12px;">{{ lokasi }}</h6>
                   </div>
                 </div>
                 
 
-                <h6 style="margin-top: 15px !important;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis laborum asperiores earum ducimus quidem dolor, quis officia quisquam saepe numquam exercitationem sapiente et accusamus.</h6>
+                <h6 style="margin-top: 15px !important;">{{ deskripsi }}</h6>
                 
               </div>
             </ion-col>
@@ -107,7 +110,9 @@ import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import { ip_server } from "@/ip-config";
-
+import axios  from "axios";
+import moment from "moment";
+moment.locale("id");
 export default defineComponent({
   components: {
     IonPage,
@@ -132,13 +137,28 @@ export default defineComponent({
     },
   data() {
     return {
+      data:[],
+      nama:"",
+      lokasi:'',
+      foto:'',
+      deskripsi:'',
+      tipe: this.$route.params.tipe,
       segment: "data1",
       isOpen:false,
     };
   },
   methods: {
+    setOpen(item){
+      this.nama=item.nama
+      this.foto=item.foto
+      this.lokasi=item.lokasi
+      this.deskripsi=item.deskripsi
+      this.isOpen = true
+    },
     dismiss() {
-        this.$refs.modal.$el.dismiss();
+        // this.$refs.modal.$el.dismiss();
+        this.isOpen = false
+
       },
     toLogin() {
       this.$router.push("/login");
@@ -152,7 +172,27 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_data(){
+      let hsl = await axios({
+      method: "get",
+        url:ip_server+`${this.tipe}.php`,
+      })
+      console.log(hsl);
+        for (let i = 0; i < hsl.data.length; i+=2) {
+        let x =[]
+        if (hsl.data[i]) {
+          x.push(hsl.data[i])
+        }
+        if (hsl.data[i+1]) {
+          x.push(hsl.data[i+1])
+        }
+        this.data.push(x)
+      }
+    },
   },
+  async created() {
+    await this.get_data()
+  }
 });
 </script>
 

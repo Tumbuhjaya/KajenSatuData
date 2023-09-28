@@ -3,7 +3,7 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="box-title">
-          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/seni_budaya')"></ion-icon>
+          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/marketplace')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
           <h6 style="font-size: 20px;font-weight: bold;color: #fff;">DETAIL PRODUK</h6>
       </div>
@@ -17,7 +17,11 @@
           <ion-col>
             <div style="width: 100%;padding: 15px;">
               <ion-img src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
-                
+              <h6 style="font-size: 16px;margin-top: 15px !important;">Judul Produk</h6>
+              <h6 style="font-size: 20px;font-weight: bold;margin-top: 5px !important;margin-bottom: 5px !important;">Rp 1.000,-</h6>
+              <h6 style="font-size: 14px; font-weight: normal;">Jl. disinijalannyasipenjual</h6>
+
+              <h6 style="margin-top: 15px !important;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos ipsum at natus adipisci? Quas ipsam recusandae nobis architecto esse veritatis!</h6>
             </div>
           </ion-col>
         </ion-row>

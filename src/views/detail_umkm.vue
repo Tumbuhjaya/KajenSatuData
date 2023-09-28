@@ -3,9 +3,9 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="box-title">
-          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
+          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/marketplace')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">DETAIL DESA</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">DETAIL UMKM</h6>
       </div>
       </div>
     </ion-header>
@@ -43,7 +43,7 @@
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 16px;text-align: center;"><strong>Nama Tari A</strong></h6>
+                <h6 style="font-size: 16px;text-align: center;"><strong>Produk A</strong></h6>
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
@@ -52,7 +52,7 @@
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 16px;text-align: center;"><strong>Nama Tari A</strong></h6>
+                <h6 style="font-size: 16px;text-align: center;"><strong>Produk A</strong></h6>
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
@@ -61,7 +61,7 @@
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 16px;text-align: center;"><strong>Nama Tari A</strong></h6>
+                <h6 style="font-size: 16px;text-align: center;"><strong>Produk A</strong></h6>
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
@@ -70,7 +70,7 @@
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 16px;text-align: center;"><strong>Nama Tari A</strong></h6>
+                <h6 style="font-size: 16px;text-align: center;"><strong>Produk A</strong></h6>
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
@@ -79,7 +79,7 @@
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 16px;text-align: center;"><strong>Nama Tari A</strong></h6>
+                <h6 style="font-size: 16px;text-align: center;"><strong>Produk A</strong></h6>
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
@@ -88,7 +88,7 @@
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 16px;text-align: center;"><strong>Nama Tari A</strong></h6>
+                <h6 style="font-size: 16px;text-align: center;"><strong>Produk A</strong></h6>
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>

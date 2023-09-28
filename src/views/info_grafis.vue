@@ -52,6 +52,8 @@ import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
 moment.locale("id");
+import { ip_server } from "@/ip-config";
+
 export default defineComponent({
   components: {
     IonPage,
@@ -88,7 +90,7 @@ export default defineComponent({
     async get_info(){
       let hsl = await axios({
       method: "get",
-        url:`https://ksd.pekalongankab.go.id/api/infografis.php`,
+        url:ip_server+`infografis.php`,
       })
       for (let i = 0; i < hsl.data.length; i++) {
         this.info.push(hsl.data[i])

@@ -38,6 +38,8 @@ import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
 moment.locale("id");
+import { ip_server } from "@/ip-config";
+
 export default defineComponent({
   components: {
     IonPage,
@@ -87,7 +89,7 @@ export default defineComponent({
     async get_seni(){
       let hsl = await axios({
       method: "get",
-        url:`https://ksd.pekalongankab.go.id/api/seni-id.php?id=`+this.$route.params.id,
+        url:ip_server+`seni-id.php?id=`+this.$route.params.id,
       })
       console.log(hsl);
       this.foto=hsl.data.foto;

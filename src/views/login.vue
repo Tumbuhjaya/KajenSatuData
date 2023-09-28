@@ -33,12 +33,12 @@
                     <h6 style="font-size: 24px;font-weight: 700;color:#fff">Log In</h6>
                     <h6 style="font-size: 14px;font-weight: 500;color:#fff;margin-top: 10px !important;">Akses akun Anda dengan masuk di bawah ini.</h6>
 
-                    <ion-input class="custom" placeholder="Email" style="margin: 30px 0 15px 0;"></ion-input>
+                    <ion-input class="custom" placeholder="Email" v-model="email" style="margin: 30px 0 15px 0;"></ion-input>
 
-                    <ion-input  class="custom" placeholder="Password" ></ion-input>
+                    <ion-input  class="custom" placeholder="Password"  v-model="password" ></ion-input>
 
                     <div style="width: 100%;display: flex;justify-content: center;align-items: center;margin-top: 15px;padding: 0 60px;">
-                      <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="$router.push('/tabs-dashboard/dashboard')" color="light" size="large">Masuk</ion-button>
+                      <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="login" color="light" size="large">Masuk</ion-button>
                     </div>
                     
                   </ion-col>
@@ -49,15 +49,15 @@
                       <h6 style="font-size: 24px;font-weight: 700;color:#fff">Daftar</h6>
                       <h6 style="font-size: 14px;font-weight: 500;color:#fff;margin-top: 10px !important;margin-bottom: 10px !important;">Jika Anda belum memiliki akun, silahkan daftarkan diri anda  di bawah ini.</h6>
 
-                      <ion-input class="custom" placeholder="Nama" style="margin: 15px 0;"></ion-input>
-                      <ion-input  class="custom" placeholder="Desa" style="margin: 15px 0;"></ion-input>
-                      <ion-input  class="custom" placeholder="Kategori" style="margin: 15px 0;"></ion-input>
-                      <ion-input  class="custom" placeholder="No. WhatsApp"  style="margin: 15px 0;"></ion-input>
-                      <ion-input  class="custom" placeholder="Email" style="margin: 15px 0;"></ion-input>
-                      <ion-input  class="custom" placeholder="Password" style="margin: 15px 0;"></ion-input>
+                      <ion-input class="custom" placeholder="Nama" v-model="nama" style="margin: 15px 0;"></ion-input>
+                      <ion-input  class="custom" placeholder="Desa"  v-model="id_desa" style="margin: 15px 0;"></ion-input>
+                      <ion-input  class="custom" placeholder="Kategori"  v-model="kategori" style="margin: 15px 0;"></ion-input>
+                      <ion-input  class="custom" placeholder="No. WhatsApp"  v-model="wa"  style="margin: 15px 0;"></ion-input>
+                      <ion-input  class="custom" placeholder="Email" v-model="email"  style="margin: 15px 0;"></ion-input>
+                      <ion-input  class="custom" placeholder="Password" v-model="password"  style="margin: 15px 0;"></ion-input>
 
                       <div style="width: 100%;display: flex;justify-content: center;align-items: center;margin-top: 15px;padding: 0 60px;">
-                        <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="$router.push('/tabs-dashboard/dashboard')" color="light" size="large">Daftar</ion-button>
+                        <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="daftar" color="light" size="large">Daftar</ion-button>
                       </div>
                     </div>
                   </ion-col>
@@ -74,6 +74,7 @@
 import { IonPage, IonContent, IonImg, IonRow, IonCol, IonLabel, IonInput, IonButton, IonSegment, IonSegmentButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { Desa } from "../../data.ts";
+import { ip_server } from "@/ip-config";
 
 export default defineComponent({
   components: {
@@ -90,6 +91,16 @@ export default defineComponent({
   },
   data() {
     return {
+      id_user_android: "",
+      id_desa: "",
+      nama: "",
+      wa: "",
+      email: "",
+      password: "",
+      ktg: null,
+      foto: null,
+      desa: "",
+      kecamatan: "",
       segment: "data1",
     };
   },
@@ -105,6 +116,17 @@ export default defineComponent({
       setTimeout(() => {
         this.loading = false;
       }, 1000);
+    },
+    async daftar(){
+      await axios
+        .post(ip_server + "users/login", {
+          username: vm.noHP,
+          password: vm.password,
+        })
+      this.$router.push('/tabs-dashboard/dashboard')
+    },
+    login(){
+      this.$router.push('/tabs-dashboard/dashboard')
     },
   },
   created(){

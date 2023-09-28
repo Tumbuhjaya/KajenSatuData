@@ -73,6 +73,8 @@
 <script>
 import { IonPage, IonContent, IonImg, IonRow, IonCol, IonLabel, IonInput, IonButton, IonSegment, IonSegmentButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { Desa } from "../../data.ts";
+
 export default defineComponent({
   components: {
     IonPage,
@@ -105,6 +107,9 @@ export default defineComponent({
       }, 1000);
     },
   },
+  created(){
+    console.log(Desa);
+  }
 });
 </script>
 

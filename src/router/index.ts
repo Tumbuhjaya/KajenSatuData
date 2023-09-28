@@ -98,6 +98,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/detail_sid.vue')
   },
 
+  {
+    path: '/marketplace',
+    component: () => import('@/views/marketplace.vue')
+  },
+
 
   {
     path: '/tabs-dashboard/',

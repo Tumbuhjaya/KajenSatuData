@@ -18,7 +18,7 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;background-color: #fff;display: flex;">
               
-              <div style="width:50%;margin-right: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
+              <div style="width:50%;margin-right: 15px;height: 160px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 16px;"><strong>Nama Desa</strong></h6>
                 <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;">Nama Kecamatan</h6>
                 <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">024-761225</h6>
@@ -26,7 +26,7 @@
                 <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">websitedesa.co.id</h6>
               </div>
               <div style="width: 50%;position: relative;">
-                <ion-img src="https://placehold.co/100" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                <ion-img src="https://placehold.co/100" style="width:100%;height:160px;object-fit: cover;"></ion-img>
 
                 <div style="width: 100%;padding: 10px;background-color: rgba(0, 0, 0, 0.2);position: absolute;left:0;right:0;bottom:0;">
                   <h6 style="font-size: 10px;text-align: center;"><strong>Nama Kepala Desa</strong></h6>
@@ -62,7 +62,14 @@
                   <ion-label>Visi dan Misi</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                 
+                  <h6 style="font-size: 16px;"><strong>Visi</strong></h6>
+                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, itaque!</h6>
+                  <!-- jika tidak ada data visi tampilkan dibawah ini -->
+                  <!-- <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">-</h6> -->
+                  <h6 style="font-size: 16px;margin-top: 30px !important;"><strong>Misi</strong></h6>
+                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, itaque!</h6>
+                  <!-- jika tidak ada data misi tampilkan dibawah ini -->
+                  <!-- <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">-</h6> -->
                 </div>
               </ion-accordion>
               <ion-accordion value="pengumuman" style="margin-bottom: 15px;border-radius: 10px;">
@@ -70,7 +77,8 @@
                   <ion-label>Pengumuman</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
               <ion-accordion value="dusun" style="margin-bottom: 15px;border-radius: 10px;">
@@ -78,7 +86,8 @@
                   <ion-label>Dusun</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
               <ion-accordion value="perangkatdesa" style="margin-bottom: 15px;border-radius: 10px;">
@@ -86,7 +95,8 @@
                   <ion-label>Perangkat Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -95,7 +105,8 @@
                   <ion-label>BUMDes</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -104,7 +115,381 @@
                   <ion-label>Statistik</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;margin-bottom: 15px !important;"><strong>Berdasarkan Jenis Kelamin</strong></h6>
+                  <div style="display: table;width: 100%;">
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;width: 50%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Laki-laki</h6>
+                      </div>
+                      <div style="display: table-cell;width: 5%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Perempuan</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h6 style="font-size: 16px;margin-bottom: 15px !important;margin-top: 30px !important;"><strong>Berdasarkan Agama</strong></h6>
+                  <div style="display: table;width: 100%;">
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;width: 50%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Islam</h6>
+                      </div>
+                      <div style="display: table-cell;width: 5%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Kristen</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Katholik</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Hindu</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Budha</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Khonghucu</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h6 style="font-size: 16px;margin-bottom: 15px !important;margin-top: 30px !important;"><strong>Berdasarkan Golongan Darah</strong></h6>
+                  <div style="display: table;width: 100%;">
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;width: 50%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Golongan Darah A</h6>
+                      </div>
+                      <div style="display: table-cell;width: 5%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Golongan Darah B</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Golongan Darah AB</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Golongan Darah O</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Tidak Tahu</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h6 style="font-size: 16px;margin-bottom: 15px !important;margin-top: 30px !important;"><strong>Berdasarkan Status Hubungan dalam Keluarga</strong></h6>
+                  <div style="display: table;width: 100%;">
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;width: 50%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Kepala Keluarga</h6>
+                      </div>
+                      <div style="display: table-cell;width: 5%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Suami</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Istri</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Anak</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Menantu</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Cucu</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Orang Tua</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Mertua</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Famili Lain</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Pembantu</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Lainnya</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h6 style="font-size: 16px;margin-bottom: 15px !important;margin-top: 30px !important;"><strong>Berdasarkan Status Kawin</strong></h6>
+                  <div style="display: table;width: 100%;">
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;width: 50%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Belum Kawin</h6>
+                      </div>
+                      <div style="display: table-cell;width: 5%;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Kawin</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Cerai Hidup</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Cerai Mati</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Budha</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+
+                    <div style="display: table-row;">
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">Khonghucu</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
+                      </div>
+                      <div style="display: table-cell;padding:5px 0">
+                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </ion-accordion>
 
@@ -113,7 +498,8 @@
                   <ion-label>Program Bantuan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -122,7 +508,8 @@
                   <ion-label>Pertanahan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -131,7 +518,8 @@
                   <ion-label>Pembangunan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -140,7 +528,8 @@
                   <ion-label>Keuangan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -149,7 +538,8 @@
                   <ion-label>UMKM</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -158,7 +548,23 @@
                   <ion-label>Layanan Surat</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <ion-list lines="full">
+                    <ion-item @click="$router.push('/sid/detail_by_kec')"> 
+                      <ion-label>Keterangan Pengantar</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Keterangan Penduduk</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Biodata Penduduk</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Keterangan Pindah Penduduk</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Keterangan Jual Beli</ion-label>
+                    </ion-item>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -167,7 +573,8 @@
                   <ion-label>Galeri Foto</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -176,7 +583,8 @@
                   <ion-label>Peta Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -185,7 +593,8 @@
                   <ion-label>Potensi Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
@@ -194,7 +603,8 @@
                   <ion-label>Channel Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  
+                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
+                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
             </ion-accordion-group>

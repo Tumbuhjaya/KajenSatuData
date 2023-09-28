@@ -45,7 +45,7 @@
                 </ion-row>
                 <ion-row class="list" v-if="segment == 'data2'">
                   <ion-col style="margin-top: 15px;">
-                    <div style="width:100%;height: 30vh;overflow-y: scroll;">
+                    <div style="width:100%;height:45vh;overflow-y: scroll;">
                       <h6 style="font-size: 24px;font-weight: 700;color:#fff">Daftar</h6>
                       <h6 style="font-size: 14px;font-weight: 500;color:#fff;margin-top: 10px !important;margin-bottom: 10px !important;">Jika Anda belum memiliki akun, silahkan daftarkan diri anda  di bawah ini.</h6>
 
@@ -111,8 +111,8 @@ export default defineComponent({
 <style scoped>
 #page-login .box-content-one{
   width: 100%;
-  height: 55vh;
-  background-color: ;
+  height: 40vh;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,7 +120,7 @@ export default defineComponent({
 
 #page-login .box-content-two{
   width: 100%;
-  height: 45vh;
+  height: 60vh;
   background-color: #4c87f2;
   border-top-left-radius: 27px;
   border-top-right-radius: 27px;

@@ -129,7 +129,7 @@
 <script>
 import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
-export default defineComponent({
+export default defineComponent({ 
   components: {
     IonPage,
     IonHeader,

@@ -12,24 +12,25 @@
     <ion-content :fullscreen="true" id="page-dashboard">
       <!-- <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div> -->
 
-      <ion-img src="../../../public/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img  src="../../../public/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 20px !important;">
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" style="padding: 0;">
+          <ion-col size="12" v-for="(item, id) in data" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
               <div style="width: 35%;">
-                <ion-img src="https://placehold.co/90" style="width:100%;height: 120px;object-fit: cover;"></ion-img>
+                <ion-img v-if="item.foto" :src="item.foto" style="width:100%;"></ion-img>
+                <ion-img v-else src="https://placehold.co/90" style="width:100%;height: 120px;object-fit: cover;"></ion-img>
               </div>
               <div style="width:65%;margin-left: 15px;">
-                <h6 style="font-size: 16px;"><strong>Badan Penanggulangan Bencana Daerah</strong></h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;">0285381905</h6>
-                <h6 style="font-size: 12px;margin-top: 5px !important;">Jl. Sumbing No.2, Tanjungsari, Kec. Kajen, Kabupaten Pekalongan, Jawa Tengah Kode Pos 51161</h6>
+                <h6 style="font-size: 16px;"><strong>{{ item.nama }} ({{ item.singkatan }})</strong></h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;">{{item.web}}</h6>
+                <!-- <h6 style="font-size: 12px;margin-top: 5px !important;">Jl. Sumbing No.2, Tanjungsari, Kec. Kajen, Kabupaten Pekalongan, Jawa Tengah Kode Pos 51161</h6> -->
               </div>
             </div>
           </ion-col>
         </ion-row>
 
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
+        <!-- <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
               <div style="width: 35%;">
@@ -42,9 +43,9 @@
               </div>
             </div>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
 
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
+        <!-- <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
               <div style="width: 35%;">
@@ -57,9 +58,9 @@
               </div>
             </div>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
 
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
+        <!-- <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
               <div style="width: 35%;">
@@ -72,9 +73,9 @@
               </div>
             </div>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
 
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
+        <!-- <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
               <div style="width: 35%;">
@@ -87,9 +88,9 @@
               </div>
             </div>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
 
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
+        <!-- <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
               <div style="width: 35%;">
@@ -102,7 +103,7 @@
               </div>
             </div>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
       </ion-grid>
       
     </ion-content>
@@ -114,6 +115,8 @@ import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg } from 
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline, linkOutline } from 'ionicons/icons';
+import axios  from "axios";
+
 export default defineComponent({
   components: {
     IonPage,
@@ -131,6 +134,7 @@ export default defineComponent({
   data() {
     return {
       segment: "data1",
+      data : []
     };
   },
   methods: {
@@ -146,6 +150,20 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+
+    async get_data(){
+      let res = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/opd.php`,
+      })
+      // console.log(res.data);
+      for (let i = 0; i < res.data.length; i++) {
+        this.data.push(res.data[i])
+      }
+    }
+  },
+  async created() {
+    await this.get_data()
   },
 });
 </script>

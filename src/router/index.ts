@@ -103,6 +103,21 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/marketplace.vue')
   },
 
+  {
+    path: '/marketplace/umkm',
+    component: () => import('@/views/umkm.vue')
+  },
+
+  {
+    path: '/marketplace/detail_umkm',
+    component: () => import('@/views/detail_umkm.vue')
+  },
+
+  {
+    path: '/marketplace/detail_produk',
+    component: () => import('@/views/detail_produk.vue')
+  },
+
 
   {
     path: '/tabs-dashboard/',

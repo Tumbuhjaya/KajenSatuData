@@ -12,7 +12,7 @@
     <ion-content :fullscreen="true" id="page-dashboard">
       <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
-      <ion-img src="../../../public/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 0  !important;">
         <ion-row style="margin-top: 5px;">
           <ion-col style="padding-top: 0;padding: 0 15px;">
@@ -266,6 +266,8 @@ import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
 moment.locale("id");
+import { ip_server } from "@/ip-config";
+
 export default defineComponent({
   components: {
     IonInfiniteScroll,
@@ -320,7 +322,7 @@ export default defineComponent({
     async get_pengumuman(){
       let hsl = await axios({
       method: "get",
-        url:`https://ksd.pekalongankab.go.id/api/pengumuman.php`,
+        url:ip_server+`pengumuman.php`,
       })
       for (let i = 0; i < hsl.data.length; i++) {
         this.pengumuman.push(hsl.data[i])
@@ -329,7 +331,7 @@ export default defineComponent({
     async get_lelang(){
       let hsl = await axios({
       method: "get",
-        url:`https://ksd.pekalongankab.go.id/api/lelang.php`,
+        url:ip_server+`lelang.php`,
       })
       for (let i = 0; i < hsl.data.length; i++) {
         this.lelang.push(hsl.data[i])
@@ -340,7 +342,7 @@ export default defineComponent({
       await this.get_berita()
       setTimeout(function () {
       ev.target.complete();
-      },setTimeout(5000))
+      },setTimeout(1000))
     }
   },
   async created() {

@@ -3,12 +3,12 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="left">
-          <h6 style="color: #fff;">Selamat Datang di</h6>
+          <h6 style="color: #fff;font-weight: normal;font-size: 16px;">Selamat Datang di</h6>
           <h6 style="font-size: 20px;font-weight: bold;color: #fff;">KAJEN SATU DATA</h6>
         </div>
-        <div class="right">
+        <div class="right" @click="$router.push('/login')">
           <div class="box-menu-circle">
-            <ion-img src="/assets/locked.png" style="height: 68px;"></ion-img>
+            <ion-img src="/assets/user-ksd.png" style="height: 60px;"></ion-img>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
             </div>
           </ion-col>
           <ion-col size="3">
-            <div class="box-menu">
+            <div class="box-menu" @click="$router.push('/seni_budaya')">
               <div class="box-menu-circle">
                 <ion-img src="/assets/seni-budaya.png"></ion-img>
               </div>
@@ -72,7 +72,7 @@
         </ion-row>
 
         <ion-row>
-          <ion-col size="6">
+          <ion-col size="6" @click="$router.push('/sid')">
             <ion-img src="/assets/sid.png"></ion-img>
           </ion-col>
           <ion-col size="6" @click="$router.push('/berita')">
@@ -198,7 +198,13 @@ export default defineComponent({
   background-color: ;
   flex-direction: column;
 }
-
+.right .box-menu-circle{
+  width:60px;
+  height: 60px;
+  background-color: #FFECB2;
+  border-radius: 100%;
+  overflow: hidden;
+}
 .box-menu-circle{
   width:68px;
   height: 68px;

@@ -36,33 +36,33 @@
         </ion-row>
 
         <ion-row class="list" v-if="segment == 'data1'">
-          <ion-col size="12" style="margin-top: 15px;" @click="$router.push('/info_lokasi/apotek')">
+          <ion-col size="12" style="margin-top: 15px;" @click="$router.push('/info_lokasi_faskes/apotek')">
             <ion-img src="/assets/apotek.png" style="width:100%;"></ion-img>
           </ion-col>
 
-          <ion-col size="12" style="margin-top: 15px;" @click="$router.push('/info_lokasi/klinik')">
+          <ion-col size="12" style="margin-top: 15px;" @click="$router.push('/info_lokasi_faskes/klinik')">
             <ion-img src="/assets/Klinik.png" style="width:100%;"></ion-img>
           </ion-col>
 
-          <ion-col size="12" style="margin-top: 15px;" @click="$router.push('/info_lokasi/dokter')">
+          <ion-col size="12" style="margin-top: 15px;" @click="$router.push('/info_lokasi_faskes/dokter')">
             <ion-img src="/assets/praktek-dokter.png" style="width:100%;"></ion-img>
           </ion-col>
         </ion-row>
                 
         <ion-row class="list" v-if="segment == 'data2'">
-          <ion-col size="12" style="margin-top: 15px;">
+          <ion-col size="12" style="margin-top: 15px;" @click="$router.push('/info_lokasi_fasum/pasar')">
             <ion-img src="/assets/pasar.png" style="width:100%;"></ion-img>
           </ion-col>
 
-          <ion-col size="12" style="margin-top: 15px;">
+          <ion-col size="12" style="margin-top: 15px;"  @click="$router.push('/info_lokasi_fasum/spbu')">
             <ion-img src="/assets/pom-bensin.png" style="width:100%;"></ion-img>
           </ion-col>
 
-          <ion-col size="12" style="margin-top: 15px;">
+          <ion-col size="12" style="margin-top: 15px;"  @click="$router.push('/info_lokasi_fasum/terminal')">
             <ion-img src="/assets/terminal-bus.png" style="width:100%;"></ion-img>
           </ion-col>
 
-          <ion-col size="12" style="margin-top: 15px;">
+          <ion-col size="12" style="margin-top: 15px;"  @click="$router.push('/info_lokasi_fasum/taman')">
             <ion-img src="/assets/taman-kota.png" style="width:100%;"></ion-img>
           </ion-col>
         </ion-row>

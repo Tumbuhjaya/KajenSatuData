@@ -12,24 +12,25 @@
     <ion-content :fullscreen="true" id="page-dashboard">
       <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
-      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img v-if="data.foto" :src="data.foto" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img v-else src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 60px 15px !important;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;background-color: #fff;display: flex;">
               
               <div style="width:50%;margin-right: 15px;height: 160px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 16px;"><strong>Nama Desa</strong></h6>
-                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;">Nama Kecamatan</h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">024-761225</h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">namaemail@gmail.com</h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">websitedesa.co.id</h6>
+                <h6 style="font-size: 16px;"><strong>{{ data.nama }}</strong></h6>
+                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;">{{ data.kec }}</h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;"></h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">{{ data.email }}</h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">{{ data.web }}</h6>
               </div>
               <div style="width: 50%;position: relative;">
                 <ion-img src="https://placehold.co/100" style="width:100%;height:160px;object-fit: cover;"></ion-img>
 
                 <div style="width: 100%;padding: 10px;background-color: rgba(0, 0, 0, 0.2);position: absolute;left:0;right:0;bottom:0;">
-                  <h6 style="font-size: 10px;text-align: center;"><strong>Nama Kepala Desa</strong></h6>
+                  <h6 style="font-size: 10px;text-align: center;"><strong>{{ data.kepala }}</strong></h6>
                   <h6 style="font-size: 10px;margin-top: 5px !important;font-weight: normal;text-align: center;">Kepala Desa</h6>
                 </div>
               </div>
@@ -63,11 +64,11 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <h6 style="font-size: 16px;"><strong>Visi</strong></h6>
-                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, itaque!</h6>
+                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">{{ data.visi }}</h6>
                   <!-- jika tidak ada data visi tampilkan dibawah ini -->
                   <!-- <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">-</h6> -->
                   <h6 style="font-size: 16px;margin-top: 30px !important;"><strong>Misi</strong></h6>
-                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, itaque!</h6>
+                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">{{ data.misi }}</h6>
                   <!-- jika tidak ada data misi tampilkan dibawah ini -->
                   <!-- <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">-</h6> -->
                 </div>
@@ -616,13 +617,21 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
+import { IonAccordion,IonAccordionGroup, IonList, IonItem, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
-
+import { Desa } from "../../data.ts";
+import { ip_server } from "@/ip-config";
+import axios  from "axios";
+import moment from "moment";
+moment.locale("id");
 export default defineComponent({
   components: {
+    IonAccordion,
+    IonAccordionGroup,
+    IonList,
+    IonItem,
     IonPage,
     IonHeader,
     IonToolbar,
@@ -645,6 +654,8 @@ export default defineComponent({
     },
   data() {
     return {
+      id: this.$route.params.id,
+      data:{},
       segment: "data1",
     };
   },
@@ -662,7 +673,18 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_data(){
+      let hsl = await axios({
+      method: "get",
+        url:ip_server+`desa-id.php?id=${this.id}`,
+      })
+      this.data = hsl.data
+      console.log(this.data);
+    },
   },
+  async created() {
+    await this.get_data()
+  }
 });
 </script>
 

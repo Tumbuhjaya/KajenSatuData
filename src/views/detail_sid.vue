@@ -64,11 +64,11 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <h6 style="font-size: 16px;"><strong>Visi</strong></h6>
-                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">{{ data.visi }}</h6>
+                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">{{ data.visi? data.visi:'-' }}</h6>
                   <!-- jika tidak ada data visi tampilkan dibawah ini -->
                   <!-- <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">-</h6> -->
                   <h6 style="font-size: 16px;margin-top: 30px !important;"><strong>Misi</strong></h6>
-                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">{{ data.misi }}</h6>
+                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">{{ data.misi?data.misi:'-' }}</h6>
                   <!-- jika tidak ada data misi tampilkan dibawah ini -->
                   <!-- <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">-</h6> -->
                 </div>
@@ -79,7 +79,7 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6 style="font-size: 16px;"><strong>{{ pengumuman.isi?pengumuman.isi:'Belum Ada Data' }}</strong></h6>
                 </div>
               </ion-accordion>
               <ion-accordion value="dusun" style="margin-bottom: 15px;border-radius: 10px;">
@@ -88,7 +88,20 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6 v-if="dusun.length==0" style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in dusun" :key="id" >
+                      <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Dusun : {{ item.nama }}</strong></h6>
+                    </ion-item>
+                    <ion-item>
+                      <h6 style="font-size: 16px;"><strong>Kepala Dusun : {{ item.kepala }}</strong></h6>
+                    </ion-item>
+                    <ion-item>
+                      <h6 style="font-size: 16px;"><strong>NIK : {{ item.nik }}</strong></h6>
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
               <ion-accordion value="perangkatdesa" style="margin-bottom: 15px;border-radius: 10px;">
@@ -97,7 +110,20 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="perangkat.length==0"  style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in perangkat" :key="id" >
+                      <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                    </ion-item>
+                    <ion-item>
+                      <h6 style="font-size: 16px;"><strong>Jabatan : {{ item.jabatan }}</strong></h6>
+                    </ion-item>
+                    <ion-item>
+                      <h6 style="font-size: 16px;"><strong>NIK : {{ item.nik }}</strong></h6>
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -107,7 +133,17 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="bumdes.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in bumdes" :key="id" >
+                      <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                    </ion-item>
+                      <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Deskripsi : {{ item.deskripsi }}</strong></h6>
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -127,7 +163,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[0] }}</h6>
                       </div>
                     </div>
 
@@ -139,7 +175,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[1] }}</h6>
                       </div>
                     </div>
                   </div>
@@ -154,7 +190,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[2] }}</h6>
                       </div>
                     </div>
 
@@ -166,7 +202,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[3] }}</h6>
                       </div>
                     </div>
 
@@ -178,7 +214,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[4] }}</h6>
                       </div>
                     </div>
 
@@ -190,7 +226,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[5] }}</h6>
                       </div>
                     </div>
 
@@ -202,7 +238,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[6] }}</h6>
                       </div>
                     </div>
 
@@ -214,7 +250,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[7] }}</h6>
                       </div>
                     </div>
                   </div>
@@ -229,7 +265,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[8] }}</h6>
                       </div>
                     </div>
 
@@ -241,7 +277,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[9] }}</h6>
                       </div>
                     </div>
 
@@ -253,7 +289,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[10] }}</h6>
                       </div>
                     </div>
 
@@ -265,7 +301,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[11] }}</h6>
                       </div>
                     </div>
 
@@ -277,7 +313,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[12] }}</h6>
                       </div>
                     </div>
                   </div>
@@ -292,7 +328,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[13] }}</h6>
                       </div>
                     </div>
 
@@ -304,7 +340,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[14] }}</h6>
                       </div>
                     </div>
 
@@ -316,7 +352,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[15] }}</h6>
                       </div>
                     </div>
 
@@ -328,7 +364,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[16] }}</h6>
                       </div>
                     </div>
 
@@ -340,7 +376,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[17] }}</h6>
                       </div>
                     </div>
 
@@ -352,7 +388,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[18] }}</h6>
                       </div>
                     </div>
 
@@ -364,7 +400,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[19] }}</h6>
                       </div>
                     </div>
 
@@ -376,7 +412,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[20] }}</h6>
                       </div>
                     </div>
 
@@ -388,7 +424,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[21] }}</h6>
                       </div>
                     </div>
 
@@ -400,7 +436,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[22] }}</h6>
                       </div>
                     </div>
 
@@ -412,7 +448,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[23] }}</h6>
                       </div>
                     </div>
                   </div>
@@ -427,7 +463,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[24] }}</h6>
                       </div>
                     </div>
 
@@ -439,7 +475,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[25] }}</h6>
                       </div>
                     </div>
 
@@ -451,7 +487,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[26] }}</h6>
                       </div>
                     </div>
 
@@ -463,7 +499,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[27] }}</h6>
                       </div>
                     </div>
 
@@ -475,7 +511,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[28] }}</h6>
                       </div>
                     </div>
 
@@ -487,7 +523,7 @@
                         <h6 style="font-size: 14px;font-weight: normal;">:</h6>
                       </div>
                       <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">0</h6>
+                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[29] }}</h6>
                       </div>
                     </div>
                   </div>
@@ -500,7 +536,20 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="bantuan.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in bantuan" :key="id" >
+                      <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                    </ion-item>
+                    <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Dana : {{ item.dana }}</strong></h6>
+                    </ion-item>
+                    <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>peserta : {{ item.peserta }}</strong></h6>
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -510,7 +559,20 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="pertanahan.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in pertanahan" :key="id" >
+                      <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                    </ion-item>
+                    <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Dana : {{ item.dana }}</strong></h6>
+                    </ion-item>
+                    <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>peserta : {{ item.peserta }}</strong></h6>
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -520,7 +582,14 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="pembangunan.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in pembangunan" :key="id" >
+                      <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -530,7 +599,14 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="keuangan.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in keuangan" :key="id" >
+                      <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -540,7 +616,14 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="umkm.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in umkm" :key="id" >
+                      <ion-item  >
+                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -550,10 +633,10 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <ion-list lines="full">
-                    <ion-item @click="$router.push('/sid/detail_by_kec')"> 
-                      <ion-label>Keterangan Pengantar</ion-label>
+                    <ion-item   v-for="(item,id) in surat" :key="id"  @click="$router.push('/sid/detail_by_kec')"> 
+                      <ion-label>{{ item.nama }}</ion-label>
                     </ion-item>
-                    <ion-item>
+                    <!-- <ion-item>
                       <ion-label>Keterangan Penduduk</ion-label>
                     </ion-item>
                     <ion-item>
@@ -564,7 +647,7 @@
                     </ion-item>
                     <ion-item>
                       <ion-label>Keterangan Jual Beli</ion-label>
-                    </ion-item>
+                    </ion-item> -->
                   </ion-list>
                 </div>
               </ion-accordion>
@@ -575,7 +658,14 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="galeri.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in galeri" :key="id" >
+                      <ion-item>
+                        <img :src="item.foto" alt="">
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -595,7 +685,14 @@
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="potensi.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <ion-list lines="full" v-else>
+                    <div  v-for="(item,id) in potensi" :key="id" >
+                      <ion-item>
+                        <img :src="item.foto" alt="">
+                    </ion-item>
+                    </div>
+                  </ion-list>
                 </div>
               </ion-accordion>
 
@@ -655,8 +752,21 @@ export default defineComponent({
   data() {
     return {
       id: this.$route.params.id,
+      surat:[],
       data:{},
+      pengumuman:{},
+      dusun:[],
       segment: "data1",
+      perangkat:[],
+      bumdes:[],
+      statistik:[],
+      bantuan:[],
+      pertanahan:[],
+      pembangunan:[],
+      keuangan:[],
+      umkm:[],
+      galeri:[],
+      potensi:[],
     };
   },
   methods: {
@@ -681,9 +791,164 @@ export default defineComponent({
       this.data = hsl.data
       console.log(this.data);
     },
+    async get_surat(){
+      let hsl = await axios({
+      method: "get",
+        url:ip_server+`surat.php`,
+      })
+      this.surat = hsl.data
+      console.log(this.surat);
+    },
+    async get_pengumuman(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`pengumuman2.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.pengumuman = hsl.data
+      }
+      console.log(this.pengumuman);
+    },
+    async get_dusun(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`dusun.php?id=${this.id}`,
+      })
+      console.log(hsl.data,'dusun');
+      if (hsl.data) {
+        this.dusun = hsl.data
+      }
+      console.log(this.dusun);
+    },
+    async get_perangkat(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`perangkat.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.perangkat = hsl.data
+      }
+      console.log(this.perangkat,'perangkat');
+    },
+    async get_bumdes(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`bumdes.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.bumdes = hsl.data
+      }
+      console.log(this.bumdes,'bumdes');
+    },
+    async get_statistik(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`statistik.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.statistik = hsl.data
+      }
+      console.log(this.statistik , 'statistik');
+    },
+    async get_bantuan(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`bantuan.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.bantuan = hsl.data
+      }
+      console.log(this.bantuan , 'bantuan');
+    },
+    async get_pertanahan(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`tanah.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.pertanahan = hsl.data
+      }
+      console.log(this.pertanahan , 'pertanahan');
+    },
+    async get_pembangunan(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`tanah.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.pembangunan = hsl.data
+      }
+      console.log(this.pembangunan , 'pembangunan');
+    },
+    async get_keuangan(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`tanah.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.keuangan = hsl.data
+      }
+      console.log(this.keuangan , 'keuangan');
+    },
+    async get_umkm(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`umkm.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.umkm = hsl.data
+      }
+      console.log(this.umkm , 'umkm');
+    },
+    async get_galeri(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`galeri.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.galeri = hsl.data
+      }
+      console.log(this.galeri , 'galeri');
+    },
+    async get_potensi(){
+      let hsl = await axios({
+      method: "get",
+      url:ip_server+`potensi.php?id=${this.id}`,
+      })
+      console.log(hsl.data);
+      if (hsl.data) {
+        this.potensi = hsl.data
+      }
+      console.log(this.potensi , 'potensi');
+    },
   },
   async created() {
     await this.get_data()
+    await this.get_surat()
+    await this.get_pengumuman()
+    await this.get_dusun()
+    await this.get_perangkat()
+    await this.get_bumdes()
+    await this.get_statistik()
+    await this.get_bantuan()
+    await this.get_pertanahan()
+    await this.get_pembangunan()
+    await this.get_keuangan()
+    await this.get_umkm()
+    await this.get_galeri()
+    await this.get_potensi()
+
+    
   }
 });
 </script>

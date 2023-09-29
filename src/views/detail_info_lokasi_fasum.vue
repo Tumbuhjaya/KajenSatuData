@@ -143,6 +143,7 @@ export default defineComponent({
       src:'',
       nama:'',
       data:[],
+      pengumuman:[],
       segment: "data1",
       tipe: this.$route.params.tipe,
       isOpen:false,

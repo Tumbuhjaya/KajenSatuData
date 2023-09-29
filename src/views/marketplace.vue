@@ -39,7 +39,7 @@
         </ion-row>
         <ion-row style="margin-top: 15px;">
           <ion-col v-for="(item, id) in data_umkm" size="3">
-            <div class="box-menu" @click="$router.push('/marketplace/detail_umkm')">
+            <div class="box-menu" @click="$router.push('/marketplace/detail_umkm/'+ item.id_user_android)">
               <div class="box-menu-circle">
                 <ion-img v-if="item.foto" :src="item.foto" src="/assets/info-lokasi.png"></ion-img>
                 <ion-img v-else src="/assets/info-lokasi.png"></ion-img>
@@ -82,7 +82,7 @@
 
           <ion-col size="12">
             <ion-select label="Filter Berdasarkan Kategori" placeholder="-- Pilih --">
-            <ion-select-option v-for="(item, id) in data_kategori" value="apple">{{ item.nama }}</ion-select-option>
+            <ion-select-option v-for="(item, id) in data_kategori" :value="item.nama">{{ item.nama }}</ion-select-option>
             <!-- <ion-select-option value="banana">Banana</ion-select-option>
             <ion-select-option value="orange">Orange</ion-select-option> -->
           </ion-select>
@@ -90,7 +90,7 @@
         </ion-row>
 
         <ion-row  style="margin-top: 15px;">
-          <ion-col v-for="(item, id) in data_produk" size="6" @click="$router.push('/marketplace/detail_produk')" style="margin-bottom: 15px;">
+          <ion-col v-for="(item, id) in data_produk" size="6" @click="$router.push('/marketplace/detail_produk/'+ item.id_produk)" style="margin-bottom: 15px;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
@@ -209,7 +209,7 @@ export default defineComponent({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/produk.php?ktg=`,
       })
-      // console.log(res.data);
+      console.log(res.data);
       for (let i = 0; i < res.data.length; i++) {
         this.data_produk.push(res.data[i])
       }
@@ -219,7 +219,7 @@ export default defineComponent({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/produk-ktg.php`,
       })
-      console.log(res.data);
+      // console.log(res.data);
       for (let i = 0; i < res.data.length; i++) {
         this.data_kategori.push(res.data[i])
       }
@@ -229,7 +229,7 @@ export default defineComponent({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/seni-id.php?id=`+this.$route.params.id,
       })
-      console.log(hsl);
+      // console.log(hsl);
       this.foto=hsl.data.foto;
       this.id_seni_budaya=hsl.data.id_seni_budaya;
       this.isi=hsl.data.isi;

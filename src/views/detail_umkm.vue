@@ -39,7 +39,17 @@
         </ion-row>
 
         <ion-row style="margin-top: 15px;">
-          <ion-col size="6" @click="$router.push('/marketplace/detail_produk')" style="margin-bottom: 15px;">
+          <ion-col v-for="(item, id) in data_produk" size="6" @click="$router.push('/marketplace/detail_produk/'+ item.id_produk)" style="margin-bottom: 15px;">
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
+                <h6 style="font-size: 16px;text-align: center;"><strong>{{item.nama}}</strong></h6>
+                <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>{{item.harga}}</strong></h6>
+              </div>
+            </div>
+          </ion-col>
+          <!-- <ion-col size="6" style="margin-bottom: 15px;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
@@ -47,8 +57,8 @@
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
-          </ion-col>
-          <ion-col size="6" style="margin-bottom: 15px;">
+          </ion-col> -->
+          <!-- <ion-col size="6" @click="$router.push('/marketplace/detail_produk')" style="margin-bottom: 15px;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
@@ -56,8 +66,8 @@
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
-          </ion-col>
-          <ion-col size="6" @click="$router.push('/marketplace/detail_produk')" style="margin-bottom: 15px;">
+          </ion-col> -->
+          <!-- <ion-col size="6" style="margin-bottom: 15px;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
@@ -65,8 +75,8 @@
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
-          </ion-col>
-          <ion-col size="6" style="margin-bottom: 15px;">
+          </ion-col> -->
+          <!-- <ion-col size="6" @click="$router.push('/marketplace/detail_produk')" style="margin-bottom: 15px;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
@@ -74,8 +84,8 @@
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
-          </ion-col>
-          <ion-col size="6" @click="$router.push('/marketplace/detail_produk')" style="margin-bottom: 15px;">
+          </ion-col> -->
+          <!-- <ion-col size="6" style="margin-bottom: 15px;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
@@ -83,16 +93,7 @@
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
               </div>
             </div>
-          </ion-col>
-          <ion-col size="6" style="margin-bottom: 15px;">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
-              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-              <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 16px;text-align: center;"><strong>Produk A</strong></h6>
-                <h6 style="font-size: 14px;text-align: center;font-weight: normal;"><strong>Rp 17.000,-</strong></h6>
-              </div>
-            </div>
-          </ion-col>
+          </ion-col> -->
         </ion-row>
       </ion-grid>
     </ion-content>
@@ -104,6 +105,7 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, 
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
+import axios  from "axios";
 
 export default defineComponent({
   components: {
@@ -130,6 +132,7 @@ export default defineComponent({
   data() {
     return {
       segment: "data1",
+      data_produk: []
     };
   },
   methods: {
@@ -146,7 +149,20 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_produk(){
+      let res = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/produk-user.php?user=`+ this.$route.params.id,
+      })
+      console.log(res.data);
+      for (let i = 0; i < res.data.length; i++) {
+        this.data_produk.push(res.data[i])
+      }
+    }
   },
+  async created() {
+    await this.get_produk()
+  }
 });
 </script>
 

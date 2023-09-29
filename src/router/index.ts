@@ -94,7 +94,7 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: '/sid/detail_by_kec',
+    path: '/sid/detail_by_kec/:id',
     component: () => import('@/views/detail_sid.vue')
   },
 

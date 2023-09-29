@@ -17,16 +17,16 @@
         <ion-row style="margin-bottom: 15px;">
           <ion-col>
             <ion-accordion-group>
-              <ion-accordion value="KecA" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion :value="item.kec" style="margin-bottom: 15px;border-radius: 10px;"    v-for="(item,id) in kecamatan" :key="id" >
                 <ion-item slot="header" color="light">
-                  <ion-label>Kecamatan A</ion-label>
+                  <ion-label>{{ item.kec }}</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <ion-list lines="full">
-                    <ion-item @click="$router.push('/sid/detail_by_kec')"> 
-                      <ion-label>Detail Desa A1</ion-label>
+                    <ion-item @click="$router.push('/sid/detail_by_kec/'+desa.id)"   v-for="(desa,id) in item.desa" :key="id"> 
+                      <ion-label>{{ desa.nama }}</ion-label>
                     </ion-item>
-                    <ion-item>
+                    <!-- <ion-item>
                       <ion-label>Desa A2</ion-label>
                     </ion-item>
                     <ion-item>
@@ -37,11 +37,11 @@
                     </ion-item>
                     <ion-item>
                       <ion-label>Desa A5</ion-label>
-                    </ion-item>
+                    </ion-item> -->
                   </ion-list>
                 </div>
               </ion-accordion>
-              <ion-accordion value="KecB" style="margin-bottom: 15px;border-radius: 10px;">
+              <!-- <ion-accordion value="KecB" style="margin-bottom: 15px;border-radius: 10px;">
                 <ion-item slot="header" color="light">
                   <ion-label>Kecamatan B</ion-label>
                 </ion-item>
@@ -82,7 +82,7 @@
                     </ion-item>
                   </ion-list>
                 </div>
-              </ion-accordion>
+              </ion-accordion> -->
             </ion-accordion-group>
           </ion-col>
         </ion-row>
@@ -92,13 +92,18 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons, IonAccordion, IonAccordionGroup } from '@ionic/vue';
+import { IonList, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons, IonAccordion, IonAccordionGroup } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
-
+import { Desa } from "../../data.ts";
+import { ip_server } from "@/ip-config";
+import axios  from "axios";
+import moment from "moment";
+moment.locale("id");
 export default defineComponent({
   components: {
+    IonList,
     IonPage,
     IonHeader,
     IonToolbar,
@@ -123,6 +128,7 @@ export default defineComponent({
     },
   data() {
     return {
+      kecamatan:[],
       segment: "data1",
     };
   },
@@ -141,6 +147,25 @@ export default defineComponent({
       }, 1000);
     },
   },
+  created(){
+    console.log(Desa);
+    for (let i = 0; i < Desa.length; i++) {
+      let count = 0
+      let idx =0
+      for (let k = 0; k < this.kecamatan.length; k++) {
+        if (this.kecamatan[k].kec == Desa[i].kec) {
+          count+=1
+          idx = k
+        }
+      }   
+      if (count == 0) {
+        this.kecamatan.push({kec:Desa[i].kec,desa:[{nama:Desa[i].nama,id:Desa[i].id}]})
+      }else{
+        this.kecamatan[idx].desa.push({nama:Desa[i].nama,id:Desa[i].id})
+      }
+    }
+    console.log(this.kecamatan);
+  }
 });
 </script>
 

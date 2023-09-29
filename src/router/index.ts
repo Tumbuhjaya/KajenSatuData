@@ -99,6 +99,11 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
+    path: '/sid/layanan_surat/1',
+    component: () => import('@/views/surat_1.vue')
+  },
+
+  {
     path: '/marketplace',
     component: () => import('@/views/marketplace.vue')
   },

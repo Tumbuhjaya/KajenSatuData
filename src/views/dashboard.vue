@@ -8,7 +8,8 @@
         </div>
         <div class="right" @click="$router.push('/login')">
           <div class="box-menu-circle">
-            <ion-img src="/assets/user-ksd.png" style="height: 60px;"></ion-img>
+            <ion-img v-if="isLogin==0" src="/assets/locked.png" style="height: 60px;"></ion-img>
+            <ion-img v-else src="/assets/user-ksd.png" style="height: 60px;"></ion-img>
           </div>
         </div>
       </div>
@@ -129,6 +130,8 @@
 <script>
 import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { Storage } from "@capacitor/storage";
+
 export default defineComponent({
   components: {
     IonPage,
@@ -142,7 +145,7 @@ export default defineComponent({
   },
   data() {
     return {
-      
+      isLogin:0
     };
   },
   methods: {
@@ -150,6 +153,10 @@ export default defineComponent({
       this.$router.push("/login");
     },
   },
+  async created(){
+    const { value } = await Storage.get({ key: 'login' });
+    this.isLogin = value?value:0
+  }
 });
 </script>
 

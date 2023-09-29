@@ -173,7 +173,7 @@ export default defineComponent({
     },
     async login(){
       await axios
-        .post(ip_server + "buat.php", {
+        .post(ip_server + "login.php", {
           email:this.email,
           password:this.password,
         }).then(async function (hsl) {

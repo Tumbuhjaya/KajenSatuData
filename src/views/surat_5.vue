@@ -38,9 +38,9 @@
               <ion-input label="Tempat Lahir Pembeli" v-model="tempat_lahir" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
-            <ion-col size="12">
+            <!-- <ion-col size="12">
               <ion-input label="Tanggal Lahir Pembeli" v-model="tanggal" labelPlacement="stacked" placeholder="" type="date"></ion-input>
-            </ion-col>
+            </ion-col> -->
 
             <ion-col size="12">
               <ion-select label="Jenis Kelamin Pembeli" name="jk" label-placement="stacked">
@@ -66,7 +66,7 @@
             </ion-col>
   
             <ion-col size="12" style="margin-top: 15px;">
-              <ion-button color="primary">Simpan</ion-button>
+              <ion-button color="primary" @click="simpan">Simpan</ion-button>
             </ion-col>
           </ion-row>
           
@@ -77,7 +77,7 @@
   </template>
   
   <script>
-  import { loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonDatetime, IonDatetimeButton, IonModal  } from '@ionic/vue';
+  import { IonSelect,IonSelectOption, loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonDatetime, IonDatetimeButton, IonModal  } from '@ionic/vue';
   import { defineComponent } from 'vue';
   import { IonIcon } from '@ionic/vue';
   import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -87,6 +87,7 @@
   
   export default defineComponent({
     components: {
+      IonSelect,IonSelectOption, 
       loadingController,
       IonPage,
       IonHeader,
@@ -111,11 +112,65 @@
       },
     data() {
       return {
-  
+        surat: '',
+        id: this.$route.params.id,
+        nik: '',
+        jenis: '',
+        barang: '',
+        no_identitas: '',
+        pembeli: '',
+        tempat_lahir: '',
+        tgl_lahir: '',
+        jk: '',
+        alamat: '',
+        pekerjaan: '',
+        ket: '',
+        ketua: '',
       };
     },
     methods: {
-  
+      async simpan(){
+    let formData = new FormData()
+		formData.append('id', this.id)
+		formData.append('surat', 5)
+		formData.append('nik', this.nik)
+		formData.append('isi', {
+        surat:this.surat,
+        jenis:this.jenis,
+        barang:this.barang,
+        no_identitas:this.no_identitas,
+        pembeli:this.pembeli,
+        tempat_lahir:this.tempat_lahir,
+        tgl_lahir:this.tgl_lahir,
+        jk:this.jk,
+        alamat:this.alamat,
+        pekerjaan:this.pekerjaan,
+        ket:this.ket,
+        ketua:this.ketua,
+      })
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();  
+    await axios({
+          method: "post",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          url: ip_server+'surat-save.php',
+          data: formData,
+        }).then(function (hsl) {
+          console.log(hsl);
+          console.log(hsl);
+          if (hsl.data==1) {
+            alert('sukses')
+          }else{
+            alert('gagal')
+          }
+        })
+        await loading.dismiss();
+
+    }
     },
     });
   </script>

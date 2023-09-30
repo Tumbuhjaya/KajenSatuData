@@ -129,12 +129,12 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: '/marketplace/detail_umkm',
+    path: '/marketplace/detail_umkm/:id',
     component: () => import('@/views/detail_umkm.vue')
   },
 
   {
-    path: '/marketplace/detail_produk',
+    path: '/marketplace/detail_produk/:id',
     component: () => import('@/views/detail_produk.vue')
   },
 

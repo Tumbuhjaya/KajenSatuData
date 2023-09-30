@@ -91,6 +91,7 @@ import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, Io
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
+
 export default defineComponent({
   components: {
     IonPage,

@@ -26,16 +26,17 @@
           </ion-col>
         </ion-row>
         <ion-row style="margin-top: 15px;">
-          <ion-col size="3" style="margin-bottom: 15px;">
-            <div class="box-menu" @click="$router.push('/marketplace/detail_umkm')">
+          <ion-col v-for="(item, id) in data_umkm" size="3" style="margin-bottom: 15px;">
+            <div class="box-menu" @click="$router.push('/marketplace/detail_umkm/'+ item.id_user_android)">
               <div class="box-menu-circle">
-                <ion-img src="/assets/info-lokasi.png"></ion-img>
+                <ion-img v-if="item.foto" :src="item.foto"></ion-img>
+                <ion-img v-else src="/assets/info-lokasi.png"></ion-img>
               </div>
-              <h6 style="margin-top: 10px !important;text-align: center;font-size: 14px;">Toko A</h6>
+              <h6 style="margin-top: 10px !important;text-align: center;font-size: 14px;">{{item.nama}}</h6>
             </div>
           </ion-col>
 
-          <ion-col size="3" style="margin-bottom: 15px;">
+          <!-- <ion-col size="3" style="margin-bottom: 15px;">
             <div class="box-menu" @click="$router.push('/marketplace/detail_umkm')">
               <div class="box-menu-circle">
                 <ion-img src="/assets/info-lokasi.png"></ion-img>
@@ -132,7 +133,7 @@
               </div>
               <h6 style="margin-top: 10px !important;text-align: center;font-size: 14px;">Toko D</h6>
             </div>
-          </ion-col>
+          </ion-col> -->
         </ion-row>
       </ion-grid>
       <ion-fab slot="fixed" vertical="bottom" horizontal="end">
@@ -182,6 +183,8 @@ export default defineComponent({
       jenis: "",
       nama: "",
       segment: "data1",
+      data_umkm:[],
+      data_produk: []
     };
   },
   methods: {
@@ -198,6 +201,15 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
+    async get_all_umkm(){
+      let res = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/user-umkm.php?limit=`})
+      console.log(res.data);
+      for (let i = 0; i < res.data.length; i++) {
+        this.data_umkm.push(res.data[i])
+      }
+    },
     async get_seni(){
       let hsl = await axios({
       method: "get",
@@ -210,8 +222,19 @@ export default defineComponent({
       this.jenis=hsl.data.jenis;
       this.nama=hsl.data.nama;
     },
+    async get_produk(){
+      let res = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/produk-user.php?user=`+ this.$route.params.id,
+      })
+      console.log(res.data);
+      for (let i = 0; i < res.data.length; i++) {
+        this.data_produk.push(res.data[i])
+      }
+    }
   },
   async created() {
+    await this.get_all_umkm()
     await this.get_seni()
   }});
 </script>

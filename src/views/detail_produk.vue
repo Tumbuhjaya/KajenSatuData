@@ -10,18 +10,19 @@
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
-      <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
+      <div  style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
       <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 30px 15px !important;">
         <ion-row style="margin-bottom: 15px;">
-          <ion-col>
+          <ion-col v-for="(item, id) in data_produk">
             <div style="width: 100%;padding: 15px;">
-              <ion-img src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
-              <h6 style="font-size: 16px;margin-top: 15px !important;">Judul Produk</h6>
-              <h6 style="font-size: 20px;font-weight: bold;margin-top: 5px !important;margin-bottom: 5px !important;">Rp 1.000,-</h6>
-              <h6 style="font-size: 14px; font-weight: normal;">Jl. disinijalannyasipenjual</h6>
+              <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+              <ion-img v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+              <h6 style="font-size: 16px;margin-top: 15px !important;">{{item.nama}}</h6>
+              <h6 style="font-size: 20px;font-weight: bold;margin-top: 5px !important;margin-bottom: 5px !important;">{{item.harga}}</h6>
+              <h6 style="font-size: 14px; font-weight: normal;">{{item.kecamatan}}</h6>
 
-              <h6 style="margin-top: 15px !important;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos ipsum at natus adipisci? Quas ipsam recusandae nobis architecto esse veritatis!</h6>
+              <h6 style="margin-top: 15px !important;">{{item.deskripsi}}</h6>
             </div>
           </ion-col>
         </ion-row>
@@ -68,6 +69,7 @@ export default defineComponent({
       jenis: "",
       nama: "",
       segment: "data1",
+      data_produk : []
     };
   },
   methods: {
@@ -96,8 +98,20 @@ export default defineComponent({
       this.jenis=hsl.data.jenis;
       this.nama=hsl.data.nama;
     },
+    async get_detail(){
+        let res = await axios({
+        method: "get",
+          url:`https://ksd.pekalongankab.go.id/api/produk-id.php?id=`+this.$route.params.id,
+        })
+        console.log(res.data, "resss");
+        this.data_produk.push(res.data)
+        // for (let i = 0; i < res.data.length; i++) {
+        //   this.data_produk.push(res.data[i])
+        // }
+      }
   },
   async created() {
+    await this.get_detail()
     await this.get_seni()
   }});
 </script>

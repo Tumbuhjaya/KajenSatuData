@@ -99,22 +99,22 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: '/sid/layanan_surat/1',
+    path: '/sid/layanan_surat/1/:id',
     component: () => import('@/views/surat_1.vue')
   },
 
   {
-    path: '/sid/layanan_surat/2',
+    path: '/sid/layanan_surat/2/:id',
     component: () => import('@/views/surat_2.vue')
   },
 
   {
-    path: '/sid/layanan_surat/3',
+    path: '/sid/layanan_surat/3/:id',
     component: () => import('@/views/surat_3.vue')
   },
 
   {
-    path: '/sid/layanan_surat/4',
+    path: '/sid/layanan_surat/4/:id',
     component: () => import('@/views/surat_4.vue')
   },
 

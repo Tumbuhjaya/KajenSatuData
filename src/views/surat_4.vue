@@ -31,26 +31,26 @@
 
               <ion-datetime-button datetime="datetimes" style="display: flex;justify-content: flex-start;margin-top: 15px;"></ion-datetime-button>
               <ion-modal :keep-contents-mounted="true">
-                <ion-datetime id="datetimes" presentation="date" :show-default-buttons="true" name="tanggal"></ion-datetime>
+                <ion-datetime id="datetimes" presentation="date" :show-default-buttons="true" v-model="tanggal"></ion-datetime>
               </ion-modal>
             </ion-col>
             <ion-col size="12">
-              <ion-input label="Jumlah Pengikut" name="pengikut" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Jumlah Pengikut" v-model="pengikut" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
-              <ion-input label="Keterangan" name="ket" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Alasan" v-model="alasan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
   
             <ion-col size="12">
-              <ion-input label="Nama Ayah" name="" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Alamat" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
   
-            <ion-col size="12">
-              <ion-input label="NIK Ayah" name="" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
+            <!-- <ion-col size="12">
+              <ion-input label="NIK Ayah" v-model="" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col> -->
   
             <ion-col size="12" style="margin-top: 15px;">
-              <ion-button color="primary">Simpan</ion-button>
+              <ion-button color="primary" @click="simpan">Simpan</ion-button>
             </ion-col>
           </ion-row>
           
@@ -94,11 +94,40 @@
       },
     data() {
       return {
-  
+        alamat: '',
+        alasan: '',
+        tanggal: '',
+        pengikut: '',
+        ket: '',
+        id: this.$route.params.id,
+        nik: '',
+
       };
     },
     methods: {
-  
+      async simpan(){
+    let formData = new FormData()
+		formData.append('id', this.id)
+		formData.append('surat', 4)
+		formData.append('nik', this.nik)
+		formData.append('isi', {'ket': this.ket,'alamat': this.alamat,'pengikut': this.pengikut,'tanggal': this.tanggal,'alasan': this.alasan})
+      await axios({
+          method: "post",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          url: ip_server+'surat-save.php',
+          data: formData,
+        }).then(function (hsl) {
+          console.log(hsl);
+          console.log(hsl);
+          if (hsl.data==1) {
+            alert('sukses')
+          }else{
+            alert('gagal')
+          }
+        })
+    }
     },
     });
   </script>

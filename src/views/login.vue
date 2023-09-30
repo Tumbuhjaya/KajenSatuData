@@ -154,7 +154,7 @@ export default defineComponent({
     async daftar(){
       await axios
         .post(ip_server + "buat.php", {
-          id_desa:this.id_desa,
+          desa:this.id_desa,
           nama:this.nama,
           wa:this.wa,
           email:this.email,
@@ -182,7 +182,7 @@ export default defineComponent({
             alert('sukses')
             await Storage.set({
               key: "login",
-              value: 1,
+              value: hsl,
             });
           }else{
             alert('gagal')

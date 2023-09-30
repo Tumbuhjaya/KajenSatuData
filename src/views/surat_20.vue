@@ -29,9 +29,9 @@
             <ion-col size="12">
               <ion-input label="Tanggal Lahir Istri" v-model="tgl_lahir" labelPlacement="stacked" placeholder="" type="date"></ion-input>
             </ion-col>
-            <ion-col size="12">
+            <!-- <ion-col size="12">
               <ion-input label="Agama Istri" v-model="" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
+            </ion-col> -->
             <ion-col size="12">
               <ion-input label="Pekerjaan Istri" v-model="pekerjaan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
@@ -88,18 +88,37 @@
       },
     data() {
       return {
-        keperluan: '',
         id: this.$route.params.id,
         nik: '',
+        tgl_mati: '',
+        jam: '',
+        tempat: '',
+        sebab: '',
+        nama: '',
+        nik2: '',
+        tgl_lahir: '',
+        pekerjaan: '',
+        alamat: '',
+        hubungan: '',
       };
     },
     methods: {
       async simpan(){
     let formData = new FormData()
 		formData.append('id', this.id)
-		formData.append('surat', 10)
+		formData.append('surat', 20)
 		formData.append('nik', this.nik)
-		formData.append('isi', {'keperluan': this.keperluan})
+		formData.append('isi', {
+        tgl_mati:this.tgl_mati,
+        jam:this.jam,
+        tempat:this.tempat,
+        sebab:this.sebab,
+        nama:this.nama,
+        nik2:this.nik2,
+        tgl_lahir:this.tgl_lahir,
+        pekerjaan:this.pekerjaan,
+        alamat:this.alamat,
+        hubungan:this.hubungan,})
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

@@ -104,6 +104,21 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
+    path: '/sid/layanan_surat/2',
+    component: () => import('@/views/surat_2.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/3',
+    component: () => import('@/views/surat_3.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/4',
+    component: () => import('@/views/surat_4.vue')
+  },
+
+  {
     path: '/marketplace',
     component: () => import('@/views/marketplace.vue')
   },

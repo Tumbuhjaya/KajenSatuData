@@ -149,6 +149,57 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
+    path: '/sid/layanan_surat/11/:id',
+    component: () => import('@/views/surat_11.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/12/:id',
+    component: () => import('@/views/surat_12.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/13/:id',
+    component: () => import('@/views/surat_13.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/14/:id',
+    component: () => import('@/views/surat_14.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/15/:id',
+    component: () => import('@/views/surat_15.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/16/:id',
+    component: () => import('@/views/surat_16.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/17/:id',
+    component: () => import('@/views/surat_17.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/18/:id',
+    component: () => import('@/views/surat_18.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/19/:id',
+    component: () => import('@/views/surat_19.vue')
+  },
+
+
+  {
+    path: '/sid/layanan_surat/20/:id',
+    component: () => import('@/views/surat_20.vue')
+  },
+
+  {
     path: '/marketplace',
     component: () => import('@/views/marketplace.vue')
   },

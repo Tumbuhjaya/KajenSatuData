@@ -5,7 +5,7 @@
           <div class="box-title">
             <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
             <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Keterangan Kurang Mampu</h6>
+            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Permohonan Duplikat Kelahiran</h6>
         </div>
         </div>
       </ion-header>
@@ -18,7 +18,28 @@
               <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
-              <ion-input label="Keperluan" v-model="keperluan" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Nama Istri" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="NIK Istri" v-model="nik2" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Tempat Lahir Istri" v-model="tempat" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Tanggal Lahir Istri" v-model="tgl_lahir" labelPlacement="stacked" placeholder="" type="date"></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Agama Istri" v-model="" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Pekerjaan Istri" v-model="pekerjaan" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Alamat Istri" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Sebab-sebab" v-model="sebab" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             
             <ion-col size="12" style="margin-top: 15px;">

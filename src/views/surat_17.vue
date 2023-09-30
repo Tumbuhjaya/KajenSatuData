@@ -5,7 +5,7 @@
           <div class="box-title">
             <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
             <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Keterangan Kurang Mampu</h6>
+            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Permohonan Akta Lahir</h6>
         </div>
         </div>
       </ion-header>
@@ -17,8 +17,44 @@
             <ion-col size="12">
               <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
+
             <ion-col size="12">
-              <ion-input label="Keperluan" v-model="keperluan" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Nama Anak" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-input label="Tempat Lahir" v-model="tempat_lahir" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-input label="Tanggal Lahir" v-model="tgl_lahir" labelPlacement="stacked" placeholder="" type="date"></ion-input>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-select label="Hari Lahir" v-model="hari" label-placement="stacked">
+                    <ion-select-option value="Senin">Senin</ion-select-option>
+                    <ion-select-option value="Selasa">Selasa</ion-select-option>
+                    <ion-select-option value="Rabu">Rabu</ion-select-option>
+                    <ion-select-option value="Kamis">Kamis</ion-select-option>
+                    <ion-select-option value="Jumat">Jumat</ion-select-option>
+                    <ion-select-option value="Sabtu">Sabtu</ion-select-option>
+                </ion-select>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-input label="Alamat Anak" v-model="alamat_anak" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-input label="Nama Ayah" v-model="ayah" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-input label="Nama Ibu" v-model="ibu" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-input label="Alamat Orang Tua" v-model="alamat_ortu" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             
             <ion-col size="12" style="margin-top: 15px;">
@@ -126,6 +162,12 @@
   
   ion-input{
     border-bottom: 1px solid black;
+  }
+
+  ion-select{
+    border-bottom: 1px solid black; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
   }
   
   

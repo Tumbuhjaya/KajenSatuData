@@ -5,7 +5,7 @@
           <div class="box-title">
             <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
             <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Keterangan Kurang Mampu</h6>
+            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Permohonan Duplikat Kelahiran</h6>
         </div>
         </div>
       </ion-header>
@@ -18,7 +18,44 @@
               <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
-              <ion-input label="Keperluan" v-model="keperluan" labelPlacement="stacked" placeholder=""></ion-input>
+                <ion-select label="Hari Lahir" v-model="hari" label-placement="stacked">
+                    <ion-select-option value="Senin">Senin</ion-select-option>
+                    <ion-select-option value="Selasa">Selasa</ion-select-option>
+                    <ion-select-option value="Rabu">Rabu</ion-select-option>
+                    <ion-select-option value="Kamis">Kamis</ion-select-option>
+                    <ion-select-option value="Jumat">Jumat</ion-select-option>
+                    <ion-select-option value="Sabtu">Sabtu</ion-select-option>
+                </ion-select>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Jam Lahir" v-model="jam" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Tempat Lahir" v-model="tempat" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Nama Pelapor" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="NIK Pelapor" v-model="nik2" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+                <ion-select label="Jenis Kelamin" v-model="jk" label-placement="stacked">
+                    <ion-select-option value="Laki-Laki">Laki-laki</ion-select-option>
+                    <ion-select-option value="Perempuan">Perempuan</ion-select-option>
+                </ion-select>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Tempat Lahir Pelapor" v-model="tempat_lahir" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Tanggal Lahir Pelapor" v-model="tgl_lahir" labelPlacement="stacked" placeholder=""  type="date"></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Pekerjaan Pelapor" v-model="pekerjaan" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Alamat Pelapor" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             
             <ion-col size="12" style="margin-top: 15px;">

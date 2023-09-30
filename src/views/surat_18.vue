@@ -5,7 +5,7 @@
           <div class="box-title">
             <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
             <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Keterangan Kurang Mampu</h6>
+            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Pernyataan Belum Memiliki Akta Lahir</h6>
         </div>
         </div>
       </ion-header>
@@ -16,9 +16,6 @@
           <ion-row style="margin-bottom: 15px;">
             <ion-col size="12">
               <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
-            <ion-col size="12">
-              <ion-input label="Keperluan" v-model="keperluan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             
             <ion-col size="12" style="margin-top: 15px;">

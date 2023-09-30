@@ -249,6 +249,60 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
+    path: '/sid/layanan_surat/32/:id',
+    component: () => import('@/views/surat_32.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/33/:id',
+    component: () => import('@/views/surat_33.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/34/:id',
+    component: () => import('@/views/surat_34.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/35/:id',
+    component: () => import('@/views/surat_35.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/36/:id',
+    component: () => import('@/views/surat_36.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/37/:id',
+    component: () => import('@/views/surat_37.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/38/:id',
+    component: () => import('@/views/surat_38.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/39/:id',
+    component: () => import('@/views/surat_39.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/40/:id',
+    component: () => import('@/views/surat_40.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/41/:id',
+    component: () => import('@/views/surat_41.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/42/:id',
+    component: () => import('@/views/surat_42.vue')
+  },
+  {
     path: '/marketplace',
     component: () => import('@/views/marketplace.vue')
   },

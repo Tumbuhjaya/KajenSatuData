@@ -178,18 +178,65 @@ export default defineComponent({
     },
   data() {
     return {
-      keperluan: '',
       id: this.$route.params.id,
       nik: '',
+      jalan: '',
+      rt_rw: '',
+      desa: '',
+      kec: '',
+      kab: '',
+      nib: '',
+      luas: '',
+      status: '',
+      dipergunakan: '',
+      utara: '',
+      timur: '',
+      selatan: '',
+      barat: '',
+      dari: '',
+      tahun: '',
+      dengan: '',
+      nama: '',
+      umur: '',
+      pekerjaan: '',
+      alamat: '',
+      nama2: '',
+      umur2: '',
+      pekerjaan2: '',
+      alamat2: '',
     };
   },
   methods: {
     async simpan(){
   let formData = new FormData()
   formData.append('id', this.id)
-  formData.append('surat', 10)
+  formData.append('surat', 32)
   formData.append('nik', this.nik)
-  formData.append('isi', {'keperluan': this.keperluan})
+  formData.append('isi', {
+      jalan : this.jalan,
+			rt_rw : this.rt_rw,
+			desa : this.desa,
+			kec : this.kec,
+			kab : this.kab,
+			nib : this.nib,
+			luas : this.luas,
+			status : this.status,
+			dipergunakan : this.dipergunakan,
+			utara : this.utara,
+			timur : this.timur,
+			selatan : this.selatan,
+			barat : this.barat,
+			dari : this.dari,
+			tahun : this.tahun,
+			dengan : this.dengan,
+			nama : this.nama,
+			umur : this.umur,
+			pekerjaan : this.pekerjaan,
+			alamat : this.alamat,
+			nama2 : this.nama2,
+			umur2 : this.umur2,
+			pekerjaan2 : this.pekerjaan2,
+			alamat2 : this.alamat2,})
   const loading = await loadingController.create({
         message: 'Mohon Tunggu...',
       });

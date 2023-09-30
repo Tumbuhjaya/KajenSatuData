@@ -14,11 +14,11 @@
 
       <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 20px !important;">
-        <ion-row style="margin-top: 5px;margin-bottom: 15px;">
-          <ion-col size="12" v-for="(item, id) in data" style="padding: 0;">
+        <ion-row v-for="(item, id) in data" style="margin-top: 5px;margin-bottom: 15px;">
+          <ion-col size="12"  style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
               <div style="width: 35%;">
-                <ion-img v-if="item.foto" :src="item.foto" style="width:100%;"></ion-img>
+                <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height: 120px;object-fit: cover;"></ion-img>
                 <ion-img v-else src="https://placehold.co/90" style="width:100%;height: 120px;object-fit: cover;"></ion-img>
               </div>
               <div style="width:65%;margin-left: 15px;">

@@ -19,14 +19,14 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;background-color: #fff;display: flex;">
               
-              <div style="width:50%;margin-right: 15px;height: 160px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
+              <div style="width:60%;padding-right: 30px;height: 160px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 16px;"><strong>{{ data.nama }}</strong></h6>
                 <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;">{{ data.kec }}</h6>
                 <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;"></h6>
                 <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">{{ data.email }}</h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">{{ data.web }}</h6>
+                <h6 style="font-size: 12px;margin-top: 5px !important;font-weight: normal;">{{ data.web }}</h6>
               </div>
-              <div style="width: 50%;position: relative;">
+              <div style="width: 40%;position: relative;">
                 <ion-img src="https://placehold.co/100" style="width:100%;height:160px;object-fit: cover;"></ion-img>
 
                 <div style="width: 100%;padding: 10px;background-color: rgba(0, 0, 0, 0.2);position: absolute;left:0;right:0;bottom:0;">

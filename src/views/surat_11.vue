@@ -70,18 +70,19 @@
       },
     data() {
       return {
-        keperluan: '',
         id: this.$route.params.id,
         nik: '',
+	      acara:  '',
+        keperluan: '',
       };
     },
     methods: {
       async simpan(){
     let formData = new FormData()
 		formData.append('id', this.id)
-		formData.append('surat', 10)
+		formData.append('surat', 11)
 		formData.append('nik', this.nik)
-		formData.append('isi', {'keperluan': this.keperluan})
+		formData.append('isi', {'keperluan': this.keperluan,'acara': this.acara})
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

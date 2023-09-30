@@ -104,18 +104,38 @@
       },
     data() {
       return {
-        keperluan: '',
         id: this.$route.params.id,
         nik: '',
+        hari: '',
+        jam: '',
+        tempat: '',
+        nama: '',
+        nik2: '',
+        jk: '',
+        tempat_lahir: '',
+        tgl_lahir: '',
+        pekerjaan: '',
+        alamat: '',
       };
     },
     methods: {
       async simpan(){
     let formData = new FormData()
 		formData.append('id', this.id)
-		formData.append('surat', 10)
+		formData.append('surat', 19)
 		formData.append('nik', this.nik)
-		formData.append('isi', {'keperluan': this.keperluan})
+		formData.append('isi', {
+        hari:this.hari,
+        jam:this.jam,
+        tempat:this.tempat,
+        nama:this.nama,
+        nik2:this.nik2,
+        jk:this.jk,
+        tempat_lahir:this.tempat_lahir,
+        tgl_lahir:this.tgl_lahir,
+        pekerjaan:this.pekerjaan,
+        alamat:this.alamat,
+      })
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

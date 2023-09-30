@@ -77,7 +77,7 @@ export default defineComponent({
     async simpan(){
   let formData = new FormData()
   formData.append('id', this.id)
-  formData.append('surat', 10)
+  formData.append('surat', 30)
   formData.append('nik', this.nik)
   formData.append('isi', {'keperluan': this.keperluan})
   const loading = await loadingController.create({

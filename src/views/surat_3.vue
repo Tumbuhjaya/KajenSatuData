@@ -15,32 +15,32 @@
       <ion-grid style="padding: 60px 15px !important;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12">
-            <ion-input label="NIK" name="nik" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
           <ion-col size="12">
-            <ion-input label="Nama Kepala Keluarga" name="kepala" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Nama Kepala Keluarga" v-model="kepala" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
           <ion-col size="12">
-            <ion-input label="Alamat Keluarga" name="alamat" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Alamat Keluarga" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
           <ion-col size="12">
-            <ion-input label="Nama Ibu" name="ibu" labelPlacement="stacked" placeholder=""></ion-input>
-          </ion-col>
-
-          <ion-col size="12">
-            <ion-input label="NIK Ibu" name="nik_ibu" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Nama Ibu" v-model="ibu" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="Nama Ayah" name="ayah" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="NIK Ibu" v-model="nik_ibu" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="NIK Ayah" name="nik_ayah" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Nama Ayah" v-model="ayah" labelPlacement="stacked" placeholder=""></ion-input>
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-input label="NIK Ayah" v-model="nik_ayah" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-button color="primary">Simpan</ion-button>
+            <ion-button color="primary"  @click="simpan">Simpan</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -79,11 +79,40 @@ export default defineComponent({
     },
   data() {
     return {
-
+      nik: '',
+      kepala: '',
+      alamat: '',
+      ibu: '',
+      nik_ibu: '',
+      ayah: '',
+      nik_ayah: '',
+      id: this.$route.params.id,
     };
   },
   methods: {
-
+    async simpan(){
+    let formData = new FormData()
+		formData.append('id', this.id)
+		formData.append('surat', 3)
+		formData.append('nik', this.nik)
+		formData.append('isi', {'kepala': this.kepala,'alamat': this.alamat,'ibu': this.ibu,'nik_ibu': this.nik_ibu,'ayah': this.ayah,'nik_ayah': this.nik_ayah})
+      await axios({
+          method: "post",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          url: ip_server+'surat-save.php',
+          data: formData,
+        }).then(function (hsl) {
+          console.log(hsl);
+          console.log(hsl);
+          if (hsl.data==1) {
+            alert('sukses')
+          }else{
+            alert('gagal')
+          }
+        })
+    }
   },
   });
 </script>

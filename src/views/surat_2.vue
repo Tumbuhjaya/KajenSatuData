@@ -15,14 +15,14 @@
       <ion-grid style="padding: 60px 15px !important;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12">
-            <ion-input label="NIK" name="nik" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
           <ion-col size="12">
-            <ion-input label="Keterangan" name="ket" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Keterangan" v-model="ket" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-button color="primary">Simpan</ion-button>
+            <ion-button color="primary" @click="simpan">Simpan</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -61,11 +61,35 @@ export default defineComponent({
     },
   data() {
     return {
-
+      nik:'',
+      ket:'',
+      id: this.$route.params.id,
     };
   },
   methods: {
-
+    async simpan(){
+    let formData = new FormData()
+		formData.append('id', this.id)
+		formData.append('surat', 2)
+		formData.append('nik', this.nik)
+		formData.append('isi', {'ket': this.ket})
+      await axios({
+          method: "post",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          url: ip_server+'surat-save.php',
+          data: formData,
+        }).then(function (hsl) {
+          console.log(hsl);
+          console.log(hsl);
+          if (hsl.data==1) {
+            alert('sukses')
+          }else{
+            alert('gagal')
+          }
+        })
+    }
   },
   });
 </script>

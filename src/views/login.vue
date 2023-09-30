@@ -98,7 +98,7 @@
 </template>
 
 <script>
-import { IonItem,IonSelect,IonSelectOption, IonPage, IonContent, IonImg, IonRow, IonCol, IonLabel, IonInput, IonButton, IonSegment, IonSegmentButton } from '@ionic/vue';
+import { loadingController,IonItem,IonSelect,IonSelectOption, IonPage, IonContent, IonImg, IonRow, IonCol, IonLabel, IonInput, IonButton, IonSegment, IonSegmentButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { Desa } from "../../data.ts";
 import { ip_server } from "@/ip-config";
@@ -109,6 +109,7 @@ import { Storage } from "@capacitor/storage";
 
 export default defineComponent({
   components: {
+    loadingController,
     IonItem,
     IonSelect,
     IonSelectOption,
@@ -152,6 +153,10 @@ export default defineComponent({
       }, 1000);
     },
     async daftar(){
+      const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
       await axios
         .post(ip_server + "buat.php", {
           desa:this.id_desa,
@@ -169,9 +174,15 @@ export default defineComponent({
             alert('gagal')
           }
         })
+        await loading.dismiss();
+
       this.$router.push('/tabs-dashboard/dashboard')
     },
     async login(){
+      const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
       await axios
         .post(ip_server + "login.php", {
           email:this.email,
@@ -188,6 +199,8 @@ export default defineComponent({
             alert('gagal')
           }
         })
+        await loading.dismiss();
+
       this.$router.push('/tabs-dashboard/dashboard')
     },
   },

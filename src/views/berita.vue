@@ -259,7 +259,7 @@
 </template>
 
 <script>
-import { IonInfiniteScroll,IonInfiniteScrollContent, IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
+import {  loadingController,IonInfiniteScroll,IonInfiniteScrollContent, IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -270,6 +270,7 @@ import { ip_server } from "@/ip-config";
 
 export default defineComponent({
   components: {
+    loadingController,
     IonInfiniteScroll,
     IonInfiniteScrollContent,
     IonPage,
@@ -346,9 +347,15 @@ export default defineComponent({
     }
   },
   async created() {
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
     await this.get_berita()
     await this.get_pengumuman()
     await this.get_lelang()
+    await loading.dismiss();
+
   }
 });
 </script>

@@ -77,7 +77,7 @@
   </template>
   
   <script>
-  import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonDatetime, IonDatetimeButton, IonModal  } from '@ionic/vue';
+  import { loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonDatetime, IonDatetimeButton, IonModal  } from '@ionic/vue';
   import { defineComponent } from 'vue';
   import { IonIcon } from '@ionic/vue';
   import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -87,6 +87,7 @@
   
   export default defineComponent({
     components: {
+      loadingController,
       IonPage,
       IonHeader,
       IonToolbar,

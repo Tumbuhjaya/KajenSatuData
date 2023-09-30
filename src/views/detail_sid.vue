@@ -714,7 +714,7 @@
 </template>
 
 <script>
-import { IonAccordion,IonAccordionGroup, IonList, IonItem, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
+import { loadingController,IonAccordion,IonAccordionGroup, IonList, IonItem, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -725,6 +725,7 @@ import moment from "moment";
 moment.locale("id");
 export default defineComponent({
   components: {
+    loadingController,
     IonAccordion,
     IonAccordionGroup,
     IonList,
@@ -933,6 +934,10 @@ export default defineComponent({
     },
   },
   async created() {
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
     await this.get_data()
     await this.get_surat()
     await this.get_pengumuman()
@@ -947,6 +952,7 @@ export default defineComponent({
     await this.get_umkm()
     await this.get_galeri()
     await this.get_potensi()
+    await loading.dismiss();
 
     
   }

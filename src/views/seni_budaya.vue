@@ -161,7 +161,7 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
+import { loadingController,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -170,6 +170,7 @@ import moment from "moment";
 moment.locale("id");
 export default defineComponent({
   components: {
+    loadingController,
     IonPage,
     IonHeader,
     IonContent,
@@ -243,8 +244,14 @@ export default defineComponent({
     },
   },
   async created() {
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
     await this.get_seni_tari()
     await this.get_kebudayaan()
+    await loading.dismiss();
+
   }});
 </script>
 

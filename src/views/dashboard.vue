@@ -128,12 +128,13 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg, IonButton } from '@ionic/vue';
+import {  loadingController,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { Storage } from "@capacitor/storage";
 
 export default defineComponent({
   components: {
+    loadingController,
     IonPage,
     IonHeader,
     IonContent,
@@ -154,8 +155,15 @@ export default defineComponent({
     },
   },
   async created(){
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+        await loading.present();
+
     const { value } = await Storage.get({ key: 'login' });
     this.isLogin = value?value:0
+    await loading.dismiss();
+
   }
 });
 </script>

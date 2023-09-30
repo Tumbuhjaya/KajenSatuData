@@ -15,13 +15,13 @@
         <ion-grid style="padding: 60px 15px !important;">
           <ion-row style="margin-bottom: 15px;">
             <ion-col size="12">
-              <ion-input label="NIK" name="nik" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
-              <ion-input label="Alamat Yang Dituju" name="alamat" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Alamat Yang Dituju" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
-              <ion-input label="Alasan" name="alasan" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Alasan" v-model="alasan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
               <ion-input label="Tanggal Pindah" v-model="tanggal" labelPlacement="stacked" placeholder="" type="date"></ion-input>
@@ -29,13 +29,13 @@
             <ion-col size="12">
               <ion-input label="Jumlah Pengikut" v-model="pengikut" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
-            <ion-col size="12">
+            <!-- <ion-col size="12">
               <ion-input label="Alasan" v-model="alasan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
   
             <ion-col size="12">
               <ion-input label="Alamat" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
+            </ion-col> -->
   
             <!-- <ion-col size="12">
               <ion-input label="NIK Ayah" v-model="" labelPlacement="stacked" placeholder=""></ion-input>
@@ -53,7 +53,7 @@
   </template>
   
   <script>
-  import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonDatetime, IonDatetimeButton, IonModal  } from '@ionic/vue';
+  import { loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonDatetime, IonDatetimeButton, IonModal  } from '@ionic/vue';
   import { defineComponent } from 'vue';
   import { IonIcon } from '@ionic/vue';
   import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -63,6 +63,7 @@
   
   export default defineComponent({
     components: {
+      loadingController,
       IonPage,
       IonHeader,
       IonToolbar,
@@ -103,7 +104,11 @@
 		formData.append('surat', 4)
 		formData.append('nik', this.nik)
 		formData.append('isi', {'ket': this.ket,'alamat': this.alamat,'pengikut': this.pengikut,'tanggal': this.tanggal,'alasan': this.alasan})
-      await axios({
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();  
+    await axios({
           method: "post",
           headers: {
             "Content-Type": "multipart/form-data",
@@ -119,6 +124,8 @@
             alert('gagal')
           }
         })
+        await loading.dismiss();
+
     }
     },
     });

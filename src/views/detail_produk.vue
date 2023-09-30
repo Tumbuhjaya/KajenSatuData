@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
+import { loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -41,6 +41,7 @@ import moment from "moment";
 moment.locale("id");
 export default defineComponent({
   components: {
+    loadingController,
     IonPage,
     IonHeader,
     IonToolbar,
@@ -111,8 +112,14 @@ export default defineComponent({
       }
   },
   async created() {
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
     await this.get_detail()
     await this.get_seni()
+    await loading.dismiss();
+
   }});
 </script>
 

@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import { IonList, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons, IonAccordion, IonAccordionGroup } from '@ionic/vue';
+import { loadingController,IonList, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons, IonAccordion, IonAccordionGroup } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -103,6 +103,7 @@ import moment from "moment";
 moment.locale("id");
 export default defineComponent({
   components: {
+    loadingController,
     IonList,
     IonPage,
     IonHeader,
@@ -147,9 +148,12 @@ export default defineComponent({
       }, 1000);
     },
   },
-  created(){
-    console.log(Desa);
-    for (let i = 0; i < Desa.length; i++) {
+  async created(){
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
+        for (let i = 0; i < Desa.length; i++) {
       let count = 0
       let idx =0
       for (let k = 0; k < this.kecamatan.length; k++) {
@@ -164,7 +168,7 @@ export default defineComponent({
         this.kecamatan[idx].desa.push({nama:Desa[i].nama,id:Desa[i].id})
       }
     }
-    console.log(this.kecamatan);
+    await loading.dismiss();
   }
 });
 </script>

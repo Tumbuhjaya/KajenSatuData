@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput } from '@ionic/vue';
+import { loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -59,6 +59,7 @@ import { ip_server } from "@/ip-config";
 
 export default defineComponent({
   components: {
+    loadingController,
     IonPage,
     IonHeader,
     IonToolbar,
@@ -96,7 +97,11 @@ export default defineComponent({
 		formData.append('surat', 3)
 		formData.append('nik', this.nik)
 		formData.append('isi', {'kepala': this.kepala,'alamat': this.alamat,'ibu': this.ibu,'nik_ibu': this.nik_ibu,'ayah': this.ayah,'nik_ayah': this.nik_ayah})
-      await axios({
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();  
+    await axios({
           method: "post",
           headers: {
             "Content-Type": "multipart/form-data",
@@ -112,6 +117,8 @@ export default defineComponent({
             alert('gagal')
           }
         })
+        await loading.dismiss();
+
     }
   },
   });

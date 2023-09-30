@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
+import { loadingController,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { ip_server } from "@/ip-config";
@@ -81,6 +81,7 @@ import { ip_server } from "@/ip-config";
 import { arrowBackCircleOutline } from 'ionicons/icons';
 export default defineComponent({
   components: {
+    loadingController,
     IonPage,
     IonHeader,
     IonContent,
@@ -129,7 +130,13 @@ export default defineComponent({
     },
   },
   async created() {
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
     await this.get_data()
+    await loading.dismiss();
+
   }});
 </script>
 

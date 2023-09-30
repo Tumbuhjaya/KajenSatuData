@@ -203,10 +203,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/surat_21.vue')
   },
 
-  {
-    path: '/sid/layanan_surat/22/:id',
-    component: () => import('@/views/surat_22.vue')
-  },
+  // {
+  //   path: '/sid/layanan_surat/22/:id',
+  //   component: () => import('@/views/surat_22.vue')
+  // },
 
   {
     path: '/sid/layanan_surat/23/:id',

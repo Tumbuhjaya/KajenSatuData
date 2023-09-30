@@ -5,7 +5,7 @@
         <div class="box-title">
           <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Permohomam Cerai</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Keterangan Izin Orang Tua/Suami/Istri</h6>
       </div>
       </div>
     </ion-header>
@@ -15,40 +15,57 @@
       <ion-grid style="padding: 60px 15px !important;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12">
+            <h5>PIHAK YANG MEMBERI IZIN</h5>
+          </ion-col>
+          <ion-col size="12">
             <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="Nama Istri" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-select label="Memberi Izin Selaku" v-model="selaku" label-placement="stacked">
+                  <ion-select-option value="Orang Tua">Orang Tua</ion-select-option>
+                  <ion-select-option value="Suami">Suami</ion-select-option>
+                  <ion-select-option value="Istri">Istri</ion-select-option>
+                  <ion-select-option value="Keluarga">Keluarga</ion-select-option>
+              </ion-select>
+          </ion-col>
+
+          <ion-col size="12" style="margin-top: 15px;">
+            <h5>PIHAK YANG DIBERI IZIN</h5>
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="NIK Istri" v-model="nik2" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-select label="Hubungan dengan Pemberi Izin" v-model="hubungan" label-placement="stacked">
+                  <ion-select-option value="Suami">Suami</ion-select-option>
+                  <ion-select-option value="Istri">Istri</ion-select-option>
+                  <ion-select-option value="Anak">Anak</ion-select-option>
+                  <ion-select-option value="Keluarga">Keluarga</ion-select-option>
+              </ion-select>
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="Tempat Lahir Istri" v-model="tempat_lahir" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="NIK yang Diberi Izin" v-model="nik2" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="Tanggal Lahir Istri" v-model="tgl_lahir" labelPlacement="stacked" placeholder="" type="date"></ion-input>
+            <ion-input label="Negara Tujuan" v-model="negara" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="Agama Istri" v-model="agama" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Nama PT/Perusahaan" v-model="perusahaan" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="Pekerjaan Istri" v-model="pekerjaan" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-select label="Status Pekerjaan" v-model="pekerja" label-placement="stacked">
+                  <ion-select-option value="TKI">TKI</ion-select-option>
+                  <ion-select-option value="TKW">TKW</ion-select-option>
+              </ion-select>
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="Alamat Istri" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Masa Kontrak (Tahun)" v-model="kontrak" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
-
-          <ion-col size="12">
-            <ion-input label="Sebab-sebab" v-model="sebab" labelPlacement="stacked" placeholder=""></ion-input>
-          </ion-col>
+          
 
           <ion-col size="12" style="margin-top: 15px;">
             <ion-button color="primary" @click="simpan">Simpan</ion-button>
@@ -157,5 +174,9 @@ ion-input{
   border-bottom: 1px solid black;
 }
 
-
+ion-select{
+  border-bottom: 1px solid black; 
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
 </style>

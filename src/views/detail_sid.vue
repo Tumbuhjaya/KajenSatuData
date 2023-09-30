@@ -634,7 +634,7 @@
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <ion-list lines="full">
                     <ion-item   v-for="(item,idx) in surat" :key="idx"  @click="$router.push('/sid/layanan_surat/'+item.id_surat+'/'+id )"> 
-                      <ion-label>{{ item.nama }}</ion-label>
+                      <ion-label>{{ item.id_surat }}{{ item.nama }}</ion-label>
                     </ion-item>
                     <!-- <ion-item>
                       <ion-label>Keterangan Penduduk</ion-label>

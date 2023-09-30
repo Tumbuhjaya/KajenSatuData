@@ -66,7 +66,6 @@ export default defineComponent({
     },
   data() {
     return {
-      keperluan: '',
       id: this.$route.params.id,
       nik: '',
     };
@@ -75,9 +74,9 @@ export default defineComponent({
     async simpan(){
   let formData = new FormData()
   formData.append('id', this.id)
-  formData.append('surat', 10)
+  formData.append('surat', 28)
   formData.append('nik', this.nik)
-  formData.append('isi', {'keperluan': this.keperluan})
+  formData.append('isi', {})
   const loading = await loadingController.create({
         message: 'Mohon Tunggu...',
       });

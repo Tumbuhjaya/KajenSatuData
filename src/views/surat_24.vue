@@ -18,7 +18,7 @@
               <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
-            <ion-col size="12">
+            <!-- <ion-col size="12">
               <ion-input label="Kecamatan KUA" v-model="kua" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
@@ -28,7 +28,7 @@
 
             <ion-col size="12">
               <ion-input label="Nama Pasangan" v-model="pasangan" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
+            </ion-col> -->
 
             <ion-col size="12" style="margin-top: 15px;">
               <ion-button color="primary" @click="simpan">Simpan</ion-button>
@@ -76,7 +76,6 @@
       },
     data() {
       return {
-        keperluan: '',
         id: this.$route.params.id,
         nik: '',
       };
@@ -85,9 +84,9 @@
       async simpan(){
     let formData = new FormData()
 		formData.append('id', this.id)
-		formData.append('surat', 10)
+		formData.append('surat', 24)
 		formData.append('nik', this.nik)
-		formData.append('isi', {'keperluan': this.keperluan})
+		formData.append('isi', {})
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

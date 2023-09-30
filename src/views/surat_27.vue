@@ -96,18 +96,33 @@ export default defineComponent({
     },
   data() {
     return {
-      keperluan: '',
       id: this.$route.params.id,
       nik: '',
+      nama: '',
+      tempat_lahir: '',
+      tgl_lahir: '',
+      negara: '',
+      ayah: '',
+      agama: '',
+      pekerjaan: '',
+      alamat: '',
     };
   },
   methods: {
     async simpan(){
   let formData = new FormData()
   formData.append('id', this.id)
-  formData.append('surat', 10)
+  formData.append('surat', 27)
   formData.append('nik', this.nik)
-  formData.append('isi', {'keperluan': this.keperluan})
+  formData.append('isi', {
+      nama: this.nama,
+      tempat_lahir: this.tempat_lahir,
+      tgl_lahir: this.tgl_lahir,
+      negara: this.negara,
+      ayah: this.ayah,
+      agama: this.agama,
+      pekerjaan: this.pekerjaan,
+      alamat: this.alamat,})
   const loading = await loadingController.create({
         message: 'Mohon Tunggu...',
       });

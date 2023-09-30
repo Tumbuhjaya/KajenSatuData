@@ -193,10 +193,59 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/surat_19.vue')
   },
 
-
   {
     path: '/sid/layanan_surat/20/:id',
     component: () => import('@/views/surat_20.vue')
+  },
+  
+  {
+    path: '/sid/layanan_surat/21/:id',
+    component: () => import('@/views/surat_21.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/22/:id',
+    component: () => import('@/views/surat_22.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/23/:id',
+    component: () => import('@/views/surat_23.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/24/:id',
+    component: () => import('@/views/surat_24.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/25/:id',
+    component: () => import('@/views/surat_25.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/26/:id',
+    component: () => import('@/views/surat_26.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/27/:id',
+    component: () => import('@/views/surat_27.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/28/:id',
+    component: () => import('@/views/surat_28.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/29/:id',
+    component: () => import('@/views/surat_29.vue')
+  },
+
+  {
+    path: '/sid/layanan_surat/30/:id',
+    component: () => import('@/views/surat_30.vue')
   },
 
   {

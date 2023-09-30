@@ -5,7 +5,7 @@
           <div class="box-title">
             <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
             <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Keterangan Beda Identitas</h6>
+            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Keterangan Beda Indentitas KIS</h6>
         </div>
         </div>
       </ion-header>
@@ -17,54 +17,9 @@
             <ion-col size="12">
               <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
-  
-            <ion-col size="12">
-              <ion-input label="Identitas dalam (Nama Kartu)" v-model="kartu" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
 
-            <ion-col size="12">
-              <ion-input label="Nomor Identitas" v-model="no_identitas" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
-
-            <ion-col size="12">
-              <ion-input label="Nama" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
-
-            <ion-col size="12">
-              <ion-input label="Tempat Lahir" v-model="tempat_lahir" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
-
-            <ion-col size="12">
-              <ion-input label="Tempat Lahir" v-model="tgl_lahir" labelPlacement="stacked" placeholder="" type="date"></ion-input>
-            </ion-col>
-
-            <ion-col size="12">
-                <ion-select label="Jenis Kelamin" v-model="jk" label-placement="stacked">
-                    <ion-select-option value="Laki-Laki">Laki-laki</ion-select-option>
-                    <ion-select-option value="Perempuan">Perempuan</ion-select-option>
-                </ion-select>
-            </ion-col>
-
-            <ion-col size="12">
-              <ion-input label="Alamat" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
-
-            <ion-col size="12">
-              <ion-input label="Agama" v-model="agama" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
-
-            <ion-col size="12">
-              <ion-input label="Pekerjaan" v-model="pekerjaan" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
-
-            <ion-col size="12">
-              <ion-input label="Keterangan" v-model="ket" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
-
-            <ion-col size="12">
-              <ion-input label="Perbedaan" v-model="perbedaan" labelPlacement="stacked" placeholder=""></ion-input>
-            </ion-col>
             
+
             <ion-col size="12" style="margin-top: 15px;">
               <ion-button color="primary" @click="simpan">Simpan</ion-button>
             </ion-col>
@@ -111,40 +66,18 @@
       },
     data() {
       return {
+        keperluan: '',
         id: this.$route.params.id,
         nik: '',
-        kartu: '',
-        no_identitas: '',
-        nama: '',
-        tempat_lahir: '',
-        tgl_lahir: '',
-        jk: '',
-        alamat: '',
-        agama: '',
-        pekerjaan: '',
-        ket: '',
-        perbedaan: '',
       };
     },
     methods: {
       async simpan(){
     let formData = new FormData()
 		formData.append('id', this.id)
-		formData.append('surat', 8)
+		formData.append('surat', 10)
 		formData.append('nik', this.nik)
-		formData.append('isi', {
-        kartu:this.kartu,
-        no_identitas:this.no_identitas,
-        nama:this.nama,
-        tempat_lahir:this.tempat_lahir,
-        tgl_lahir:this.tgl_lahir,
-        jk:this.jk,
-        alamat:this.alamat,
-        agama:this.agama,
-        pekerjaan:this.pekerjaan,
-        ket:this.ket,
-        perbedaan:this.perbedaan,
-      })
+		formData.append('isi', {'keperluan': this.keperluan})
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });
@@ -193,12 +126,7 @@
   ion-input{
     border-bottom: 1px solid black;
   }
-  ion-select{
-    border-bottom: 1px solid black; 
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-  }
-
-
+  
+  
   </style>
   

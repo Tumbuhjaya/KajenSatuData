@@ -5,7 +5,7 @@
           <div class="box-title">
             <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
             <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-            <h6 style="font-size: 20px;font-weight: bold;color: #fff;">Keterangan Kependudukan</h6>
+            <h6 style="font-size: 20px;font-weight: bold;color: #fff;">Ket. Pindah Kependudukan</h6>
         </div>
         </div>
       </ion-header>
@@ -15,20 +15,30 @@
         <ion-grid style="padding: 60px 15px !important;">
           <ion-row style="margin-bottom: 15px;">
             <ion-col size="12">
-              <ion-input label="NIK" name="" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="NIK" name="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
-              <ion-input label="Alamat Yang Dituju" name="" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Alamat Yang Dituju" name="alamat" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
-              <ion-input label="Alasan" name="" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Alasan" name="alasan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
-                <ion-datetime display-format="YYYY-DD-MM" display-timezone="utc" placeholder="Tanggal"></ion-datetime>
+              <ion-label style="font-size: 12px;font-weight: 500;">Waktu Pindah</ion-label>
+              <!-- <ion-datetime presentation="date" size="cover">
+                <span slot="title">Tanggal Pindah </span>
+              </ion-datetime> -->
+
+              <ion-datetime-button datetime="datetimes" style="display: flex;justify-content: flex-start;margin-top: 15px;"></ion-datetime-button>
+              <ion-modal :keep-contents-mounted="true">
+                <ion-datetime id="datetimes" presentation="date" :show-default-buttons="true" name="tanggal"></ion-datetime>
+              </ion-modal>
             </ion-col>
-  
             <ion-col size="12">
-              <ion-input label="NIK Ibu" name="" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Jumlah Pengikut" name="pengikut" labelPlacement="stacked" placeholder=""></ion-input>
+            </ion-col>
+            <ion-col size="12">
+              <ion-input label="Keterangan" name="ket" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
   
             <ion-col size="12">
@@ -43,13 +53,15 @@
               <ion-button color="primary">Simpan</ion-button>
             </ion-col>
           </ion-row>
+          
         </ion-grid>
       </ion-content>
+      
     </ion-page>
   </template>
   
   <script>
-  import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonDatetime, } from '@ionic/vue';
+  import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonDatetime, IonDatetimeButton, IonModal  } from '@ionic/vue';
   import { defineComponent } from 'vue';
   import { IonIcon } from '@ionic/vue';
   import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -73,6 +85,8 @@
       IonIcon,
       IonInput,
       IonDatetime,
+      IonDatetimeButton,
+      IonModal 
       
     },
     setup() {
@@ -110,5 +124,6 @@
   .sc-ion-input-md-h{
     border-bottom: 1px solid black;
   }
+  
   </style>
   

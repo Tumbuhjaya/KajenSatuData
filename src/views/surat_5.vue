@@ -5,7 +5,7 @@
           <div class="box-title">
             <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
             <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-            <h6 style="font-size: 20px;font-weight: bold;color: #fff;">Keterangan Jual Beli</h6>
+            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Keterangan Jual Beli</h6>
         </div>
         </div>
       </ion-header>
@@ -15,55 +15,54 @@
         <ion-grid style="padding: 60px 15px !important;">
           <ion-row style="margin-bottom: 15px;">
             <ion-col size="12">
-              <ion-input label="NIK" name="nik" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
   
             <ion-col size="12">
-              <ion-input label="Jenis Barang" name="jenis" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Jenis Barang" v-model="jenis" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Rincian Barang" name="barang" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Rincian Barang" v-model="barang" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Nomor Identitas Pembeli" name="no_identitas" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Nomor Identitas Pembeli" v-model="no_identitas" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Nama Pembeli" name="pembeli" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Nama Pembeli" v-model="pembeli" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Tempat Lahir Pembeli" name="tempat_lahir" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Tempat Lahir Pembeli" v-model="tempat_lahir" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-                <ion-label style="font-size: 12px;font-weight: 500;">Tanggal Lahir Pembeli</ion-label>
-              <ion-datetime-button datetime="datetimes" style="display: flex;justify-content: flex-start;margin-top: 15px;"></ion-datetime-button>
-              <ion-modal :keep-contents-mounted="true">
-                <ion-datetime id="datetimes" presentation="date" :show-default-buttons="true" name="tgl_lahir"></ion-datetime>
-              </ion-modal>
+              <ion-input label="Tanggal Lahir Pembeli" v-model="tanggal" labelPlacement="stacked" placeholder="" type="date"></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Jenis Kelamin Pembeli" name="jk" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-select label="Jenis Kelamin Pembeli" name="jk" label-placement="stacked">
+                    <ion-select-option value="Laki-Laki">Laki-laki</ion-select-option>
+                    <ion-select-option value="Perempuan">Perempuan</ion-select-option>
+                </ion-select>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Alamat Pembeli" name="alamat" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Alamat Pembeli" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Pekerjaan Pembeli" name="pekerjaan" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Pekerjaan Pembeli" v-model="pekerjaan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Keterangan" name="ket" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Keterangan" v-model="ket" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Nama Ketua Adat" name="ketua" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Nama Ketua Adat" v-model="ketua" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
   
             <ion-col size="12" style="margin-top: 15px;">
@@ -138,8 +137,13 @@
     position: relative;
   }
   
-  .sc-ion-input-md-h{
+  ion-input{
     border-bottom: 1px solid black;
+  }
+  ion-select{
+    border-bottom: 1px solid black; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
   }
   
   </style>

@@ -15,7 +15,7 @@
         <ion-grid style="padding: 60px 15px !important;">
           <ion-row style="margin-bottom: 15px;">
             <ion-col size="12">
-              <ion-input label="NIK" name="nik" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             
             <ion-col size="12" style="margin-top: 15px;">
@@ -90,10 +90,9 @@
     position: relative;
   }
   
-  .sc-ion-input-md-h{
+  ion-input{
     border-bottom: 1px solid black;
   }
-  
   
   </style>
   

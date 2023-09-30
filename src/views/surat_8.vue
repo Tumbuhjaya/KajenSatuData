@@ -15,58 +15,54 @@
         <ion-grid style="padding: 60px 15px !important;">
           <ion-row style="margin-bottom: 15px;">
             <ion-col size="12">
-              <ion-input label="NIK" name="nik" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="NIK" v-model="nik" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
   
             <ion-col size="12">
-              <ion-input label="Identitas dalam (Nama Kartu)" name="kartu" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Identitas dalam (Nama Kartu)" v-model="kartu" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Nomor Identitas" name="no_identitas" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Nomor Identitas" v-model="no_identitas" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Nama" name="nama" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Nama" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Tempat Lahir" name="tempat_lahir" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Tempat Lahir" v-model="tempat_lahir" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-                <ion-label style="font-size: 12px;font-weight: 500;">Tanggal Lahir</ion-label>
-              <ion-datetime-button datetime="datetimes" style="display: flex;justify-content: flex-start;margin-top: 15px;"></ion-datetime-button>
-              <ion-modal :keep-contents-mounted="true">
-                <ion-datetime id="datetimes" presentation="date" :show-default-buttons="true" name="tgl_lahir"></ion-datetime>
-              </ion-modal>
+              <ion-input label="Tempat Lahir" v-model="tgl_lahir" labelPlacement="stacked" placeholder="" type="date"></ion-input>
             </ion-col>
 
             <ion-col size="12">
-                <ion-select label="Jenis Kelamin" name="jk" label-placement="stacked">
+                <ion-select label="Jenis Kelamin" v-model="jk" label-placement="stacked">
                     <ion-select-option value="Laki-Laki">Laki-laki</ion-select-option>
                     <ion-select-option value="Perempuan">Perempuan</ion-select-option>
                 </ion-select>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Alamat" name="alamat" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Alamat" v-model="alamat" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Agama" name="agama" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Agama" v-model="agama" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Pekerjaan" name="pekerjaan" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Pekerjaan" v-model="pekerjaan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Keterangan" name="ket" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Keterangan" v-model="ket" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
 
             <ion-col size="12">
-              <ion-input label="Perbedaan" name="perbedaan" labelPlacement="stacked" placeholder=""></ion-input>
+              <ion-input label="Perbedaan" v-model="perbedaan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             
             <ion-col size="12" style="margin-top: 15px;">

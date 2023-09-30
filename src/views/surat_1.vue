@@ -5,7 +5,7 @@
         <div class="box-title">
           <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">Keterangan Pengantar</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Keterangan Pengantar</h6>
       </div>
       </div>
     </ion-header>
@@ -111,7 +111,8 @@ export default defineComponent({
   position: relative;
 }
 
-.sc-ion-input-md-h{
+ion-input{
   border-bottom: 1px solid black;
 }
+
 </style>

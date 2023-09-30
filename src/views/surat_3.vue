@@ -135,7 +135,8 @@ export default defineComponent({
   position: relative;
 }
 
-.sc-ion-input-md-h{
+ion-input{
   border-bottom: 1px solid black;
 }
+
 </style>

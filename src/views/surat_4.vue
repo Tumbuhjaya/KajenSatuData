@@ -5,7 +5,7 @@
           <div class="box-title">
             <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
             <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-            <h6 style="font-size: 20px;font-weight: bold;color: #fff;">Ket. Pindah Kependudukan</h6>
+            <h6 style="font-size: 20px;font-weight: bold;color: #fff;text-align: center;">Ket. Pindah Kependudukan</h6>
         </div>
         </div>
       </ion-header>
@@ -24,15 +24,7 @@
               <ion-input label="Alasan" name="alasan" labelPlacement="stacked" placeholder=""></ion-input>
             </ion-col>
             <ion-col size="12">
-              <ion-label style="font-size: 12px;font-weight: 500;">Waktu Pindah</ion-label>
-              <!-- <ion-datetime presentation="date" size="cover">
-                <span slot="title">Tanggal Pindah </span>
-              </ion-datetime> -->
-
-              <ion-datetime-button datetime="datetimes" style="display: flex;justify-content: flex-start;margin-top: 15px;"></ion-datetime-button>
-              <ion-modal :keep-contents-mounted="true">
-                <ion-datetime id="datetimes" presentation="date" :show-default-buttons="true" v-model="tanggal"></ion-datetime>
-              </ion-modal>
+              <ion-input label="Tanggal Pindah" v-model="tanggal" labelPlacement="stacked" placeholder="" type="date"></ion-input>
             </ion-col>
             <ion-col size="12">
               <ion-input label="Jumlah Pengikut" v-model="pengikut" labelPlacement="stacked" placeholder=""></ion-input>
@@ -150,9 +142,9 @@
     position: relative;
   }
   
-  .sc-ion-input-md-h{
+  ion-input{
     border-bottom: 1px solid black;
   }
-  
+
   </style>
   

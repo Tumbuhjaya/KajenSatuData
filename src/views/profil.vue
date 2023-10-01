@@ -3,7 +3,7 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="box-title">
-          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/marketplace')"></ion-icon>
+          <!-- <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/marketplace')"></ion-icon> -->
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
           <h6 style="font-size: 20px;font-weight: bold;color: #fff;">Profil</h6>
       </div>
@@ -43,14 +43,14 @@
         <ion-row style="margin-top: 15px;">
             <ion-col size="12">
                 <ion-list lines="full">
-                <ion-item>
+                <ion-item @click="$router.push('/profil/ubah_profil')">
                     <div style="display: flex;justify-content: center;align-items: center;">
                         <ion-img src="/assets/cogwheel.png" style="width: 30px;"></ion-img>
                         <ion-label style="margin-left:15px ;">Ubah Profil</ion-label>
                     </div>
                 </ion-item>
-                <ion-item>
-                    <div style="display: flex;justify-content: center;align-items: center;">
+                <ion-item @click="$router.push('/profil/produk_umkm')">
+                    <div style="display: flex;justify-content: center;align-items: center;" >
                         <ion-img src="/assets/produk.png" style="width: 30px;"></ion-img>
                         <ion-label style="margin-left:15px ;">Produk UMKM</ion-label>
                     </div>

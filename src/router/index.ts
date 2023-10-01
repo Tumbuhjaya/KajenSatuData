@@ -326,6 +326,27 @@ const routes: Array<RouteRecordRaw> = [
     path: '/profil',
     component: () => import('@/views/profil.vue')
   },
+
+  {
+    path: '/profil/ubah_profil',
+    component: () => import('@/views/ubah_profil.vue')
+  },
+
+  {
+    path: '/profil/produk_umkm',
+    component: () => import('@/views/profil_produk_umkm.vue')
+  },
+
+  {
+    path: '/profil/tambah_produk',
+    component: () => import('@/views/tambah_produk.vue')
+  },
+
+  {
+    path: '/profil/detail_produk_umkm/:id',
+    component: () => import('@/views/profil_detail_produk_umkm.vue')
+  },
+
   {
     path: '/tabs-dashboard/',
     component: TabsPage,

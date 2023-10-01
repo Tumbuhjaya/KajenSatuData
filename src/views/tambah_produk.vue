@@ -15,21 +15,21 @@
       <ion-grid style="padding: 60px 15px !important;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12">
-            <ion-input label="Nama Produk" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Nama Produk" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
           <ion-col size="12">
-            <ion-input label="Harga" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Harga" type="number" v-model="harga" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
           <ion-col size="12">
-              <ion-select label="Kategori" name="" label-placement="stacked">
+              <ion-select label="Kategori" v-model="ktg" label-placement="stacked">
                 <!-- ambil dari master kategori produk -->
-                <ion-select-option value="Laki-Laki">Laki-laki</ion-select-option>
-                <ion-select-option value="Perempuan">Perempuan</ion-select-option>
+                <ion-select-option v-for="(item, i) in kategori" :key="i" :value="item.id_produk_ktg" >{{ item.nama }}</ion-select-option>
+
               </ion-select>
           </ion-col>
 
           <ion-col size="12">
-            <ion-textarea label="Deskripsi Produk" labelPlacement="stacked" placeholder="Enter text"></ion-textarea>
+            <ion-textarea label="Deskripsi Produk" v-model="deskripsi" labelPlacement="stacked" placeholder="Enter text"></ion-textarea>
           </ion-col>
 
           <ion-col>
@@ -73,6 +73,8 @@ import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
+import { Camera, CameraResultType, CameraSource } from "@capacitor/camera";
+import { Storage } from "@capacitor/storage";
 
 import { ip_server } from "@/ip-config";
 
@@ -100,18 +102,27 @@ export default defineComponent({
     },
   data() {
     return {
-      nik:'',
-      keperluan:'',
-      id: this.$route.params.id,
+      foto1: "",
+      afoto1: "",
+      harga:0,
+      nama:'',
+      ktg:0,
+      deskripsi:'',
+      kategori:[]
     };
   },
   methods: {
     async simpan(){
+      let vm = this
+      const { value } = await Storage.get({ key: 'login' });
     let formData = new FormData()
-		formData.append('id', this.id)
-		formData.append('surat', 1)
-		formData.append('nik', this.nik)
-		formData.append('isi', {'keperluan': this.keperluan})
+    formData.append("foto", vm.afoto1);
+		formData.append('harga', (vm.harga).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'))
+		formData.append('nama', vm.nama)
+		formData.append('id',value)
+    formData.append('ktg', vm.ktg)
+    formData.append('deskripsi', vm.deskripsi)
+
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });
@@ -121,11 +132,11 @@ export default defineComponent({
           headers: {
             "Content-Type": "multipart/form-data",
           },
-          url: ip_server+'surat-save.php',
+          url: ip_server+'produk-save.php',
           data: formData,
         }).then(function (hsl) {
           console.log(hsl);
-          if (hsl.data==1) {
+          if (hsl.data) {
             alert('sukses')
           }else{
             alert('gagal')
@@ -133,8 +144,38 @@ export default defineComponent({
         })
         await loading.dismiss();
 
-    }
+    },
+    async takePicture(nama) {
+      let vm = this;
+      const cameraPhoto = await Camera.getPhoto({
+        resultType: CameraResultType.Uri,
+        source: CameraSource.Photos,
+        promptLabelHeader: "Pilih Aksi",
+        promptLabelPhoto: "Ambil Dari Galeri",
+        promptLabelPicture: "Ambil Dari Camera",
+        quality: 30,
+        saveToGallery: true,
+        allowEditing: false,
+      });
+      let x = await fetch(`${cameraPhoto.webPath}`).then((e) => {
+        return e.blob();
+      });
+
+      vm[nama] = cameraPhoto.webPath;
+      vm["a" + nama] = x;
+    },
+    async get_ktg(){
+      let res = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/produk-ktg.php`,
+      })
+      this.kategori = res.data
+      console.log(res.data);
+    },
   },
+  async created(){
+    await this.get_ktg()
+  }
   });
 </script>
 

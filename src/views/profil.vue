@@ -188,6 +188,7 @@ export default defineComponent({
     },
     async logout(){
       await Storage.remove({ key: 'login' });
+      this.$router.push("/tabs-dashboard/dashboard");
     }
   },
   async created() {

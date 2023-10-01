@@ -26,7 +26,18 @@
         </ion-row>
 
         <ion-row style="margin-top: 15px;">
-          <ion-col size="6" style="margin-bottom: 15px;" @click="$router.push('/profil/detail_produk_umkm/1')">
+          <ion-col size="6" style="margin-bottom: 15px;"   v-for="(item,id) in data_produk" :key="id"  @click="$router.push('/profil/detail_produk_umkm/1')">
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+              <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <div style="width:100%;height: 100px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
+                <h6 style="font-size: 14px;text-align: center;"><strong>{{ item.nama }}</strong></h6>
+                <h6 style="font-size: 14px;text-align: center;font-weight: normal;margin-top: 5px !important;">Rp {{ item.harga }},-</h6>
+              </div>
+            </div>
+          </ion-col>
+
+          <!-- <ion-col size="6" style="margin-bottom: 15px;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               
               <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
@@ -57,18 +68,7 @@
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;margin-top: 5px !important;">Rp 0.000.000,-</h6>
               </div>
             </div>
-          </ion-col>
-
-          <ion-col size="6" style="margin-bottom: 15px;">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
-              
-              <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-              <div style="width:100%;height: 100px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 14px;text-align: center;"><strong>Nama Produk</strong></h6>
-                <h6 style="font-size: 14px;text-align: center;font-weight: normal;margin-top: 5px !important;">Rp 0.000.000,-</h6>
-              </div>
-            </div>
-          </ion-col>
+          </ion-col> -->
           
         </ion-row>
       </ion-grid>
@@ -82,6 +82,7 @@ import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
+import { Storage } from "@capacitor/storage";
 
 export default defineComponent({
   components: {
@@ -109,7 +110,8 @@ export default defineComponent({
   data() {
     return {
       segment: "data1",
-      data_produk: []
+      data_produk: [],
+      id:0,
     };
   },
   methods: {
@@ -129,7 +131,7 @@ export default defineComponent({
     async get_produk(){
       let res = await axios({
       method: "get",
-        url:`https://ksd.pekalongankab.go.id/api/produk-user.php?user=`+ this.$route.params.id,
+        url:`https://ksd.pekalongankab.go.id/api/produk-user.php?user=`+ this.id,
       })
       console.log(res.data);
       for (let i = 0; i < res.data.length; i++) {
@@ -138,6 +140,8 @@ export default defineComponent({
     }
   },
   async created() {
+    const { value } = await Storage.get({ key: 'login' });
+    this.id = value 
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

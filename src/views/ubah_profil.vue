@@ -15,18 +15,17 @@
       <ion-grid style="padding: 60px 15px !important;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12">
-            <ion-input label="Nama" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="Nama" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
           <ion-col size="12">
-              <ion-select label="Desa" name="" label-placement="stacked">
+              <ion-select label="Desa" v-model="desa"  :value="desa" label-placement="stacked">
                 <!-- ambil dari master kategori produk -->
-                <ion-select-option value="Laki-Laki">Laki-laki</ion-select-option>
-                <ion-select-option value="Perempuan">Perempuan</ion-select-option>
+                <ion-select-option v-for="(ds, i) in Desa" :key="i" :value="ds.id" selected>{{ ds.nama }}</ion-select-option>
               </ion-select>
           </ion-col>
 
           <ion-col size="12">
-              <ion-select label="Kategori" name="" label-placement="stacked">
+              <ion-select label="Kategori" v-model="ktg" :value="ktg" label-placement="stacked">
                 <!-- ambil dari master kategori produk -->
                 <ion-select-option value="UMKM">UMKM</ion-select-option>
                 <ion-select-option value="Bukan UMKM">Bukan UMKM</ion-select-option>
@@ -34,7 +33,7 @@
           </ion-col>
 
           <ion-col size="12">
-            <ion-input label="password" labelPlacement="stacked" placeholder=""></ion-input>
+            <ion-input label="password" v-model="password" type="password" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
@@ -52,6 +51,8 @@ import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
+import { Desa } from "../../data.ts";
+import { Storage } from "@capacitor/storage";
 
 import { ip_server } from "@/ip-config";
 
@@ -79,9 +80,14 @@ export default defineComponent({
     },
   data() {
     return {
-      nik:'',
-      keperluan:'',
-      id: this.$route.params.id,
+      Desa:[],
+      nama:'',
+      desa:0,
+      id_desa:'',
+      ktg:'',
+      id_user_android: 0,
+      password:'',
+      user:{},
     };
   },
   methods: {
@@ -104,7 +110,8 @@ export default defineComponent({
           data: formData,
         }).then(function (hsl) {
           console.log(hsl);
-          if (hsl.data==1) {
+          if (hsl.data) {
+            
             alert('sukses')
           }else{
             alert('gagal')
@@ -112,8 +119,32 @@ export default defineComponent({
         })
         await loading.dismiss();
 
-    }
+    },
+    async get_user(){
+      let res = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/user.php?id=`+this.id,
+      })
+      this.user = res.data
+      this.nama=res.data.nama
+      this.ktg=res.data.ktg
+      this.id_user_android=res.data.id_user_android
+      this.id_desa=res.data.id_desa
+      console.log(res.data);
+    },
   },
+  async created(){
+    const { value } = await Storage.get({ key: 'login' });
+    this.id = value 
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
+    this.Desa = Desa
+    await this.get_user()
+    this.desa=this.id_desa
+    await loading.dismiss();
+  }
   });
 </script>
 

@@ -166,8 +166,6 @@ export default defineComponent({
           password:this.password,
           ktg: this.ktg,
         }).then(function (hsl) {
-          console.log(hsl);
-
           if (hsl.data==1) {
             alert('sukses')
           }else{
@@ -183,18 +181,24 @@ export default defineComponent({
           message: 'Mohon Tunggu...',
         });
     await loading.present();
-      await axios
-        .post(ip_server + "login.php", {
-          email:this.email,
-          password:this.password,
+    let formData = new FormData()
+		formData.append('email', this.email)
+		formData.append('password', this.password)
+      await axios({
+          method: "post",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          url: ip_server+'login.php',
+          data: formData,
         }).then(async function (hsl) {
           console.log(hsl);
-          if (hsl.data==1) {
-            alert('sukses')
+          if (hsl.data) {
             await Storage.set({
-              key: "login",
-              value: hsl,
+              key: 'login',
+              value: hsl.data,
             });
+            alert('sukses')
           }else{
             alert('gagal')
           }

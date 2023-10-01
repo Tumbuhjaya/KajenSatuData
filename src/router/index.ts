@@ -322,7 +322,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/detail_produk.vue')
   },
 
-
+  {
+    path: '/profil',
+    component: () => import('@/views/profil.vue')
+  },
   {
     path: '/tabs-dashboard/',
     component: TabsPage,

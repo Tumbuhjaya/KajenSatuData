@@ -17,10 +17,11 @@
           <ion-col style="padding-top: 0;">
             <div style="width: 100%;display: flex;">
               <div style="width:77%;">
-                <ion-input class="custom" placeholder="Cari Produk ...." style="margin:0;box-shadow:0px 4px 4px 0px #00000040;border-radius: 10px;"></ion-input>
+                <ion-input class="custom" v-model="kata_cari" :value="kata_cari" placeholder="Cari Produk ...." style="margin:0;box-shadow:0px 4px 4px 0px #00000040;border-radius: 10px;"></ion-input>
+                
               </div>
               <div style="width:18%;margin-left: 5%;">
-                <ion-button color="warning" style="margin: 0 !important;">Cari</ion-button>
+                <ion-button color="warning" style="margin: 0 !important;" @click="cari">Cari</ion-button>
               </div>
             </div>
           </ion-col>
@@ -139,7 +140,7 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
+import { IonInput, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -148,6 +149,7 @@ import moment from "moment";
 moment.locale("id");
 export default defineComponent({
   components: {
+    IonInput,
     IonPage,
     IonHeader,
     IonToolbar,
@@ -171,6 +173,7 @@ export default defineComponent({
   data() {
     return {
       foto: "",
+      katacari:'',
       id_seni_budaya: "",
       isi: "",
       jenis: "",
@@ -236,6 +239,26 @@ export default defineComponent({
       this.jenis=hsl.data.jenis;
       this.nama=hsl.data.nama;
     },
+    async cari(){
+      let vm = this
+      console.log(vm.kata_cari);
+      if(vm.kata_cari!=''){
+        console.log('if');
+        let hsl = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/produk-cari.php?kunci=`+this.kata_cari,
+      })
+      this.data_produk = []
+      for (let i = 0; i < hsl.data.length; i++) {
+        this.data_produk.push(hsl.data[i])
+      }
+      }else{
+        console.log('else');
+
+        await this.get_produk()
+
+      }
+    }
   },
   async created() {
     await this.get_umkm()

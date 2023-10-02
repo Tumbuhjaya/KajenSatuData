@@ -142,6 +142,7 @@ export default defineComponent({
   async created() {
     const { value } = await Storage.get({ key: 'login' });
     this.id = value 
+    this.data_produk = []
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

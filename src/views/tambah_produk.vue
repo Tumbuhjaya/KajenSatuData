@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import { loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonTextarea } from '@ionic/vue';
+import { IonSelect , IonSelectOption, loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonTextarea } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -80,6 +80,7 @@ import { ip_server } from "@/ip-config";
 
 export default defineComponent({
   components: {
+    IonSelect , IonSelectOption,
     loadingController,
     IonPage,
     IonHeader,
@@ -117,12 +118,12 @@ export default defineComponent({
       const { value } = await Storage.get({ key: 'login' });
     let formData = new FormData()
     formData.append("foto", vm.afoto1);
-		formData.append('harga', (vm.harga).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'))
+		formData.append('harga', Number(vm.harga))
 		formData.append('nama', vm.nama)
-		formData.append('id',value)
-    formData.append('ktg', vm.ktg)
-    formData.append('deskripsi', vm.deskripsi)
-
+		formData.append('user',value)
+    formData.append('kategori', Number(vm.ktg))
+    formData.append('deskripsi', vm.deskripsi ) 
+    console.log('foto' , vm.afoto1 ,'harga', Number(vm.harga),'nama', vm.nama ,'user', value ,'kategori', Number(vm.ktg),'deskripsi', vm.deskripsi );
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

@@ -159,7 +159,7 @@ export default defineComponent({
       this.$router.push("/login");
     },
   },
-  async created(){
+  async ionViewDidEnter(){
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

@@ -347,7 +347,7 @@ export default defineComponent({
       },setTimeout(1000))
     }
   },
-  async created() {
+  async ionViewDidEnter() {
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

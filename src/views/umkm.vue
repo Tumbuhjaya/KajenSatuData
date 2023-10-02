@@ -234,7 +234,7 @@ export default defineComponent({
       }
     }
   },
-  async created() {
+  async ionViewDidEnter() {
     await this.get_all_umkm()
     await this.get_seni()
   }});

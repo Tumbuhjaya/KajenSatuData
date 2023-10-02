@@ -228,7 +228,7 @@ export default defineComponent({
       console.log(this.email);
     }
   },
-  created(){
+  ionViewDidEnter(){
     console.log(Desa);
   }
 });

@@ -82,7 +82,7 @@
           </ion-col>
 
           <ion-col size="12">
-            <ion-select label="Filter Berdasarkan Kategori" placeholder="-- Pilih --">
+            <ion-select label="Filter Berdasarkan Kategori" v-model="kategori" placeholder="-- Pilih --">
             <ion-select-option v-for="(item, id) in data_kategori" :value="item.nama">{{ item.nama }}</ion-select-option>
             <!-- <ion-select-option value="banana">Banana</ion-select-option>
             <ion-select-option value="orange">Orange</ion-select-option> -->
@@ -131,7 +131,10 @@
         </ion-row>
       </ion-grid>
       <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button @click="$router.push('/login')">
+        <ion-fab-button v-if="isLogin" @click="$router.push('/profil/tambah_produk')">
+          <ion-icon :icon="arrowBackCircleOutline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button v-else @click="$router.push('/login')">
           <ion-icon :icon="arrowBackCircleOutline"></ion-icon>
         </ion-fab-button>
       </ion-fab>
@@ -140,16 +143,18 @@
 </template>
 
 <script>
-import { IonSelect,IonSelectOption, IonInput, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
+import {IonFab,IonFabButton,loadingController, IonSelect,IonSelectOption, IonInput, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
+import { Storage } from "@capacitor/storage";
+
 moment.locale("id");
 export default defineComponent({
   components: {
-    IonSelect,IonSelectOption,
+    IonSelect,IonSelectOption,IonFab,IonFabButton,loadingController,
     IonInput,
     IonPage,
     IonHeader,
@@ -182,7 +187,10 @@ export default defineComponent({
       segment: "data1",
       data_umkm: [],
       data_produk: [],
-      data_kategori: []
+      data_kategori: [],
+      kata_cari:'',
+      kategori:'',
+      isLogin:0
     };
   },
   methods: {
@@ -218,6 +226,17 @@ export default defineComponent({
         this.data_produk.push(res.data[i])
       }
     },
+    async get_ganti_kategori(){
+      let res = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/produk-cari.php?kunci=`+this.kategori,
+      })
+      console.log(res.data);
+      this.data_produk =[]
+      for (let i = 0; i < res.data.length; i++) {
+        this.data_produk.push(res.data[i])
+      }
+    },
     async get_kategori(){
       let res = await axios({
       method: "get",
@@ -244,28 +263,52 @@ export default defineComponent({
       let vm = this
       console.log(vm.kata_cari);
       if(vm.kata_cari!=''){
-        console.log('if');
+        const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
         let hsl = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/produk-cari.php?kunci=`+this.kata_cari,
       })
+      await loading.dismiss();
+
       this.data_produk = []
       for (let i = 0; i < hsl.data.length; i++) {
         this.data_produk.push(hsl.data[i])
       }
       }else{
-        console.log('else');
-
         await this.get_produk()
-
       }
+
     }
   },
-  async created() {
+  watch: {
+   kategori:async function (newVal , old) {
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
+    await this.get_ganti_kategori()
+      await loading.dismiss();
+
+   },
+  },
+  async ionViewDidEnter() {
+    const { value } = await Storage.get({ key: 'login' });
+    if (value) {
+      this.isLogin = value
+    }
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    await loading.present();
     await this.get_umkm()
     await this.get_produk()
     await this.get_kategori()
     await this.get_seni()
+    await loading.dismiss();
+
   }});
 </script>
 

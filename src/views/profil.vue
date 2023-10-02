@@ -193,7 +193,7 @@ export default defineComponent({
       this.$router.push("/tabs-dashboard/dashboard");
     }
   },
-  async created() {
+  async ionViewDidEnter() {
     const { value } = await Storage.get({ key: 'login' });
     this.id = value 
     const loading = await loadingController.create({

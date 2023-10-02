@@ -22,15 +22,11 @@
               <ion-img  v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
               
               
-              <div style="width: 100%;padding: 15px 30px;background-color: #fff;position: absolute;left:0;right:0;top:260px;border-top-left-radius: 30px;border-top-right-radius: 30px;">
+              <div style="width: 100%;padding: 15px 30px;background-color: #fff;position: absolute;left:0;right:0;top:280px;border-top-left-radius: 30px;border-top-right-radius: 30px;">
                 <h6 style="margin-top: 15px !important;font-weight: normal;">{{ isi }}</h6>
               </div>
             </div>
 
-            
-          </ion-col>
-
-          <ion-col style="" size="12">
             
           </ion-col>
         </ion-row>

@@ -85,8 +85,6 @@
 
                       <div style="width: 100%;display: flex;justify-content: center;align-items: center;margin-top: 15px;padding: 0 60px;">
                         <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="daftar" color="light" size="large">Daftar</ion-button>
-                        <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="cari" color="light" size="large">Daftar</ion-button>
-
                       </div>
                     </div>
                   </ion-col>
@@ -159,16 +157,32 @@ export default defineComponent({
           message: 'Mohon Tunggu...',
         });
     await loading.present();
-      await axios
-        .post(ip_server + "buat.php", {
-          desa:this.id_desa,
-          nama:this.nama,
-          wa:this.wa,
-          email:this.email,
-          password:this.password,
-          ktg: this.ktg,
-        }).then(function (hsl) {
-          if (hsl.data==1) {
+    let form = new FormData()
+		form.append('desa',this.id_desa)
+		form.append('nama', this.nama)
+		form.append('wa', this.wa)
+		form.append('email', this.email)
+		form.append('password', this.password)
+		form.append('ktg', this.ktg)
+    await axios({
+          method: "post",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          url: ip_server+'buat.php',
+          data: form,
+        })
+      // await axios
+      //   .post(ip_server + "buat.php", {
+      //     desa:this.id_desa,
+      //     nama:this.nama,
+      //     wa:this.wa,
+      //     email:this.email,
+      //     password:this.password,
+      //     ktg: this.ktg,
+      //   })
+        .then(function (hsl) {
+          if (hsl.data!=0) {
             alert('sukses')
           }else{
             alert('gagal')

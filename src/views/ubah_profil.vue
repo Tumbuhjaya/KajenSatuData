@@ -18,14 +18,14 @@
             <ion-input label="Nama" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
           <ion-col size="12">
-              <ion-select label="Desa" v-model="desa"  :value="desa" label-placement="stacked">
+              <ion-select label="Desa" v-model="desa"   label-placement="stacked">
                 <!-- ambil dari master kategori produk -->
-                <ion-select-option v-for="(ds, i) in Desa" :key="i" :value="ds.id" selected>{{ ds.nama }}</ion-select-option>
+                <ion-select-option v-for="(ds, i) in Desa" :key="i" :value="ds.id">{{ ds.nama }}</ion-select-option>
               </ion-select>
           </ion-col>
 
           <ion-col size="12">
-              <ion-select label="Kategori" v-model="ktg" :value="ktg" label-placement="stacked">
+              <ion-select label="Kategori" v-model="ktg"  label-placement="stacked">
                 <!-- ambil dari master kategori produk -->
                 <ion-select-option value="UMKM">UMKM</ion-select-option>
                 <ion-select-option value="Bukan UMKM">Bukan UMKM</ion-select-option>
@@ -93,22 +93,25 @@ export default defineComponent({
   },
   methods: {
     async simpan(){
-    let formData = new FormData()
-		formData.append('id', this.id)
-		formData.append('surat', 1)
-		formData.append('nik', this.nik)
-		formData.append('isi', {'keperluan': this.keperluan})
+      let form = new FormData()
+		form.append('desa',this.id_desa)
+		form.append('nama', this.nama)
+		form.append('wa', this.wa)
+		form.append('email', this.email)
+		form.append('password', this.password)
+		form.append('ktg', this.ktg)
+
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });
     await loading.present();
-      await axios({
+    await axios({
           method: "post",
           headers: {
             "Content-Type": "multipart/form-data",
           },
-          url: ip_server+'surat-save.php',
-          data: formData,
+          url: ip_server+'buat.php',
+          data: form,
         }).then(function (hsl) {
           console.log(hsl);
           if (hsl.data) {

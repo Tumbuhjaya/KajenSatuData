@@ -140,7 +140,7 @@ export default defineComponent({
       }
     }
   },
-  async created() {
+  async ionViewWillEnter() {
     const { value } = await Storage.get({ key: 'login' });
     this.id = value 
     this.data_produk = []

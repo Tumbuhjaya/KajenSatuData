@@ -20,7 +20,7 @@
           <ion-col size="12">
               <ion-select label="Desa" v-model="desa"   label-placement="stacked">
                 <!-- ambil dari master kategori produk -->
-                <ion-select-option v-for="(ds, i) in Desa" :key="i" :value="ds.id">{{ ds.nama }}</ion-select-option>
+                <ion-select-option v-for="(ds, id) in Desa" :key="id" :value="ds.id">{{ ds.nama }}</ion-select-option>
               </ion-select>
           </ion-col>
 

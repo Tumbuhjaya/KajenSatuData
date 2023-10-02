@@ -3,21 +3,20 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="box-title">
-          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/sid')"></ion-icon>
+          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #1c47bc;" @click="$router.push('/sid')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">DETAIL DESA</h6>
-      </div>
+          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">Detail Desa</h6>
+        </div>
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
-      <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
+      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: fixed;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;z-index: 1;"></div>
 
-      <ion-img v-if="data.foto" :src="data.foto" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-img v-else src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-grid style="padding: 60px 15px !important;">
+      <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-grid style="padding: 60px 20px !important;position: relative;z-index: 1;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
-            <div style="width: 100%;background-color: #fff;display: flex;">
+            <div style="width: 100%;background-color: ;display: flex;">
               
               <div style="width:60%;padding-right: 30px;height: 160px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 16px;"><strong>{{ data.nama }}</strong></h6>
@@ -502,30 +501,6 @@
                         <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[27] }}</h6>
                       </div>
                     </div>
-
-                    <div style="display: table-row;">
-                      <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">Budha</h6>
-                      </div>
-                      <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
-                      </div>
-                      <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[28] }}</h6>
-                      </div>
-                    </div>
-
-                    <div style="display: table-row;">
-                      <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">Khonghucu</h6>
-                      </div>
-                      <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">:</h6>
-                      </div>
-                      <div style="display: table-cell;padding:5px 0">
-                        <h6 style="font-size: 14px;font-weight: normal;">{{ statistik[29] }}</h6>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </ion-accordion>
@@ -964,8 +939,11 @@ export default defineComponent({
 .box-header{
   width: 100%;
   height: ;
-  background-color: #4c87f2;
-  padding: 15px 35px;
+  background-image: url('/assets/13263.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: top;
+  padding: 15px 20px;
 }
 
 .box-header .box-title{

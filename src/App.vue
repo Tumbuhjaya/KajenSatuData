@@ -33,4 +33,24 @@ import { IonApp, IonRouterOutlet } from '@ionic/vue';
   ion-modal ion-toolbar{
     --background : #1c47bc !important
   }
+
+  .box-header{
+    width: 100%;
+    height: ;
+    background-image: url('/assets/13263.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: top;
+    padding: 15px 20px;
+  }
+
+  .box-header .box-title{
+    width: 100%;
+    height: 70px;
+    background-color: ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
 </style>

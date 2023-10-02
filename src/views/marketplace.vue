@@ -131,7 +131,7 @@
         </ion-row>
       </ion-grid>
       <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button v-if="isLogin" @click="$router.push('/profil/tambah_produk')">
+        <ion-fab-button v-if="isLogin" @click="$router.push('/profil/produk_umkm')">
           <ion-icon :icon="arrowBackCircleOutline"></ion-icon>
         </ion-fab-button>
         <ion-fab-button v-else @click="$router.push('/login')">

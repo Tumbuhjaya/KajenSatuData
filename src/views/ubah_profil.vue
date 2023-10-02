@@ -20,7 +20,7 @@
           <ion-col size="12">
               <ion-select label="Desa" v-model="desa"   label-placement="stacked">
                 <!-- ambil dari master kategori produk -->
-                <ion-select-option v-for="(ds, i) in Desa" :key="i" :value="ds.id">{{ ds.nama }}</ion-select-option>
+                <ion-select-option v-for="(ds, id) in Desa" :key="id" :value="ds.id">{{ ds.nama }}</ion-select-option>
               </ion-select>
           </ion-col>
 
@@ -89,18 +89,26 @@ export default defineComponent({
       id_user_android: 0,
       password:'',
       user:{},
+      id:0,
+      wa:0,
     };
   },
   methods: {
     async simpan(){
       let form = new FormData()
-		form.append('desa',this.id_desa)
+		form.append('id', this.id_user_android)
 		form.append('nama', this.nama)
-		form.append('wa', this.wa)
-		form.append('email', this.email)
-		form.append('password', this.password)
+      form.append('desa', this.desa)
 		form.append('ktg', this.ktg)
-
+		form.append('wa', this.wa)
+      form.append('password', this.password)
+      console.log('id', this.id_user_android,
+      'nama', this.nama,
+      'desa', this.desa,
+      'ktg', this.ktg,
+      'wa', this.wa,
+      'password', this.password
+      );
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });
@@ -110,7 +118,7 @@ export default defineComponent({
           headers: {
             "Content-Type": "multipart/form-data",
           },
-          url: ip_server+'buat.php',
+          url: ip_server+'ubah.php',
           data: form,
         }).then(function (hsl) {
           console.log(hsl);
@@ -125,6 +133,8 @@ export default defineComponent({
 
     },
     async get_user(){
+      const { value } = await Storage.get({ key: 'login' });
+      this.id = value
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/user.php?id=`+this.id,
@@ -134,7 +144,11 @@ export default defineComponent({
       this.ktg=res.data.ktg
       this.id_user_android=res.data.id_user_android
       this.id_desa=res.data.id_desa
-      console.log(res.data);
+      this.wa=res.data.wa
+      this.desa=Number(res.data.id_desa)
+
+      
+      console.log(res.data,this.desa);
     },
   },
   async created(){

@@ -41,7 +41,7 @@
               </div>
               <div style="width: 100%;height: 2px;background-color: #D3D3D3;margin-top: 15px;"></div>
               <ion-button style="margin-top: 15px;" expand="block" @click="wa">Hubungi Penjual via Whatsapp</ion-button>
-              <ion-button style="margin-top: 15px;" expand="block" color="danger">Hapus Produk</ion-button>
+              <ion-button style="margin-top: 15px;" expand="block" color="danger" @click="hapus">Hapus Produk</ion-button>
             </div>
           </ion-col>
         </ion-row>
@@ -124,7 +124,18 @@ export default defineComponent({
     },
     wa(){
       location.href = 'https://wa.me/'+this.user.wa
+    },
+    async hapus(){
+      if (confirm('Apakah Anda Yakin Akan Menghapus Data Ini?')) {
+        let res = await axios({
+        method: "get",
+          url:`https://ksd.pekalongankab.go.id/api/produk-hapus.php?id=`+this.id,
+        })
+        console.log(res, "resss");
+        this.$router.push('/profil/produk_umkm')
+      }
     }
+
   },
   async created() {
     const loading = await loadingController.create({
@@ -135,7 +146,8 @@ export default defineComponent({
     await this.get_user()
     await loading.dismiss();
 
-  }});
+  }
+  });
 </script>
 
 <style scoped>

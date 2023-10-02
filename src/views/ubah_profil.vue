@@ -31,7 +31,9 @@
                 <ion-select-option value="Bukan UMKM">Bukan UMKM</ion-select-option>
               </ion-select>
           </ion-col>
-
+          <ion-col size="12">
+            <ion-input label="WA" v-model="wa" type="number" labelPlacement="stacked" placeholder=""></ion-input>
+          </ion-col>
           <ion-col size="12">
             <ion-input label="password" v-model="password" type="password" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>

@@ -13,7 +13,7 @@
       <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: fixed;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
       <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-grid style="padding: 0  !important;">
+      <ion-grid style="padding: 0 20px !important;">
         <ion-row style="margin-top: 5px;">
           <ion-col style="padding-top: 0;padding: 0 15px;">
             <ion-segment

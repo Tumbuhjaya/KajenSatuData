@@ -102,7 +102,7 @@
           </ion-col>
           <ion-col size="3">
             <div class="box-menu">
-              <div class="box-menu-circle">
+              <div class="box-menu-circle" @click="go">
                 <ion-img src="/assets/lapor-bupati-new.png"></ion-img>
               </div>
               <h6 class="font-title-circle" style="margin-top: 10px !important;color: #1c47bc;">Lapor<br/>Bupati</h6>
@@ -158,6 +158,9 @@ export default defineComponent({
     toLogin() {
       this.$router.push("/login");
     },
+    go(){
+      location.href = 'https://wa.me/6285600900300'
+    }
   },
   async ionViewDidEnter(){
     const loading = await loadingController.create({

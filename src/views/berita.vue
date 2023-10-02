@@ -36,7 +36,7 @@
         </ion-row>
 
         <ion-row class="list" v-if="segment == 'data1'">
-          <ion-col size="12" v-for="(item,id) in data" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
+          <ion-col size="12" @click="push(item.link)" v-for="(item,id) in data" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
             <ion-img v-if="item.foto" :src="item.foto" style="width:100%;"></ion-img>
             <ion-img v-else src="https://placehold.co/600x400" style="width:100%;"></ion-img>
             <h6 style="font-size: 16px;margin-top: 10px !important;color:#1c47bc"><strong>{{ item.judul }}</strong></h6>
@@ -47,9 +47,19 @@
             <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
           </ion-col>
         </ion-row>
+        <ion-row class="list" v-if="segment == 'data2'">
+          <ion-col size="12"  @click="push(item.link)"  v-for="(item,id) in pengumuman" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
+            <h6 style="font-size: 14px;"><strong>{{ item.judul }}</strong></h6>
+            <h6 style="font-size: 12px;margin-top: 10px !important;">{{ item.waktu }}</h6>
+          </ion-col>
 
+          <ion-col size="12">
+            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
+          </ion-col>
+          
+        </ion-row>
         <ion-row class="list" v-if="segment == 'data3'">
-          <ion-col size="12"  v-for="(item,id) in lelang" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
+          <ion-col size="12"  @click="push(item.link)"  v-for="(item,id) in lelang" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
             <h6 style="font-size: 14px;"><strong>{{ item.judul }}</strong></h6>
             <h6 style="font-size: 12px;margin-top: 10px !important;">{{ item.waktu }}</h6>
           </ion-col>
@@ -129,6 +139,8 @@ export default defineComponent({
       method: "get",
         url:`https://pekalongankab.go.id/public/api/berita-pekalongankab.php?halaman=${this.hal}`,
       })
+      console.log(berita,'berita');
+
       for (let i = 0; i < berita.data.length; i++) {
         this.data.push(berita.data[i])
       }
@@ -138,6 +150,8 @@ export default defineComponent({
       method: "get",
         url:ip_server+`pengumuman.php`,
       })
+      console.log(hsl,'pengumuman');
+
       for (let i = 0; i < hsl.data.length; i++) {
         this.pengumuman.push(hsl.data[i])
       }
@@ -147,9 +161,13 @@ export default defineComponent({
       method: "get",
         url:ip_server+`lelang.php`,
       })
+      console.log(hsl,'lelang');
       for (let i = 0; i < hsl.data.length; i++) {
         this.lelang.push(hsl.data[i])
       }
+    },
+    push(link){
+      location.href = link
     },
     async  loadData(ev){
       this.hal++ 

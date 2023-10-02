@@ -214,7 +214,7 @@ export default defineComponent({
               key: 'login',
               value: hsl.data,
             });
-            alert('sukses')
+            alert('sukses' ,hsl)
           }else{
             alert('gagal')
           }

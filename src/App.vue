@@ -25,6 +25,8 @@ import { IonApp, IonRouterOutlet } from '@ionic/vue';
   h1,h2,h3,h4,h5,h6{
     margin: 0 !important;
   }
-
- 
+  
+  ion-content{
+   --background: rgba(238,250,253, 0.5)
+}
 </style>

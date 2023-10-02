@@ -87,13 +87,14 @@
 </template>
 
 <script>
-import { loadingController,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
+import {  IonInput,IonSelect,IonSelectOption,loadingController,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 
 export default defineComponent({
   components: {
+    IonInput,IonSelect,IonSelectOption,
     loadingController,
     IonPage,
     IonHeader,

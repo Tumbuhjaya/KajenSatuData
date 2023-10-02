@@ -76,12 +76,13 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg } from '@ionic/vue';
+import {  IonInput,IonSelect,IonSelectOption,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 export default defineComponent({
   components: {
+    IonInput,IonSelect,IonSelectOption,
     IonPage,
     IonHeader,
     IonContent,

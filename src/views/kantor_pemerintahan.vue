@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import { loadingController,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg } from '@ionic/vue';
+import {  IonInput,IonSelect,IonSelectOption,loadingController,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline, linkOutline } from 'ionicons/icons';
@@ -119,6 +119,7 @@ import axios  from "axios";
 
 export default defineComponent({
   components: {
+    IonInput,IonSelect,IonSelectOption,
     loadingController,
     IonPage,
     IonHeader,

@@ -127,7 +127,7 @@
 </template>
 
 <script>
-import { loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
+import { IonItem,IonList,IonInput,IonSelect,IonSelectOption,loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -136,6 +136,7 @@ import { Storage } from "@capacitor/storage";
 
 export default defineComponent({
   components: {
+    IonInput,IonSelect,IonSelectOption,IonList,IonItem,
     loadingController,
     IonPage,
     IonHeader,
@@ -162,6 +163,7 @@ export default defineComponent({
       segment: "data1",
       user: '',
       id: 0,
+      data_produk:[]
     };
   },
   methods: {

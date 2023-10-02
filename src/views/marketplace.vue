@@ -140,7 +140,7 @@
 </template>
 
 <script>
-import { IonInput, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
+import { IonSelect,IonSelectOption, IonInput, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -149,6 +149,7 @@ import moment from "moment";
 moment.locale("id");
 export default defineComponent({
   components: {
+    IonSelect,IonSelectOption,
     IonInput,
     IonPage,
     IonHeader,

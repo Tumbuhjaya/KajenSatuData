@@ -105,7 +105,7 @@ import { ip_server } from "@/ip-config";
 import axios  from "axios";
 import moment from "moment";
 moment.locale("id");
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 export default defineComponent({
   components: {
@@ -210,11 +210,12 @@ export default defineComponent({
         }).then(async function (hsl) {
           console.log(hsl);
           if (hsl.data) {
-            await Storage.set({
+            await Preferences.set({
               key: 'login',
               value: hsl.data,
             });
-            alert('sukses' ,hsl)
+            let x =await Preferences.set({login})
+            alert('sukses'+x)
           }else{
             alert('gagal')
           }

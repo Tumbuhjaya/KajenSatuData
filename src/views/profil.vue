@@ -132,7 +132,7 @@ import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 export default defineComponent({
   components: {
@@ -189,12 +189,12 @@ export default defineComponent({
       console.log(res.data);
     },
     async logout(){
-      await Storage.remove({ key: 'login' });
+      await Preferences.remove({ key: 'login' });
       this.$router.push("/tabs-dashboard/dashboard");
     }
   },
   async ionViewDidEnter() {
-    const { value } = await Storage.get({ key: 'login' });
+    const { value } = await Preferences.get({ key: 'login' });
     this.id = value 
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',

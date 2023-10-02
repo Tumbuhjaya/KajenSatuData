@@ -150,7 +150,7 @@ import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 moment.locale("id");
 export default defineComponent({
@@ -296,7 +296,7 @@ export default defineComponent({
    },
   },
   async ionViewDidEnter() {
-    const { value } = await Storage.get({ key: 'login' });
+    const { value } = await Preferences.get({ key: 'login' });
     if (value) {
       this.isLogin = value
     }

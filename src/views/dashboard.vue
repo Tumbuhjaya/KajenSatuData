@@ -134,7 +134,7 @@
 <script>
 import {   IonInput,IonSelect,IonSelectOption,loadingController,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 export default defineComponent({
   components: {
@@ -168,7 +168,7 @@ export default defineComponent({
         });
         await loading.present();
 
-    const { value } = await Storage.get({ key: 'login' });
+    const { value } = await Preferences.get({ key: 'login' });
     this.isLogin = value?value:0
     await loading.dismiss();
 

@@ -58,7 +58,7 @@ import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
 moment.locale("id");
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 export default defineComponent({
   components: {
@@ -114,7 +114,7 @@ export default defineComponent({
         this.produk = res.data
       },
     async get_user(){
-      const { value } = await Storage.get({ key: 'login' });
+      const { value } = await Preferences.get({ key: 'login' });
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/user.php?id=`+value,

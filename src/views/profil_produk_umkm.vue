@@ -82,7 +82,7 @@ import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 export default defineComponent({
   components: {
@@ -141,7 +141,7 @@ export default defineComponent({
     }
   },
   async ionViewWillEnter() {
-    const { value } = await Storage.get({ key: 'login' });
+    const { value } = await Preferences.get({ key: 'login' });
     this.id = value 
     this.data_produk = []
     const loading = await loadingController.create({

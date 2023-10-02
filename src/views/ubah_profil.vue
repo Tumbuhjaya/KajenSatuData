@@ -55,7 +55,7 @@ import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import { Desa } from "../../data.ts";
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 import { ip_server } from "@/ip-config";
 
@@ -136,7 +136,7 @@ export default defineComponent({
 
     },
     async get_user(){
-      const { value } = await Storage.get({ key: 'login' });
+      const { value } = await Preferences.get({ key: 'login' });
       this.id = value
       let res = await axios({
       method: "get",
@@ -155,7 +155,7 @@ export default defineComponent({
     },
   },
   async ionViewDidEnter(){
-    const { value } = await Storage.get({ key: 'login' });
+    const { value } = await Preferences.get({ key: 'login' });
     this.id = value 
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',

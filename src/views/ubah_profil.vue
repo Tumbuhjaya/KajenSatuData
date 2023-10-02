@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { IonSelect,IonSelectOption, loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonTextarea } from '@ionic/vue';
+import { IonSelect,IonSelectOption, loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonTextarea, onIonViewDidEnter } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -151,7 +151,7 @@ export default defineComponent({
       console.log(res.data,this.desa);
     },
   },
-  async created(){
+  async ionViewDidEnter(){
     const { value } = await Storage.get({ key: 'login' });
     this.id = value 
     const loading = await loadingController.create({
@@ -160,7 +160,6 @@ export default defineComponent({
     await loading.present();
     this.Desa = Desa
     await this.get_user()
-    this.desa=this.id_desa
     await loading.dismiss();
   }
   });

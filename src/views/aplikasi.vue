@@ -176,7 +176,7 @@ export default defineComponent({
       location.href='https://'+page
     },
   },
-  async created() {
+  async ionViewDidEnter() {
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

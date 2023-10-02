@@ -106,7 +106,7 @@ export default defineComponent({
       this.nama=hsl.data.nama;
     },
   },
-  async created() {
+  async ionViewDidEnter() {
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

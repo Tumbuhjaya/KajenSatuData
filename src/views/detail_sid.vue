@@ -934,7 +934,7 @@ export default defineComponent({
       console.log(this.potensi , 'potensi');
     },
   },
-  async created() {
+  async ionViewDidEnter() {
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

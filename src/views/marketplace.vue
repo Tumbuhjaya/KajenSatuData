@@ -261,7 +261,7 @@ export default defineComponent({
       }
     }
   },
-  async created() {
+  async ionViewDidEnter() {
     await this.get_umkm()
     await this.get_produk()
     await this.get_kategori()

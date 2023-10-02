@@ -150,7 +150,7 @@ export default defineComponent({
       }, 1000);
     },
   },
-  async created(){
+  async ionViewDidEnter(){
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });

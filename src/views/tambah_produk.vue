@@ -175,7 +175,7 @@ export default defineComponent({
       console.log(res.data);
     },
   },
-  async created(){
+  async ionViewDidEnter(){
     await this.get_ktg()
   }
   });

@@ -19,15 +19,16 @@
             <div style="width: 100%;background-color: #fff;display: flex;">
               <div style="width: 40%;position: relative;background-color: ;display: flex;justify-content: center;">
                 <div style="width: 140px;height: 140px;border-radius: 100%;overflow: hidden;">
-                  <ion-img src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <ion-img v-if="user.foto" :src="user.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                 </div>
                 
               </div>
 
               <div style="width:60%;margin-left: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 16px;"><strong>Toko A</strong></h6>
-                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;">Jl. tokoadijalansanaitu</h6>
-                <ion-button size="success" style="margin-top: 10px;">Hubungi penjual</ion-button>
+                <h6 style="font-size: 16px;"><strong>{{ user.nama }}</strong></h6>
+                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;">Kelurahan : {{ user.desa }} <br> Kecamatan : {{ user.kecamatan }}</h6>
+                <ion-button size="success" style="margin-top: 10px;" @click="go">Hubungi penjual</ion-button>
               </div>
             </div>
           </ion-col>
@@ -134,7 +135,9 @@ export default defineComponent({
   data() {
     return {
       segment: "data1",
-      data_produk: []
+      data_produk: [],
+      id: this.$route.params.id,
+      user:{}
     };
   },
   methods: {
@@ -160,6 +163,17 @@ export default defineComponent({
       for (let i = 0; i < res.data.length; i++) {
         this.data_produk.push(res.data[i])
       }
+    },
+    async get_user(){
+      let res = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/user.php?id=`+this.id,
+      })
+      this.user = res.data
+      console.log(res.data);
+    },
+    go(){
+      location.href = 'https://wa.me/'+this.user.wa
     }
   },
   async ionViewDidEnter() {
@@ -168,6 +182,7 @@ export default defineComponent({
         });
     await loading.present();
     await this.get_produk()
+    await this.get_user()
     await loading.dismiss();
 
   }

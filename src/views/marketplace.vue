@@ -97,7 +97,7 @@
               <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 100px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 12px;text-align: center;color:#1c47bc"><strong>{{item.nama}}</strong></h6>
+                <h6 style="font-size: 14px;text-align: center;color:#1c47bc"><strong>{{item.nama}}</strong></h6>
                 <h6 style="font-size: 12px;text-align: center;font-weight: normal;margin-top: 5px !important;">{{item.harga}}</h6>
               </div>
             </div>
@@ -314,22 +314,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.box-header{
-  width: 100%;
-  height: ;
-  background-color: #4c87f2;
-  padding: 15px 35px;
-}
-
-.box-header .box-title{
-  width: 100%;
-  height: 70px;
-  background-color: ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
 
 ion-input.custom {
   --background: #fff;
@@ -368,11 +352,6 @@ ion-input.custom {
   font-size: 18px;
   font-weight: bolder;
 }
-ion-button {
 
-
-  
-  
-}
 
 </style>

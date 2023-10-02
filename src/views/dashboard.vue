@@ -21,7 +21,7 @@
       <ion-grid style="padding: 0 20px !important;">
         <ion-row>
           <ion-col style="padding-top: 0;">
-            <ion-img src="/assets/slide-1.png" style="width: 100%;position: relative;z-index: 999;border-radius: 16px;"></ion-img>
+            <ion-img src="/assets/bannerKSD.png" style="width: 100%;position: relative;z-index: 999;border-radius: 16px;"></ion-img>
           </ion-col>
         </ion-row>
 

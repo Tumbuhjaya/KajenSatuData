@@ -63,4 +63,10 @@ import { IonApp, IonRouterOutlet } from '@ionic/vue';
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
   }
+
+  .alert-tappable.sc-ion-alert-md,
+.alert-tappable.sc-ion-alert-ios {
+    height: initial !important;
+    contain: initial !important;
+  }
 </style>

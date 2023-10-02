@@ -17,10 +17,10 @@
                   @ionChange="segmentChanged($event)"
                 >
                   <ion-segment-button class="button" value="data1">
-                    <ion-label class="label" style="color: #fff;font-size: 18px;font-weight: 600;">MASUK</ion-label>
+                    <ion-label class="label" style="color: #1c47bc;font-size: 18px;font-weight: 600;">MASUK</ion-label>
                   </ion-segment-button>
                   <ion-segment-button class="button" value="data2">
-                    <ion-label class="label" style="color: #fff;font-size: 18px;font-weight: 600;">DAFTAR</ion-label>
+                    <ion-label class="label" style="color: #1c47bc;font-size: 18px;font-weight: 600;">DAFTAR</ion-label>
                   </ion-segment-button>
                 </ion-segment>
             </ion-col>
@@ -30,15 +30,15 @@
             <ion-col>
               <ion-row class="list" v-if="segment == 'data1'">
                   <ion-col style="margin-top: 15px;">
-                    <h6 style="font-size: 24px;font-weight: 700;color:#fff">Log In</h6>
-                    <h6 style="font-size: 14px;font-weight: 500;color:#fff;margin-top: 10px !important;">Akses akun Anda dengan masuk di bawah ini.</h6>
+                    <h6 style="font-size: 24px;font-weight: 700;color:#1c47bc">Log In</h6>
+                    <h6 style="font-size: 14px;font-weight: 500;color:#1c47bc;margin-top: 10px !important;">Akses akun Anda dengan masuk di bawah ini.</h6>
 
                     <ion-input class="custom" placeholder="Email" v-model="email" style="margin: 30px 0 15px 0;"></ion-input>
 
                     <ion-input  class="custom" placeholder="Password" type="password" v-model="password" ></ion-input>
 
                     <div style="width: 100%;display: flex;justify-content: center;align-items: center;margin-top: 15px;padding: 0 60px;">
-                      <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="login" color="light" size="large">Masuk</ion-button>
+                      <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="login" color="primary" size="large">Masuk</ion-button>
                     </div>
                     
                   </ion-col>
@@ -46,8 +46,8 @@
                 <ion-row class="list" v-if="segment == 'data2'">
                   <ion-col style="margin-top: 15px;">
                     <div style="width:100%;height:45vh;overflow-y: scroll;">
-                      <h6 style="font-size: 24px;font-weight: 700;color:#fff">Daftar</h6>
-                      <h6 style="font-size: 14px;font-weight: 500;color:#fff;margin-top: 10px !important;margin-bottom: 10px !important;">Jika Anda belum memiliki akun, silahkan daftarkan diri anda  di bawah ini.</h6>
+                      <h6 style="font-size: 24px;font-weight: 700;color:#1c47bc">Daftar</h6>
+                      <h6 style="font-size: 14px;font-weight: 500;color:#1c47bc;margin-top: 10px !important;margin-bottom: 10px !important;">Jika Anda belum memiliki akun, silahkan daftarkan diri anda  di bawah ini.</h6>
 
                       <ion-input class="custom" placeholder="Nama" v-model="nama" style="margin: 15px 0;"></ion-input>
                       <!-- <ion-input  class="custom" placeholder="Desa"  v-model="id_desa" style="margin: 15px 0;"></ion-input> -->
@@ -64,7 +64,7 @@
                           <ion-select-option v-for="(ds, i) in Desa" :key="i" :value="ds.id">{{ ds.nama }}</ion-select-option>
                         </ion-select>
                       </ion-item>
-                      <ion-item  class="custom">
+                      <ion-item  class="custom" style="margin-top: 15px;">
                         <ion-select
                         cancel-text="Tutup"
                         placeholder="Kategori" 
@@ -84,7 +84,7 @@
                       <ion-input  class="custom" placeholder="Password" type="password" v-model="password"  style="margin: 15px 0;"></ion-input>
 
                       <div style="width: 100%;display: flex;justify-content: center;align-items: center;margin-top: 15px;padding: 0 60px;">
-                        <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="daftar" color="light" size="large">Daftar</ion-button>
+                        <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="daftar" color="primary" size="large">Daftar</ion-button>
                       </div>
                     </div>
                   </ion-col>
@@ -247,13 +247,16 @@ export default defineComponent({
 #page-login .box-content-two{
   width: 100%;
   height: 60vh;
-  background-color: #4c87f2;
+  background-image: url('/assets/13263.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: top;
   border-top-left-radius: 27px;
   border-top-right-radius: 27px;
   padding: 15px 30px;
 }
 .ion-color-success {
-  --ion-color-base:#fff !important;
+  --ion-color-base:#1c47bc !important;
 }
 
 :host{
@@ -271,4 +274,14 @@ ion-input.custom {
   --padding-top: 15px;
   --border-radius:10px;
 }
+
+ion-input{
+    border-bottom: 1px solid transparent !important;
+  }
+
+  ion-select{
+    border-bottom: 1px solid transparent !important; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
 </style>

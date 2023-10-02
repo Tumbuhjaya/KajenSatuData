@@ -212,10 +212,8 @@ export default defineComponent({
           if (hsl.data) {
             await Preferences.set({
               key: 'login',
-              value: hsl.data,
+              value: `${hsl.data}`,
             });
-            let x =await Preferences.set({login})
-            alert('sukses'+x)
           }else{
             alert('gagal')
           }

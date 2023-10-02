@@ -168,7 +168,7 @@ export default defineComponent({
         });
         await loading.present();
 
-    const { value } = await Preferences.get({ key: 'login' });
+        const { value } = await Preferences.get({ key: 'login' });
     this.isLogin = value?value:0
     await loading.dismiss();
 

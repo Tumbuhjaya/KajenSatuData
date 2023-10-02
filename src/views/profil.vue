@@ -190,6 +190,7 @@ export default defineComponent({
     },
     async logout(){
       await Preferences.remove({ key: 'login' });
+
       this.$router.push("/tabs-dashboard/dashboard");
     }
   },

@@ -108,27 +108,6 @@
   </script>
   
   <style scoped>
-  .box-header{
-    width: 100%;
-    height: ;
-    background-color: #4c87f2;
-    padding: 15px 35px;
-  }
-  
-  .box-header .box-title{
-    width: 100%;
-    height: 70px;
-    background-color: ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  ion-input{
-    border-bottom: 1px solid black;
-  }
-  
   
   </style>
   

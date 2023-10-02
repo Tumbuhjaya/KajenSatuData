@@ -177,14 +177,5 @@
   </script>
   
   <style scoped>
-  ion-input{
-    border-bottom: 1px solid black;
-  }
-  ion-select{
-    border-bottom: 1px solid black; 
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-  }
-  
   </style>
   

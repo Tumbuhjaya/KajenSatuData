@@ -3,16 +3,16 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="box-title">
-          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/tabs-dashboard/dashboard')"></ion-icon>
+          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #1c47bc;" @click="$router.push('/tabs-dashboard/dashboard')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">BERITA</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">BERITA</h6>
         </div>
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
-      <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
+      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: fixed;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
-      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 0  !important;">
         <ion-row style="margin-top: 5px;">
           <ion-col style="padding-top: 0;padding: 0 15px;">
@@ -39,147 +39,13 @@
           <ion-col size="12" v-for="(item,id) in data" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
             <ion-img v-if="item.foto" :src="item.foto" style="width:100%;"></ion-img>
             <ion-img v-else src="https://placehold.co/600x400" style="width:100%;"></ion-img>
-            <h6 style="font-size: 14px;margin-top: 10px !important;"><strong>{{ item.judul }}</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 5px !important;">{{ item.waktu }}</h6>
+            <h6 style="font-size: 16px;margin-top: 10px !important;color:#1c47bc"><strong>{{ item.judul }}</strong></h6>
+            <h6 style="font-size: 12px;margin-top: 5px !important;font-weight: normal;">{{ item.waktu }}</h6>
           </ion-col>
 
           <ion-col size="12">
             <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
           </ion-col>
-          <!-- <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <ion-img src="https://placehold.co/600x400" style="width:100%;"></ion-img>
-            <h6 style="font-size: 14px;margin-top: 10px !important;"><strong>BUPATI LAUNCHING PASDAR UMKM DI DESA LOLONG DAN LEGOK KALONG</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 5px !important;">00/00/0000 00:00</h6>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <ion-img src="https://placehold.co/600x400" style="width:100%;"></ion-img>
-            <h6 style="font-size: 14px;margin-top: 10px !important;"><strong>BUPATI LAUNCHING PASDAR UMKM DI DESA LOLONG DAN LEGOK KALONG</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 5px !important;">00/00/0000 00:00</h6>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <ion-img src="https://placehold.co/600x400" style="width:100%;"></ion-img>
-            <h6 style="font-size: 14px;margin-top: 10px !important;"><strong>BUPATI LAUNCHING PASDAR UMKM DI DESA LOLONG DAN LEGOK KALONG</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 5px !important;">00/00/0000 00:00</h6>
-          </ion-col> 
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col> -->
-        </ion-row>
-                
-        <ion-row class="list" v-if="segment == 'data2'">
-          <ion-col size="12" v-for="(item,id) in pengumuman" :key="id"  style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <div style="width: 100%;display: flex;">
-              <div style="width: 25%;">
-                <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
-                <ion-img v-else src="https://placehold.co/90" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
-              </div>
-
-              <div style="width: 75%;padding-left: 15px;">
-                <h6 style="font-size: 14px;"><strong>{{ item.judul }}</strong></h6>
-                <h6 style="font-size: 12px;margin-top: 10px !important;">{{ item.waktu }}</h6>
-              </div>
-            </div>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <!-- <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <div style="width: 100%;display: flex;">
-              <div style="width: 25%;">
-                <ion-img src="https://placehold.co/90" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
-              </div>
-
-              <div style="width: 75%;padding-left: 15px;">
-                <h6 style="font-size: 14px;"><strong>PENGUMUMAN TENDER DGN PASCA KUALIFIKASI PENGADAAN ASPAL ..... </strong></h6>
-                <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-              </div>
-            </div>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <div style="width: 100%;display: flex;">
-              <div style="width: 25%;">
-                <ion-img src="https://placehold.co/90" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
-              </div>
-
-              <div style="width: 75%;padding-left: 15px;">
-                <h6 style="font-size: 14px;"><strong>PENGUMUMAN TENDER DGN PASCA KUALIFIKASI PENGADAAN ASPAL ..... </strong></h6>
-                <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-              </div>
-            </div>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <div style="width: 100%;display: flex;">
-              <div style="width: 25%;">
-                <ion-img src="https://placehold.co/90" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
-              </div>
-
-              <div style="width: 75%;padding-left: 15px;">
-                <h6 style="font-size: 14px;"><strong>PENGUMUMAN TENDER DGN PASCA KUALIFIKASI PENGADAAN ASPAL ..... </strong></h6>
-                <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-              </div>
-            </div>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <div style="width: 100%;display: flex;">
-              <div style="width: 25%;">
-                <ion-img src="https://placehold.co/90" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
-              </div>
-
-              <div style="width: 75%;padding-left: 15px;">
-                <h6 style="font-size: 14px;"><strong>PENGUMUMAN TENDER DGN PASCA KUALIFIKASI PENGADAAN ASPAL ..... </strong></h6>
-                <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-              </div>
-            </div>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <div style="width: 100%;display: flex;">
-              <div style="width: 25%;">
-                <ion-img src="https://placehold.co/90" style="width:100%;height: 90px;object-fit: cover;"></ion-img>
-              </div>
-
-              <div style="width: 75%;padding-left: 15px;">
-                <h6 style="font-size: 14px;"><strong>PENGUMUMAN TENDER DGN PASCA KUALIFIKASI PENGADAAN ASPAL ..... </strong></h6>
-                <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-              </div>
-            </div>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col> -->
         </ion-row>
 
         <ion-row class="list" v-if="segment == 'data3'">
@@ -191,60 +57,6 @@
           <ion-col size="12">
             <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
           </ion-col>
-<!-- 
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <h6 style="font-size: 14px;"><strong>HASIL  SELEKSI  PRA  SANGGAH   PENGADAAN PEGAWAI PEMERINTAH DENGAN PERJANJIAN KERJA UNTUK JABATAN FUNGSIONAL GURU...</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <h6 style="font-size: 14px;"><strong>HASIL  SELEKSI  PRA  SANGGAH   PENGADAAN PEGAWAI PEMERINTAH DENGAN PERJANJIAN KERJA UNTUK JABATAN FUNGSIONAL GURU...</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <h6 style="font-size: 14px;"><strong>HASIL  SELEKSI  PRA  SANGGAH   PENGADAAN PEGAWAI PEMERINTAH DENGAN PERJANJIAN KERJA UNTUK JABATAN FUNGSIONAL GURU...</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <h6 style="font-size: 14px;"><strong>HASIL  SELEKSI  PRA  SANGGAH   PENGADAAN PEGAWAI PEMERINTAH DENGAN PERJANJIAN KERJA UNTUK JABATAN FUNGSIONAL GURU...</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <h6 style="font-size: 14px;"><strong>HASIL  SELEKSI  PRA  SANGGAH   PENGADAAN PEGAWAI PEMERINTAH DENGAN PERJANJIAN KERJA UNTUK JABATAN FUNGSIONAL GURU...</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col>
-
-          <ion-col size="12" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <h6 style="font-size: 14px;"><strong>HASIL  SELEKSI  PRA  SANGGAH   PENGADAAN PEGAWAI PEMERINTAH DENGAN PERJANJIAN KERJA UNTUK JABATAN FUNGSIONAL GURU...</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 10px !important;">00/00/0000 00:00</h6>
-          </ion-col>
-
-          <ion-col size="12">
-            <div style="width: 100%;height: 2px;background-color: #D3D3D3;"></div>
-          </ion-col> -->
           
         </ion-row>
         <ion-infinite-scroll threshold="10%" @ionInfinite="loadData">
@@ -362,25 +174,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.box-header{
-  width: 100%;
-  height: ;
-  background-color: #4c87f2;
-  padding: 15px 35px;
-}
-
-.box-header .box-title{
-  width: 100%;
-  height: 70px;
-  background-color: ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
 ion-segment-button{
-  background-color: #fff;
+  background-color: #eefafd;
   border-radius: 30px;
   margin: 0 2.5px 2.5px 2.5px;
   box-shadow: 0px 2px 4px 0px #00000040;
@@ -392,6 +187,10 @@ ion-segment-button label{
 
 ion-segment-button::part(indicator-background) {
   background: transparent;
+}
+
+.ion-color-success{
+  --ion-color-base:#1c47bc !important
 }
 
 

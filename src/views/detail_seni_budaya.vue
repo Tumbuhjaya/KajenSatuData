@@ -10,7 +10,7 @@
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
-      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;z-index: 1;"></div>
+      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: fixed;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;z-index: 1;"></div>
 
       <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 5px 0;">
@@ -118,23 +118,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.box-header{
-  width: 100%;
-  height: ;
-  background-image: url('/assets/13263.jpg');
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: top;
-  padding: 15px 20px;
-}
-
-.box-header .box-title{
-  width: 100%;
-  height: 70px;
-  background-color: ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
 </style>

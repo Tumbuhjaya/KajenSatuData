@@ -103,10 +103,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
-
-ion-input{
-  border-bottom: 1px solid black;
-}
-
 </style>

@@ -3,26 +3,35 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="box-title">
-          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/seni_budaya')"></ion-icon>
+          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #1c47bc;" @click="$router.push('/seni_budaya')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">{{ nama }}</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">{{ nama }}</h6>
       </div>
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
-      <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
-      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-grid style="padding: 30px 15px !important;">
+      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;z-index: 1;"></div>
+
+      <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-grid style="padding: 5px 0;">
         <ion-row style="margin-bottom: 15px;">
-          <ion-col>
-            <div style="width: 100%;padding: 15px;">
+          <ion-col style="padding: 0;" size="12">
+            <div style="width: 100%;position: relative;">
               <ion-img v-if="foto" :src="foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
 
               <ion-img  v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
               
-              <h6 style="margin-top: 15px !important;">{{ isi }}</h6>
-                
+              
+              <div style="width: 100%;padding: 15px 30px;background-color: #fff;position: absolute;left:0;right:0;top:260px;border-top-left-radius: 30px;border-top-right-radius: 30px;">
+                <h6 style="margin-top: 15px !important;font-weight: normal;">{{ isi }}</h6>
+              </div>
             </div>
+
+            
+          </ion-col>
+
+          <ion-col style="" size="12">
+            
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -116,8 +125,11 @@ export default defineComponent({
 .box-header{
   width: 100%;
   height: ;
-  background-color: #4c87f2;
-  padding: 15px 35px;
+  background-image: url('/assets/13263.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: top;
+  padding: 15px 20px;
 }
 
 .box-header .box-title{

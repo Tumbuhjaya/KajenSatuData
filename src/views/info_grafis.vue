@@ -131,20 +131,5 @@ export default defineComponent({
   position: relative;
 }
 
-ion-segment-button{
-  background-color: #fff;
-  border-radius: 30px;
-  margin: 0 2.5px 2.5px 2.5px;
-  box-shadow: 0px 2px 4px 0px #00000040;
-}
-
-ion-segment-button label{
-  color: #000;
-}
-
-ion-segment-button::part(indicator-background) {
-  background: transparent;
-}
-
 
 </style>

@@ -13,7 +13,7 @@
       <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
       <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-grid style="padding: 30px 20px !important;">
+      <ion-grid style="padding: 60px 20px !important;">
         <ion-row style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 30px;border-radius: 8px;">
@@ -137,21 +137,5 @@ export default defineComponent({
   align-items: center;
   position: relative;
 }
-
-ion-segment-button{
-  background-color: #fff;
-  border-radius: 30px;
-  margin: 0 2.5px 2.5px 2.5px;
-  box-shadow: 0px 2px 4px 0px #00000040;
-}
-
-ion-segment-button label{
-  color: #000;
-}
-
-ion-segment-button::part(indicator-background) {
-  background: transparent;
-}
-
 
 </style>

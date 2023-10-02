@@ -3,16 +3,17 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="box-title">
-          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/tabs-dashboard/dashboard')"></ion-icon>
+          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #1c47bc;" @click="$router.push('/tabs-dashboard/dashboard')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">MARKETPLACE</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">Marketplace</h6>
       </div>
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
-      <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
-      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-grid style="padding: 0 15px !important;">
+      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: fixed;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
+
+      <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-grid style="padding: 0 20px !important;">
         <ion-row style="margin-top: 5px;">
           <ion-col style="padding-top: 0;">
             <div style="width: 100%;display: flex;">
@@ -21,7 +22,7 @@
                 
               </div>
               <div style="width:18%;margin-left: 5%;">
-                <ion-button color="warning" style="margin: 0 !important;" @click="cari">Cari</ion-button>
+                <ion-button class="cari" color="warning" style="margin: 0 !important;--padding-top: 20px;--padding-bottom: 20px;" @click="cari">Cari</ion-button>
               </div>
             </div>
           </ion-col>
@@ -30,7 +31,7 @@
           <ion-col>
             <div style="width: 100%;display: flex;">
               <div style="width: 50%;display: flex;justify-content: flex-start;height: 36px;align-items: center;">
-                <h6 class="font-title">UMKM</h6>
+                <h6 class="font-title" style="color: #1c47bc;">UMKM</h6>
               </div>
               <div style="width: 50%;display: flex;justify-content: flex-end;background-color: ;height: 36px;align-items: center;">
                 <ion-button fill="outline" size="small" style="text-transform: capitalize;" @click="$router.push('/marketplace/umkm')">Lihat Semua</ion-button>
@@ -42,10 +43,10 @@
           <ion-col v-for="(item, id) in data_umkm" size="3">
             <div class="box-menu" @click="$router.push('/marketplace/detail_umkm/'+ item.id_user_android)">
               <div class="box-menu-circle">
-                <ion-img v-if="item.foto" :src="item.foto" src="/assets/info-lokasi.png"></ion-img>
-                <ion-img v-else src="/assets/info-lokasi.png"></ion-img>
+                <ion-img v-if="item.foto" :src="item.foto" src="/assets/store.png"></ion-img>
+                <ion-img v-else src="/assets/store.png"></ion-img>
               </div>
-              <h6 style="margin-top: 10px !important;text-align: center;font-size: 14px;">{{ item.nama }}</h6>
+              <h6 style="margin-top: 10px !important;text-align: center;font-size: 14px;color: #1c47bc;">{{ item.nama }}</h6>
             </div>
           </ion-col>
 
@@ -78,7 +79,7 @@
         </ion-row> 
         <ion-row style="margin-top: 15px;">
           <ion-col size="12">
-            <h6 class="font-title">Rekomendasi</h6>
+            <h6 class="font-title" style="color: #1c47bc;">Rekomendasi</h6>
           </ion-col>
 
           <ion-col size="12">
@@ -92,12 +93,12 @@
 
         <ion-row  style="margin-top: 15px;">
           <ion-col v-for="(item, id) in data_produk" size="6" @click="$router.push('/marketplace/detail_produk/'+ item.id_produk)" style="margin-bottom: 15px;">
-            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
+            <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #eefafd;overflow: hidden;">
               <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 100px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 14px;text-align: center;"><strong>{{item.nama}}</strong></h6>
-                <h6 style="font-size: 14px;text-align: center;font-weight: normal;margin-top: 5px !important;">{{item.harga}}</h6>
+                <h6 style="font-size: 12px;text-align: center;color:#1c47bc"><strong>{{item.nama}}</strong></h6>
+                <h6 style="font-size: 12px;text-align: center;font-weight: normal;margin-top: 5px !important;">{{item.harga}}</h6>
               </div>
             </div>
           </ion-col>
@@ -360,10 +361,18 @@ ion-input.custom {
   background-color: #FFECB2;
   border-radius: 100%;
   overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .font-title{
   font-size: 18px;
   font-weight: bolder;
 }
+ion-button {
+
+
+  
+  
+}
+
 </style>

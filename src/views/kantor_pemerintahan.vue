@@ -14,7 +14,7 @@
 
       <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 20px !important;">
-        <ion-row v-for="(item, id) in data" style="margin-top: 5px;margin-bottom: 15px;">
+        <ion-row @click="go('http://'+item.web)" v-for="(item, id) in data" style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12"  style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
               <div style="width: 35%;">
@@ -158,10 +158,13 @@ export default defineComponent({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/opd.php`,
       })
-      // console.log(res.data);
+      console.log(res.data);
       for (let i = 0; i < res.data.length; i++) {
         this.data.push(res.data[i])
       }
+    },
+    go(link){
+      location.href =link
     }
   },
   async ionViewDidEnter() {

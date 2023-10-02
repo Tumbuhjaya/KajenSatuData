@@ -118,12 +118,11 @@ export default defineComponent({
       const { value } = await Storage.get({ key: 'login' });
     let formData = new FormData()
     formData.append("foto", vm.afoto1);
-		formData.append('harga', Number(vm.harga))
+		formData.append('harga',vm.harga)
 		formData.append('nama', vm.nama)
 		formData.append('user',value)
-    formData.append('kategori', Number(vm.ktg))
+    formData.append('kategori',vm.ktg)
     formData.append('deskripsi', vm.deskripsi ) 
-    console.log('foto' , vm.afoto1 ,'harga', Number(vm.harga),'nama', vm.nama ,'user', value ,'kategori', Number(vm.ktg),'deskripsi', vm.deskripsi );
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',
         });
@@ -137,20 +136,22 @@ export default defineComponent({
           data: formData,
         }).then(function (hsl) {
           console.log(hsl);
-          if (hsl.data) {
+          if (hsl) {
             alert('sukses')
           }else{
             alert('gagal')
           }
+
         })
         await loading.dismiss();
+        this.$router.push('/profil/produk_umkm')
 
     },
     async takePicture(nama) {
       let vm = this;
       const cameraPhoto = await Camera.getPhoto({
         resultType: CameraResultType.Uri,
-        source: CameraSource.Photos,
+        source: CameraSource.Prompt,
         promptLabelHeader: "Pilih Aksi",
         promptLabelPhoto: "Ambil Dari Galeri",
         promptLabelPicture: "Ambil Dari Camera",

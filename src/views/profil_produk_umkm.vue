@@ -26,7 +26,7 @@
         </ion-row>
 
         <ion-row style="margin-top: 15px;">
-          <ion-col size="6" style="margin-bottom: 15px;"   v-for="(item,id) in data_produk" :key="id"  @click="$router.push('/profil/detail_produk_umkm/1')">
+          <ion-col size="6" style="margin-bottom: 15px;"   v-for="(item,id) in data_produk" :key="id"  @click="$router.push('/profil/detail_produk_umkm/'+item.id_produk)">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>

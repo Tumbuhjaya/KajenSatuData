@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import { IonItem,loadingController,IonList, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons, IonAccordion, IonAccordionGroup } from '@ionic/vue';
+import {  IonInput,IonSelect,IonSelectOption,IonItem,loadingController,IonList, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons, IonAccordion, IonAccordionGroup } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
@@ -103,6 +103,7 @@ import moment from "moment";
 moment.locale("id");
 export default defineComponent({
   components: {
+    IonInput,IonSelect,IonSelectOption,
     IonItem,
     loadingController,
     IonList,

@@ -85,6 +85,8 @@
 
                       <div style="width: 100%;display: flex;justify-content: center;align-items: center;margin-top: 15px;padding: 0 60px;">
                         <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="daftar" color="light" size="large">Daftar</ion-button>
+                        <ion-button style="text-transform: capitalize;border-radius: 20px;width: 100%;" @click="cari" color="light" size="large">Daftar</ion-button>
+
                       </div>
                     </div>
                   </ion-col>
@@ -207,6 +209,10 @@ export default defineComponent({
 
       this.$router.push('/tabs-dashboard/dashboard')
     },
+    async cari(){
+      
+      console.log(this.email);
+    }
   },
   created(){
     console.log(Desa);

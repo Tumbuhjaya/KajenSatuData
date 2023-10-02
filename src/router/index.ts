@@ -324,27 +324,42 @@ const routes: Array<RouteRecordRaw> = [
 
   {
     path: '/profil',
-    component: () => import('@/views/profil.vue')
+    component: () => import('@/views/profil.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
 
   {
     path: '/profil/ubah_profil',
-    component: () => import('@/views/ubah_profil.vue')
+    component: () => import('@/views/ubah_profil.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
 
   {
     path: '/profil/produk_umkm',
-    component: () => import('@/views/profil_produk_umkm.vue')
+    component: () => import('@/views/profil_produk_umkm.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
 
   {
     path: '/profil/tambah_produk',
-    component: () => import('@/views/tambah_produk.vue')
+    component: () => import('@/views/tambah_produk.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
 
   {
     path: '/profil/detail_produk_umkm/:id',
-    component: () => import('@/views/profil_detail_produk_umkm.vue')
+    component: () => import('@/views/profil_detail_produk_umkm.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
 
   {
@@ -374,6 +389,26 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
+})
+import { Storage } from '@capacitor/storage';
+
+router.beforeEach(async (to, from, next) => {
+  const ret = await Storage.get({ key: 'login' });
+
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (ret) {
+      if (!ret.value) {
+        next({
+          path: '/login',
+          query: { redirect: to.fullPath }
+        })
+      } else {
+        next()
+      }
+    } 
+  } else {
+    next()
+  }
 })
 
 export default router

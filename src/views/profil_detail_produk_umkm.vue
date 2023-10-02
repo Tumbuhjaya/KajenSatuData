@@ -16,13 +16,14 @@
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12">
             <div style="width: 100%;padding: 15px;">
-              <ion-img src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+              <ion-img v-if="produk.foto" :src="produk.foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+              <ion-img v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
               <h6 style="font-size: 18px;margin-top: 15px !important;"><strong>Nama produk</strong></h6>
-              <h6 style="font-size: 18px;font-weight: bold;margin-top: 10px !important;margin-bottom: 10px !important;">Rp 0.000.000,-</h6>
-              <h6 style="font-size: 14px; font-weight: normal;">Kategori Produk</h6>
+              <h6 style="font-size: 18px;font-weight: bold;margin-top: 10px !important;margin-bottom: 10px !important;">Rp {{ produk.harga }},-</h6>
+              <h6 style="font-size: 14px; font-weight: normal;">{{ produk.ktg }}</h6>
 
               <h6 style="margin-top: 30px !important;font-size: 18px"><strong>Rincian Produk</strong></h6>
-              <h6 style="margin-top: 10px !important;font-size: 14px;font-weight: normal;">deskripsi produk</h6>
+              <h6 style="margin-top: 10px !important;font-size: 14px;font-weight: normal;">{{ produk.deskripsi }}</h6>
 
               <h6 style="margin-top: 30px !important;font-size: 18px"><strong>Penjual</strong></h6>
 
@@ -34,12 +35,12 @@
                 </div>
 
                 <div style="width:60%;height: 80px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                  <h6 style="font-size: 16px;"><strong>Nama user login</strong></h6>
-                  <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">Nama Desa dan Kecamatan</h6>
+                  <h6 style="font-size: 16px;"><strong>{{ user.nama }}</strong></h6>
+                  <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">Kelurahan : {{ user.desa }} , Kecamatan : {{ user.kecamatan }}</h6>
                 </div>
               </div>
               <div style="width: 100%;height: 2px;background-color: #D3D3D3;margin-top: 15px;"></div>
-              <ion-button style="margin-top: 15px;" expand="block">Hubungi Penjual via Whatsapp</ion-button>
+              <ion-button style="margin-top: 15px;" expand="block" @click="wa">Hubungi Penjual via Whatsapp</ion-button>
               <ion-button style="margin-top: 15px;" expand="block" color="danger">Hapus Produk</ion-button>
             </div>
           </ion-col>
@@ -50,15 +51,18 @@
 </template>
 
 <script>
-import { loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
+import {  IonInput,IonSelect,IonSelectOption,loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
 moment.locale("id");
+import { Storage } from "@capacitor/storage";
+
 export default defineComponent({
   components: {
+    IonInput,IonSelect,IonSelectOption,
     loadingController,
     IonPage,
     IonHeader,
@@ -82,13 +86,9 @@ export default defineComponent({
     },
   data() {
     return {
-      foto: "",
-      id_seni_budaya: "",
-      isi: "",
-      jenis: "",
-      nama: "",
-      segment: "data1",
-      data_produk : []
+      id: this.$route.params.id,
+      produk:{},
+      user:{},
     };
   },
   methods: {
@@ -105,29 +105,26 @@ export default defineComponent({
         this.loading = false;
       }, 1000);
     },
-    async get_seni(){
-      let hsl = await axios({
-      method: "get",
-        url:`https://ksd.pekalongankab.go.id/api/seni-id.php?id=`+this.$route.params.id,
-      })
-      console.log(hsl);
-      this.foto=hsl.data.foto;
-      this.id_seni_budaya=hsl.data.id_seni_budaya;
-      this.isi=hsl.data.isi;
-      this.jenis=hsl.data.jenis;
-      this.nama=hsl.data.nama;
-    },
     async get_detail(){
         let res = await axios({
         method: "get",
-          url:`https://ksd.pekalongankab.go.id/api/produk-id.php?id=`+this.$route.params.id,
+          url:`https://ksd.pekalongankab.go.id/api/produk-id.php?id=`+this.id,
         })
         console.log(res.data, "resss");
-        this.data_produk.push(res.data)
-        // for (let i = 0; i < res.data.length; i++) {
-        //   this.data_produk.push(res.data[i])
-        // }
-      }
+        this.produk = res.data
+      },
+    async get_user(){
+      const { value } = await Storage.get({ key: 'login' });
+      let res = await axios({
+      method: "get",
+        url:`https://ksd.pekalongankab.go.id/api/user.php?id=`+value,
+      })
+      this.user = res.data
+      console.log(res.data);
+    },
+    wa(){
+      location.href = 'https://wa.me/'+this.user.wa
+    }
   },
   async created() {
     const loading = await loadingController.create({
@@ -135,7 +132,7 @@ export default defineComponent({
         });
     await loading.present();
     await this.get_detail()
-    await this.get_seni()
+    await this.get_user()
     await loading.dismiss();
 
   }});

@@ -104,7 +104,7 @@
                   <h6 v-if="dusun.length==0" style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
                   <div v-else>
                     <div v-for="(item,id) in dusun" :key="id" style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px;border-radius: 8px;background-color: #eefafd;margin-bottom:15px">
-                      <h6 style="font-size: 16px;"><strong>Dusun {{ item.nama }}</strong></h6>
+                      <h6 style="font-size: 16px;color:#1c47bc"><strong>Dusun {{ item.nama }}</strong></h6>
                         <h6 style="font-size: 12px;font-weight: normal;">Kepala Dusun : {{ item.kepala }}</h6>
                     </div>
                   </div>
@@ -117,19 +117,12 @@
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
                   <h6  v-if="perangkat.length==0"  style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
-                  <ion-list lines="full" v-else>
-                    <div  v-for="(item,id) in perangkat" :key="id" >
-                      <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
-                    </ion-item>
-                    <ion-item>
-                      <h6 style="font-size: 16px;"><strong>Jabatan : {{ item.jabatan }}</strong></h6>
-                    </ion-item>
-                    <ion-item>
-                      <h6 style="font-size: 16px;"><strong>NIK : {{ item.nik }}</strong></h6>
-                    </ion-item>
+                  <div v-else>
+                    <div v-for="(item,id) in perangkat" :key="id" style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px;border-radius: 8px;background-color: #eefafd;margin-bottom:15px">
+                      <h6 style="font-size: 16px;color:#1c47bc"><strong>{{ item.nama }}</strong></h6>
+                        <h6 style="font-size: 12px;font-weight: normal;">{{ item.jabatan }}</h6>
                     </div>
-                  </ion-list>
+                  </div>
                 </div>
               </ion-accordion>
 
@@ -140,16 +133,14 @@
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
                   <h6  v-if="bumdes.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
-                  <ion-list lines="full" v-else>
-                    <div  v-for="(item,id) in bumdes" :key="id" >
-                      <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
-                    </ion-item>
-                      <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Deskripsi : {{ item.deskripsi }}</strong></h6>
-                    </ion-item>
+                  <div v-else>
+                    <div v-for="(item,id) in bumdes" :key="id" style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px;border-radius: 8px;background-color: #eefafd;margin-bottom:15px" @click="setOpen(true)">
+                      <h6 style="font-size: 12px;"><strong>{{ item.jenis }}</strong></h6>
+                      <h6 style="font-size: 16px;margin-top: 10px !important;color:#1c47bc"><strong>{{ item.nama }}</strong></h6>
+                      <h6 style="font-size: 12px;font-weight: normal;">{{ item.alamat }}</h6>
                     </div>
-                  </ion-list>
+                  </div>
+                  
                 </div>
               </ion-accordion>
 
@@ -519,19 +510,15 @@
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
                   <h6  v-if="bantuan.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
-                  <ion-list lines="full" v-else>
-                    <div  v-for="(item,id) in bantuan" :key="id" >
-                      <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
-                    </ion-item>
-                    <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Dana : {{ item.dana }}</strong></h6>
-                    </ion-item>
-                    <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>peserta : {{ item.peserta }}</strong></h6>
-                    </ion-item>
+
+                  <div v-else>
+                    <div v-for="(item,id) in bantuan" :key="id" style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px;border-radius: 8px;background-color: #eefafd;margin-bottom:15px">
+                      
+                      <h6 style="font-size: 16px;margin-top: 10px !important;color:#1c47bc"><strong>{{ item.nama }}</strong></h6>
+                      <h6 style="font-size: 12px;font-weight: normal;margin-top: 5px !important;">{{ item.dana }}</h6>
+                      <h6 style="font-size: 12px;font-weight: normal;">({{ item.peserta }}) Peserta</h6>
                     </div>
-                  </ion-list>
+                  </div>
                 </div>
               </ion-accordion>
 

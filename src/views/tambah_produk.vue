@@ -75,7 +75,7 @@ import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import { Camera, CameraResultType, CameraSource } from "@capacitor/camera";
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 import { ip_server } from "@/ip-config";
 
@@ -116,7 +116,7 @@ export default defineComponent({
   methods: {
     async simpan(){
       let vm = this
-      const { value } = await Storage.get({ key: 'login' });
+      const { value } = await Preferences.get({ key: 'login' });
     let formData = new FormData()
     // formData.append("foto", vm.afoto1);
 		formData.append('harga',vm.harga)
@@ -128,11 +128,12 @@ export default defineComponent({
           message: 'Mohon Tunggu...',
         });
     await loading.present();
+    if ( vm.afoto1) {
     this.blobToBase64( vm.afoto1).then(async res => {
       formData.append("foto",res);
 
   // do what you wanna do
-  console.log(res); // res is base64 now
+  console.log(res.dataUrl); // res is base64 now
       await axios({
           method: "post",
           headers: {
@@ -152,6 +153,26 @@ export default defineComponent({
         await loading.dismiss();
         this.$router.push('/profil/produk_umkm')
       });
+    }else{
+      await axios({
+          method: "post",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          url: ip_server+'produk-save.php',
+          data: formData,
+        }).then(function (hsl) {
+          console.log(hsl);
+          if (hsl) {
+            alert('sukses')
+          }else{
+            alert('gagal')
+          }
+
+        })
+        await loading.dismiss();
+        this.$router.push('/profil/produk_umkm')
+    }
 
     },
      blobToBase64(blob){

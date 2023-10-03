@@ -20,7 +20,7 @@
             <div style="width: 100%;background-color: #fff;display: flex;">
               <div style="width: 40%;position: relative;background-color: ;display: flex;justify-content: center;">
                 <div style="width: 140px;height: 140px;border-radius: 100%;overflow: hidden;">
-                  <ion-img v-if="user.foto" src="/assets/user-ksd-2.png" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <ion-img v-if="user.foto" :src="user.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                   <ion-img v-else src="/assets/user-ksd-2.png" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                 </div>
                 

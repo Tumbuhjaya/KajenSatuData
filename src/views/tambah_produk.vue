@@ -118,7 +118,7 @@ export default defineComponent({
       let vm = this
       const { value } = await Storage.get({ key: 'login' });
     let formData = new FormData()
-    formData.append("foto", vm.afoto1);
+    // formData.append("foto", vm.afoto1);
 		formData.append('harga',vm.harga)
 		formData.append('nama', vm.nama)
 		formData.append('user',value)
@@ -128,6 +128,11 @@ export default defineComponent({
           message: 'Mohon Tunggu...',
         });
     await loading.present();
+    this.blobToBase64( vm.afoto1).then(async res => {
+      formData.append("foto",res);
+
+  // do what you wanna do
+  console.log(res); // res is base64 now
       await axios({
           method: "post",
           headers: {
@@ -146,13 +151,23 @@ export default defineComponent({
         })
         await loading.dismiss();
         this.$router.push('/profil/produk_umkm')
+      });
 
+    },
+     blobToBase64(blob){
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      return new Promise(resolve => {
+        reader.onloadend = () => {
+          resolve(reader.result);
+        };
+      });
     },
     async takePicture(nama) {
       let vm = this;
       const cameraPhoto = await Camera.getPhoto({
         resultType: CameraResultType.Uri,
-        source: CameraSource.Prompt,
+        source: CameraSource.Photos,
         promptLabelHeader: "Pilih Aksi",
         promptLabelPhoto: "Ambil Dari Galeri",
         promptLabelPicture: "Ambil Dari Camera",

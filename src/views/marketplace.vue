@@ -133,10 +133,10 @@
       </ion-grid>
       <ion-fab slot="fixed" vertical="bottom" horizontal="end">
         <ion-fab-button v-if="isLogin" @click="$router.push('/profil/produk_umkm')">
-          <ion-icon :icon="arrowBackCircleOutline"></ion-icon>
+          <ion-icon :icon="addCircleOutline"></ion-icon>
         </ion-fab-button>
         <ion-fab-button v-else @click="$router.push('/login')">
-          <ion-icon :icon="arrowBackCircleOutline"></ion-icon>
+          <ion-icon :icon="addCircleOutline"></ion-icon>
         </ion-fab-button>
       </ion-fab>
     </ion-content>
@@ -147,7 +147,7 @@
 import {IonFab,IonFabButton,loadingController, IonSelect,IonSelectOption, IonInput, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
-import { arrowBackCircleOutline } from 'ionicons/icons';
+import { arrowBackCircleOutline, addCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
 import { Preferences } from "@capacitor/preferences";
@@ -175,7 +175,7 @@ export default defineComponent({
     
   },
   setup() {
-      return { arrowBackCircleOutline };
+      return { arrowBackCircleOutline, addCircleOutline };
     },
   data() {
     return {

@@ -13,8 +13,8 @@
       <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
       <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-grid style="padding: 60px 15px !important;">
-        <ion-row style="margin-bottom: 15px;">
+      <ion-grid style="padding: 60px 20px !important;">
+        <ion-row>
           <ion-col size="12">
             <ion-input label="Nama Produk" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
@@ -183,31 +183,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.box-header{
-  width: 100%;
-  height: ;
-  background-color: #4c87f2;
-  padding: 15px 35px;
-}
 
-.box-header .box-title{
-  width: 100%;
-  height: 70px;
-  background-color: ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-ion-input{
-  border-bottom: 1px solid black;
-}
-ion-select{
-    border-bottom: 1px solid black; 
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-  }
 
   ion-textarea{
     border-bottom: 1px solid black; 

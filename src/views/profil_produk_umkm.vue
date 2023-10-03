@@ -10,10 +10,10 @@
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
-      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
+      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: fixed;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
       <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-grid style="padding: 60px 15px !important;">
+      <ion-grid style="padding: 60px 20px !important;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <ion-button size="success" style="margin-top: 10px;" @click="$router.push('/profil/tambah_produk')">Tambah Produk</ion-button>
@@ -82,7 +82,7 @@ import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 export default defineComponent({
   components: {
@@ -141,7 +141,7 @@ export default defineComponent({
     }
   },
   async ionViewWillEnter() {
-    const { value } = await Storage.get({ key: 'login' });
+    const { value } = await Preferences.get({ key: 'login' });
     this.id = value 
     this.data_produk = []
     const loading = await loadingController.create({

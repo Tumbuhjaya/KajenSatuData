@@ -3,18 +3,18 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="box-title">
-          <!-- <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/marketplace')"></ion-icon> -->
+          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #1c47bc;" @click="$router.push('/marketplace')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">Profil</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">Profil</h6>
       </div>
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
-      <div style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
+      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: fixed;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
-      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
 
-      <ion-grid style="padding: 60px 15px !important;">
+      <ion-grid style="padding: 60px 20px !important;">
         <ion-row style="margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;background-color: #fff;display: flex;">
@@ -132,7 +132,7 @@ import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 export default defineComponent({
   components: {
@@ -189,12 +189,13 @@ export default defineComponent({
       console.log(res.data);
     },
     async logout(){
-      await Storage.remove({ key: 'login' });
+      await Preferences.remove({ key: 'login' });
+
       this.$router.push("/tabs-dashboard/dashboard");
     }
   },
   async ionViewDidEnter() {
-    const { value } = await Storage.get({ key: 'login' });
+    const { value } = await Preferences.get({ key: 'login' });
     this.id = value 
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',

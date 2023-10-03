@@ -27,7 +27,7 @@ import { IonApp, IonRouterOutlet } from '@ionic/vue';
   }
   
   ion-content{
-    /* --background: rgba(238,250,253, 0.9) */
+    --background: rgba(255,255,255)
   }
 
   ion-modal ion-toolbar{

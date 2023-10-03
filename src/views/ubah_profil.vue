@@ -13,8 +13,8 @@
       <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
 
       <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-grid style="padding: 60px 15px !important;">
-        <ion-row style="margin-bottom: 15px;">
+      <ion-grid style="padding: 60px 20px!important;">
+        <ion-row >
           <ion-col size="12">
             <ion-input label="Nama" v-model="nama" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
@@ -40,7 +40,7 @@
           </ion-col>
 
           <ion-col size="12" style="margin-top: 15px;">
-            <ion-button color="primary" @click="simpan">Simpan</ion-button>
+            <ion-button color="primary" @click="simpan" expand="block">Simpan</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -55,7 +55,7 @@ import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import { Desa } from "../../data.ts";
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 import { ip_server } from "@/ip-config";
 
@@ -136,7 +136,7 @@ export default defineComponent({
 
     },
     async get_user(){
-      const { value } = await Storage.get({ key: 'login' });
+      const { value } = await Preferences.get({ key: 'login' });
       this.id = value
       let res = await axios({
       method: "get",
@@ -155,7 +155,7 @@ export default defineComponent({
     },
   },
   async ionViewDidEnter(){
-    const { value } = await Storage.get({ key: 'login' });
+    const { value } = await Preferences.get({ key: 'login' });
     this.id = value 
     const loading = await loadingController.create({
           message: 'Mohon Tunggu...',

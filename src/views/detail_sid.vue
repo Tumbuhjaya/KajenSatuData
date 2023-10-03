@@ -58,7 +58,7 @@
           <ion-col size="12">
             <ion-accordion-group>
               <ion-accordion value="visimisi" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Visi dan Misi</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -73,38 +73,45 @@
                 </div>
               </ion-accordion>
               <ion-accordion value="pengumuman" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Pengumuman</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>{{ pengumuman.isi?pengumuman.isi:'Belum Ada Data' }}</strong></h6>
+                  <h6 v-if="pengumuman.length==0" style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <div v-else>
+                    <div style="width: 100%;display: flex;" v-for="(item,id) in pengumuman" :key="id">
+                      <div style="width: 40%;">
+                        <div style="border-radius: 8px;overflow: hidden;">
+                          <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height: 100px;object-fit: cover;"></ion-img>
+                          <ion-img v-else src="https://placehold.co/200" style="width:100%;height: 100px;object-fit: cover;"></ion-img>
+                        </div>
+                      </div>
+
+                      <div style="width: 60%;padding-left: 10px;">
+                        <h6 style="font-size: 16px;color:#1c47bc"><strong>{{ item.judul }}</strong></h6>
+                        <h6 style="font-size: 12px;margin-top: 5px !important;font-weight: normal;">{{ item.waktu }}</h6>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </ion-accordion>
               <ion-accordion value="dusun" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Dusun</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
                   <h6 v-if="dusun.length==0" style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
-                  <ion-list lines="full" v-else>
-                    <div  v-for="(item,id) in dusun" :key="id" >
-                      <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Dusun : {{ item.nama }}</strong></h6>
-                    </ion-item>
-                    <ion-item>
-                      <h6 style="font-size: 16px;"><strong>Kepala Dusun : {{ item.kepala }}</strong></h6>
-                    </ion-item>
-                    <ion-item>
-                      <h6 style="font-size: 16px;"><strong>NIK : {{ item.nik }}</strong></h6>
-                    </ion-item>
+                  <div v-else>
+                    <div v-for="(item,id) in dusun" :key="id" style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px;border-radius: 8px;background-color: #eefafd;margin-bottom:15px">
+                      <h6 style="font-size: 16px;"><strong>Dusun {{ item.nama }}</strong></h6>
+                        <h6 style="font-size: 12px;font-weight: normal;">Kepala Dusun : {{ item.kepala }}</h6>
                     </div>
-                  </ion-list>
+                  </div>
                 </div>
               </ion-accordion>
               <ion-accordion value="perangkatdesa" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Perangkat Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -127,7 +134,7 @@
               </ion-accordion>
 
               <ion-accordion value="bumdes" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>BUMDes</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -147,7 +154,7 @@
               </ion-accordion>
 
               <ion-accordion value="statistik" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Statistik</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -506,7 +513,7 @@
               </ion-accordion>
 
               <ion-accordion value="progbantuan" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Program Bantuan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -529,7 +536,7 @@
               </ion-accordion>
 
               <ion-accordion value="pertanahan" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Pertanahan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -552,7 +559,7 @@
               </ion-accordion>
 
               <ion-accordion value="pembangunan" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Pembangunan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -569,7 +576,7 @@
               </ion-accordion>
 
               <ion-accordion value="keuangan" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Keuangan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -586,7 +593,7 @@
               </ion-accordion>
 
               <ion-accordion value="umkm" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>UMKM</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -603,7 +610,7 @@
               </ion-accordion>
 
               <ion-accordion value="layanansurat" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Layanan Surat</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -628,7 +635,7 @@
               </ion-accordion>
 
               <ion-accordion value="galerifoto" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Galeri Foto</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -645,7 +652,7 @@
               </ion-accordion>
 
               <ion-accordion value="petadesa" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Peta Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -655,7 +662,7 @@
               </ion-accordion>
 
               <ion-accordion value="potensidesa" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Potensi Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -672,7 +679,7 @@
               </ion-accordion>
 
               <ion-accordion value="channeldesa" style="margin-bottom: 15px;border-radius: 10px;">
-                <ion-item slot="header" color="primary">
+                <ion-item slot="header" color="light">
                   <ion-label>Channel Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
@@ -936,4 +943,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.ion-color-light{
+  --ion-color-base : #eefafd !important;
+}
 </style>

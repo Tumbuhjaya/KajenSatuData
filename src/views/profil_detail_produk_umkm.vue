@@ -3,17 +3,18 @@
     <ion-header style="box-shadow: none;">
       <div class="box-header">
         <div class="box-title">
-          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #fff;" @click="$router.push('/profil')"></ion-icon>
+          <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #1c47bc;" @click="$router.push('/profil')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #fff;">DETAIL PRODUK</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">DETAIL PRODUK</h6>
       </div>
       </div>
     </ion-header>
     <ion-content :fullscreen="true" id="page-dashboard">
-      <div  style="width: 100%;height: 40px;background-color: #4c87f2;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
-      <ion-img src="/assets/shape-001.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
-      <ion-grid style="padding: 30px 15px !important;">
-        <ion-row style="margin-bottom: 15px;">
+      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: fixed;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
+
+      <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
+      <ion-grid style="padding: 30px 20px !important;">
+        <ion-row >
           <ion-col size="12">
             <div style="width: 100%;padding: 15px;">
               <ion-img v-if="produk.foto" :src="produk.foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
@@ -58,7 +59,7 @@ import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
 moment.locale("id");
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 export default defineComponent({
   components: {
@@ -114,7 +115,7 @@ export default defineComponent({
         this.produk = res.data
       },
     async get_user(){
-      const { value } = await Storage.get({ key: 'login' });
+      const { value } = await Preferences.get({ key: 'login' });
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/user.php?id=`+value,

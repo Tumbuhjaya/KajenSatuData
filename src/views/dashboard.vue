@@ -16,7 +16,7 @@
     </ion-header>
 
     <ion-content :fullscreen="true" >
-      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: absolute;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
+      <div style="width: 100%;height: 40px;background-image: url('/assets/13263.jpg'); background-repeat: no-repeat;background-size:cover;background-position: left 50px;position: fixed;left:0;right: 0;top:90px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;"></div>
       <ion-img src="/assets/shape-new-two.png" style="position: fixed;bottom:0;left:0;right:0;"></ion-img>
       <ion-grid style="padding: 0 20px !important;">
         <ion-row>
@@ -134,7 +134,7 @@
 <script>
 import {   IonInput,IonSelect,IonSelectOption,loadingController,IonPage, IonHeader, IonContent, IonGrid, IonRow, IonCol, IonImg, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
-import { Storage } from "@capacitor/storage";
+import { Preferences } from "@capacitor/preferences";
 
 export default defineComponent({
   components: {
@@ -168,7 +168,7 @@ export default defineComponent({
         });
         await loading.present();
 
-    const { value } = await Storage.get({ key: 'login' });
+        const { value } = await Preferences.get({ key: 'login' });
     this.isLogin = value?value:0
     await loading.dismiss();
 

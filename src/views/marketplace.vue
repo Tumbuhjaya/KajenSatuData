@@ -213,6 +213,7 @@ export default defineComponent({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/user-umkm.php?limit=4`})
       // console.log(res.data);
+      this.data_umkm = []
       for (let i = 0; i < res.data.length; i++) {
         this.data_umkm.push(res.data[i])
       }
@@ -223,6 +224,7 @@ export default defineComponent({
         url:`https://ksd.pekalongankab.go.id/api/produk.php?ktg=`,
       })
       console.log(res.data);
+      this.data_produk = []
       for (let i = 0; i < res.data.length; i++) {
         this.data_produk.push(res.data[i])
       }
@@ -244,6 +246,7 @@ export default defineComponent({
         url:`https://ksd.pekalongankab.go.id/api/produk-ktg.php`,
       })
       // console.log(res.data);
+      this.data_kategori = []
       for (let i = 0; i < res.data.length; i++) {
         this.data_kategori.push(res.data[i])
       }
@@ -296,13 +299,14 @@ export default defineComponent({
    },
   },
   async ionViewDidEnter() {
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
     const { value } = await Preferences.get({ key: 'login' });
     if (value) {
       this.isLogin = value
     }
-    const loading = await loadingController.create({
-          message: 'Mohon Tunggu...',
-        });
+
     await loading.present();
     await this.get_umkm()
     await this.get_produk()

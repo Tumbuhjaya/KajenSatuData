@@ -137,7 +137,10 @@
         </ion-row>
       </ion-grid>
       <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button @click="$router.push('/login')">
+        <ion-fab-button v-if="isLogin" @click="$router.push('/profil/produk_umkm')">
+          <ion-icon :icon="arrowBackCircleOutline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button v-else @click="$router.push('/login')">
           <ion-icon :icon="arrowBackCircleOutline"></ion-icon>
         </ion-fab-button>
       </ion-fab>
@@ -146,16 +149,18 @@
 </template>
 
 <script>
-import {  IonInput,IonSelect,IonSelectOption,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
+import { IonFab,IonFabButton, loadingController,IonInput,IonSelect,IonSelectOption,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonLabel, IonImg, IonButton, IonButtons } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import moment from "moment";
+import { Preferences } from "@capacitor/preferences";
+
 moment.locale("id");
 export default defineComponent({
   components: {
-    IonInput,IonSelect,IonSelectOption,
+    IonInput,IonSelect,IonSelectOption,loadingController,IonFab,IonFabButton,
     IonPage,
     IonHeader,
     IonToolbar,
@@ -185,7 +190,8 @@ export default defineComponent({
       nama: "",
       segment: "data1",
       data_umkm:[],
-      data_produk: []
+      data_produk: [],
+      isLogin:0
     };
   },
   methods: {
@@ -207,6 +213,7 @@ export default defineComponent({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/user-umkm.php?limit=`})
       console.log(res.data);
+      this.data_umkm = []
       for (let i = 0; i < res.data.length; i++) {
         this.data_umkm.push(res.data[i])
       }
@@ -229,14 +236,24 @@ export default defineComponent({
         url:`https://ksd.pekalongankab.go.id/api/produk-user.php?user=`+ this.$route.params.id,
       })
       console.log(res.data);
+      this.data_produk = []
       for (let i = 0; i < res.data.length; i++) {
         this.data_produk.push(res.data[i])
       }
     }
   },
   async ionViewDidEnter() {
+    const loading = await loadingController.create({
+          message: 'Mohon Tunggu...',
+        });
+    const { value } = await Preferences.get({ key: 'login' });
+    if (value) {
+      this.isLogin = value
+    }
     await this.get_all_umkm()
     await this.get_seni()
+    await loading.dismiss();
+
   }});
 </script>
 

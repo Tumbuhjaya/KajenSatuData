@@ -48,6 +48,8 @@
                     <ion-item>
                       <div class="inner" style="margin-top: 15px;">
                         <img
+                        src="/assets/alt-photo.svg"
+
                           alt=""
                           v-if="!foto1"
                           @click="takePicture('foto1')"
@@ -128,7 +130,7 @@ export default defineComponent({
       let vm = this;
       const cameraPhoto = await Camera.getPhoto({
         resultType: CameraResultType.Uri,
-        source: CameraSource.Photos,
+        source: CameraSource.Prompt,
         promptLabelHeader: "Pilih Aksi",
         promptLabelPhoto: "Ambil Dari Galeri",
         promptLabelPicture: "Ambil Dari Camera",
@@ -229,8 +231,7 @@ export default defineComponent({
       this.id_desa=res.data.id_desa
       this.wa=res.data.wa
       this.desa=Number(res.data.id_desa)
-      this.foto1 = res.data.foto
-      
+        this.foto1 = res.data.foto
       console.log(res.data,this.desa);
     },
   },

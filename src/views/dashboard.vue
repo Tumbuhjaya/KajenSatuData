@@ -25,7 +25,7 @@
           </ion-col>
         </ion-row>
 
-        <ion-row style="margin-top: 30px;">
+        <ion-row style="margin-top: 15px;">
           <ion-col>
             <h6 class="font-title" style="color: #1c47bc;">Umum</h6>
           </ion-col>
@@ -66,7 +66,7 @@
           </ion-col>
         </ion-row>
 
-        <ion-row style="margin-top: 30px;">
+        <ion-row style="margin-top: 15px;">
           <ion-col>
             <h6 class="font-title" style="color: #1c47bc;">Masyarakat</h6>
           </ion-col>
@@ -85,7 +85,7 @@
           </ion-col>
         </ion-row>
 
-        <ion-row style="margin-top: 30px;">
+        <ion-row style="margin-top: 15px;">
           <ion-col>
             <h6 class="font-title" style="color: #1c47bc;">Rekomendasi</h6>
           </ion-col>

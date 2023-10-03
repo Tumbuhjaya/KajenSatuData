@@ -43,7 +43,7 @@
           <ion-col v-for="(item, id) in data_umkm" size="3">
             <div class="box-menu" @click="$router.push('/marketplace/detail_umkm/'+ item.id_user_android)">
               <div class="box-menu-circle">
-                <ion-img v-if="item.foto" :src="item.foto" src="/assets/store.png"></ion-img>
+                <ion-img v-if="item.foto" :src="item.foto" ></ion-img>
                 <ion-img v-else src="/assets/store.png"></ion-img>
               </div>
               <h6 style="margin-top: 10px !important;text-align: center;font-size: 14px;color: #1c47bc;">{{ item.nama }}</h6>

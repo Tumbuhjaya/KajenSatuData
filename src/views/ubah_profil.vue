@@ -38,7 +38,31 @@
           <ion-col size="12">
             <ion-input label="password" v-model="password" type="password" labelPlacement="stacked" placeholder=""></ion-input>
           </ion-col>
-
+          <ion-col>
+            <div
+                  class="uploadfoto" style="text-align: center;"
+                  >
+                    <span class="title" 
+                      >Foto Produk</span
+                    >
+                    <ion-item>
+                      <div class="inner" style="margin-top: 15px;">
+                        <img
+                          alt=""
+                          v-if="!foto1"
+                          @click="takePicture('foto1')"
+                        />
+                  
+                        <ion-avatar style="--border-radius: 7px" v-else>
+                          <img @click="takePicture('foto1')" :src="foto1" alt="" />
+                        </ion-avatar>
+                      </div>
+                      <!-- <ion-button @click="takePicture()"
+                        >pilih Gambar Pendukung</ion-button
+                      > -->
+                    </ion-item>
+                  </div>
+          </ion-col>
           <ion-col size="12" style="margin-top: 15px;">
             <ion-button color="primary" @click="simpan">Simpan</ion-button>
           </ion-col>
@@ -49,19 +73,19 @@
 </template>
 
 <script>
-import { IonSelect,IonSelectOption, loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonTextarea, onIonViewDidEnter } from '@ionic/vue';
+import { IonAvatar,IonItem, IonSelect,IonSelectOption, loadingController,IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonImg, IonButton, IonInput, IonTextarea, onIonViewDidEnter } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { IonIcon } from '@ionic/vue';
 import { arrowBackCircleOutline } from 'ionicons/icons';
 import axios  from "axios";
 import { Desa } from "../../data.ts";
 import { Preferences } from "@capacitor/preferences";
-
+import { Camera, CameraResultType, CameraSource } from "@capacitor/camera";
 import { ip_server } from "@/ip-config";
 
 export default defineComponent({
   components: {
-    IonSelect,IonSelectOption,
+    IonSelect,IonSelectOption,IonItem,IonAvatar,
     loadingController,
     IonPage,
     IonHeader,
@@ -89,6 +113,9 @@ export default defineComponent({
       desa:0,
       id_desa:'',
       ktg:'',
+      src:'',
+      foto1: "",
+      afoto1: "",
       id_user_android: 0,
       password:'',
       user:{},
@@ -97,7 +124,37 @@ export default defineComponent({
     };
   },
   methods: {
+    async takePicture(nama) {
+      let vm = this;
+      const cameraPhoto = await Camera.getPhoto({
+        resultType: CameraResultType.Uri,
+        source: CameraSource.Photos,
+        promptLabelHeader: "Pilih Aksi",
+        promptLabelPhoto: "Ambil Dari Galeri",
+        promptLabelPicture: "Ambil Dari Camera",
+        quality: 30,
+        saveToGallery: true,
+        allowEditing: false,
+      });
+      let x = await fetch(`${cameraPhoto.webPath}`).then((e) => {
+        return e.blob();
+      });
+
+      vm[nama] = cameraPhoto.webPath;
+      vm["a" + nama] = x;
+    },
+    blobToBase64(blob){
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      return new Promise(resolve => {
+        reader.onloadend = () => {
+          resolve(reader.result);
+        };
+      });
+    },
     async simpan(){
+      let vm = this;
+
       let form = new FormData()
 		form.append('id', this.id_user_android)
 		form.append('nama', this.nama)
@@ -116,6 +173,29 @@ export default defineComponent({
           message: 'Mohon Tunggu...',
         });
     await loading.present();
+    if ( vm.afoto1) {
+      this.blobToBase64( vm.afoto1).then(async res => {
+        console.log( this.id_user_android , res); // res is base64 now
+
+        let form2 = new FormData()
+        form2.append("foto",res);
+        form2.append('user', this.id_user_android)
+        
+        await axios({
+          method: "post",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          url: ip_server+'foto.php',
+          data: form2,
+        }).then(function (hsl) {
+          console.log(hsl);
+        })
+
+      })
+    
+    // do what you wanna do
+      }
     await axios({
           method: "post",
           headers: {
@@ -132,8 +212,8 @@ export default defineComponent({
             alert('gagal')
           }
         })
-        await loading.dismiss();
-
+      
+        await loading.dismiss();     
     },
     async get_user(){
       const { value } = await Preferences.get({ key: 'login' });
@@ -149,7 +229,7 @@ export default defineComponent({
       this.id_desa=res.data.id_desa
       this.wa=res.data.wa
       this.desa=Number(res.data.id_desa)
-
+      this.foto1 = res.data.foto
       
       console.log(res.data,this.desa);
     },

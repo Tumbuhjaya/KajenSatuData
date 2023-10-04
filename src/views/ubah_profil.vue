@@ -143,7 +143,10 @@ export default defineComponent({
       });
 
       vm[nama] = cameraPhoto.webPath;
-      vm["a" + nama] = x;
+      this.blobToBase64(x).then((hsl)=>{
+        console.log(hsl);
+        vm["a" + nama] = hsl
+      })
     },
     blobToBase64(blob){
       const reader = new FileReader();
@@ -176,11 +179,8 @@ export default defineComponent({
         });
     await loading.present();
     if ( vm.afoto1) {
-      this.blobToBase64( vm.afoto1).then(async res => {
-        console.log( this.id_user_android , res); // res is base64 now
-
         let form2 = new FormData()
-        form2.append("foto",res);
+        form2.append("foto", vm.afoto1);
         form2.append('user', this.id_user_android)
         
         await axios({
@@ -193,10 +193,6 @@ export default defineComponent({
         }).then(function (hsl) {
           console.log(hsl);
         })
-
-      })
-    
-    // do what you wanna do
       }
     await axios({
           method: "post",
@@ -206,7 +202,6 @@ export default defineComponent({
           url: ip_server+'ubah.php',
           data: form,
         }).then(function (hsl) {
-          console.log(hsl);
           if (hsl.data) {
             
             alert('sukses')

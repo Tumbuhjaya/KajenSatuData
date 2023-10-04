@@ -118,7 +118,7 @@ export default defineComponent({
       let vm = this
       const { value } = await Preferences.get({ key: 'login' });
     let formData = new FormData()
-    // formData.append("foto", vm.afoto1);
+    formData.append("foto", vm.afoto1);
 		formData.append('harga',vm.harga)
 		formData.append('nama', vm.nama)
 		formData.append('user',value)
@@ -128,12 +128,7 @@ export default defineComponent({
           message: 'Mohon Tunggu...',
         });
     await loading.present();
-    if ( vm.afoto1) {
-    this.blobToBase64( vm.afoto1).then(async res => {
-      formData.append("foto",res);
-
-  // do what you wanna do
-  console.log(res.dataUrl); // res is base64 now
+  
       await axios({
           method: "post",
           headers: {
@@ -152,27 +147,6 @@ export default defineComponent({
         })
         await loading.dismiss();
         this.$router.push('/profil/produk_umkm')
-      });
-    }else{
-      await axios({
-          method: "post",
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          url: ip_server+'produk-save.php',
-          data: formData,
-        }).then(function (hsl) {
-          console.log(hsl);
-          if (hsl) {
-            alert('sukses')
-          }else{
-            alert('gagal')
-          }
-
-        })
-        await loading.dismiss();
-        this.$router.push('/profil/produk_umkm')
-    }
 
     },
      blobToBase64(blob){
@@ -188,7 +162,7 @@ export default defineComponent({
       let vm = this;
       const cameraPhoto = await Camera.getPhoto({
         resultType: CameraResultType.Uri,
-        source: CameraSource.Prompt,
+        source: CameraSource.Photos,
         promptLabelHeader: "Pilih Aksi",
         promptLabelPhoto: "Ambil Dari Galeri",
         promptLabelPicture: "Ambil Dari Camera",
@@ -201,7 +175,10 @@ export default defineComponent({
       });
 
       vm[nama] = cameraPhoto.webPath;
-      vm["a" + nama] = x;
+        this.blobToBase64(x).then((hsl)=>{
+        console.log(hsl);
+        vm["a" + nama] = hsl
+      })
     },
     async get_ktg(){
       let res = await axios({

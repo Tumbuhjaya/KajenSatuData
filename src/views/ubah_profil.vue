@@ -129,8 +129,8 @@ export default defineComponent({
     async takePicture(nama) {
       let vm = this;
       const cameraPhoto = await Camera.getPhoto({
-        resultType: CameraResultType.Uri,
-        source: CameraSource.Prompt,
+        resultType: CameraResultType.DataUrl,
+        source: CameraSource.Photos,
         promptLabelHeader: "Pilih Aksi",
         promptLabelPhoto: "Ambil Dari Galeri",
         promptLabelPicture: "Ambil Dari Camera",
@@ -138,15 +138,9 @@ export default defineComponent({
         saveToGallery: true,
         allowEditing: false,
       });
-      let x = await fetch(`${cameraPhoto.webPath}`).then((e) => {
-        return e.blob();
-      });
 
-      vm[nama] = cameraPhoto.webPath;
-      this.blobToBase64(x).then((hsl)=>{
-        console.log(hsl);
-        vm["a" + nama] = hsl
-      })
+      vm[nama] = cameraPhoto.dataUrl
+      vm["a" + nama] = cameraPhoto.dataUrl
     },
     blobToBase64(blob){
       const reader = new FileReader();

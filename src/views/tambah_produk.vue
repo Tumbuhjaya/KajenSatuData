@@ -161,7 +161,7 @@ export default defineComponent({
     async takePicture(nama) {
       let vm = this;
       const cameraPhoto = await Camera.getPhoto({
-        resultType: CameraResultType.Uri,
+        resultType: CameraResultType.DataUrl,
         source: CameraSource.Photos,
         promptLabelHeader: "Pilih Aksi",
         promptLabelPhoto: "Ambil Dari Galeri",

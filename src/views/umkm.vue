@@ -210,6 +210,8 @@ export default defineComponent({
       }, 1000);
     },
     async get_all_umkm(){
+      this.data_umkm = []
+
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/user-umkm.php?limit=`})
@@ -232,6 +234,8 @@ export default defineComponent({
       this.nama=hsl.data.nama;
     },
     async get_produk(){
+      this.data_produk = []
+
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/produk-user.php?user=`+ this.$route.params.id,

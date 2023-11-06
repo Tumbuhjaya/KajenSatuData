@@ -119,6 +119,8 @@ export default defineComponent({
       }, 1000);
     },
     async get_seni_tari(){
+      this.seni_tari = []
+
       let hsl = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/seni-tari.php`,

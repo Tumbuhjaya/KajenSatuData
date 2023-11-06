@@ -111,6 +111,8 @@ export default defineComponent({
       }, 1000);
     },
     async get_produk(){
+      this.data_produk = []
+
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/produk-user.php?user=`+ this.$route.params.id,

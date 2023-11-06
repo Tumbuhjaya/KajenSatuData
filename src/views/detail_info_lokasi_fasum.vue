@@ -136,6 +136,7 @@ export default defineComponent({
       console.log(item);
     },
     async get_data(){
+      this.data = []
       let hsl = await axios({
       method: "get",
         url:ip_server+`${this.tipe}.php`,

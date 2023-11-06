@@ -160,6 +160,8 @@ export default defineComponent({
       location.href='https://'+page
     },
     async get_website(){
+      this.website = []
+
       let hsl = await axios({
       method: "get",
         url:ip_server+`${this.tipe}.php`,

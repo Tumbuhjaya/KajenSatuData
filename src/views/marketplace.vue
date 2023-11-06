@@ -209,6 +209,8 @@ export default defineComponent({
       }, 1000);
     },
     async get_umkm(){
+      this.data_umkm = []
+
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/user-umkm.php?limit=4`})
@@ -219,6 +221,8 @@ export default defineComponent({
       }
     },
     async get_produk(){
+      this.data_produk = []
+
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/produk.php?ktg=`,
@@ -230,6 +234,7 @@ export default defineComponent({
       }
     },
     async get_ganti_kategori(){
+      
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/produk-cari.php?kunci=`+this.kategori,
@@ -241,6 +246,8 @@ export default defineComponent({
       }
     },
     async get_kategori(){
+      this.data_kategori = []
+
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/produk-ktg.php`,

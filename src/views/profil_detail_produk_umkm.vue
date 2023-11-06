@@ -111,6 +111,8 @@ export default defineComponent({
         method: "get",
           url:`https://ksd.pekalongankab.go.id/api/produk-id.php?id=`+this.id,
         })
+        this.produk = []
+
         console.log(res.data, "resss");
         this.produk = res.data
       },

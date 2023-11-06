@@ -135,6 +135,7 @@ export default defineComponent({
       }, 1000);
     },
     async get_berita(){
+      this.data = []
       let berita = await axios({
       method: "get",
         url:`https://pekalongankab.go.id/public/api/berita-pekalongankab.php?halaman=${this.hal}`,

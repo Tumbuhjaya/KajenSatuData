@@ -135,6 +135,8 @@ export default defineComponent({
         url:`https://ksd.pekalongankab.go.id/api/produk-user.php?user=`+ this.id,
       })
       console.log(res.data);
+      this.data_produk = []
+
       for (let i = 0; i < res.data.length; i++) {
         this.data_produk.push(res.data[i])
       }

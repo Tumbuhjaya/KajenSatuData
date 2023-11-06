@@ -80,6 +80,8 @@ export default defineComponent({
     },
 
     async get_data(){
+      this.data = []
+
       let res = await axios({
       method: "get",
         url:`https://ksd.pekalongankab.go.id/api/opd.php`,

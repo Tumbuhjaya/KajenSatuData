@@ -86,6 +86,7 @@ export default defineComponent({
       }, 1000);
     },
     async get_aplikasi(){
+      this.aplikasi = []
       let hsl = await axios({
       method: "get",
         url:ip_server+`${this.tipe}.php`,

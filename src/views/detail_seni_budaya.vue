@@ -19,7 +19,7 @@
             <div style="width: 100%;position: relative;">
               <ion-img v-if="foto" :src="foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
 
-              <ion-img  v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+              <ion-img  v-else src="https://placehold.co/300?text=No Image Available" style="width:100%;height:300px;object-fit: cover;"></ion-img>
               
               
               <div style="width: 100%;padding: 15px 30px;background-color: #fff;position: absolute;left:0;right:0;top:280px;bottom:0;border-top-left-radius: 30px;border-top-right-radius: 30px;">

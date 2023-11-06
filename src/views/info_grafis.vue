@@ -16,7 +16,7 @@
       <ion-grid style="padding: 30px 20px  !important;">
         <ion-row   v-for="(item,id) in info" :key="id"   style="margin-top: 5px;margin-bottom: 15px;">
           <ion-col size="12" style="padding: 0;">
-            <ion-img v-if="!item.foto" src="/assets/banner-info-grafis.png"></ion-img>
+            <ion-img v-if="!item.foto" src="https://placehold.co/300?text=No Image Available" style="width: 100%;"></ion-img>
             <ion-img v-else-if="item.foto" :src="item.foto"></ion-img>
           </ion-col>
 

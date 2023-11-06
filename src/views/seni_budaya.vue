@@ -37,7 +37,7 @@
             <ion-row style="margin-bottom: 15px;"  v-for="(item,id) in seni_tari" :key="id"  >
               <ion-col size="6"   v-for="(item2,id) in item" :key="id"  @click="$router.push('/seni_budaya/detail/'+item2.id_seni_budaya)">
                 <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #eefafd;overflow: hidden;">
-                  <ion-img v-if="!item2.foto" src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <ion-img v-if="!item2.foto" src="https://placehold.co/140?text=No Image Available" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                   <ion-img v-else-if="item2.foto" :src="item2.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                   <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
                     <h6 style="font-size: 16px;text-align: center;color:#1c47bc"><strong>{{ item2.nama }}</strong></h6>
@@ -56,7 +56,7 @@
               <ion-col size="6"  v-for="(item2,id) in item" :key="id"  @click="$router.push('/seni_budaya/detail/'+item2.id_seni_budaya)">
                 <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #eefafd;overflow: hidden;">
                   <ion-img v-if="item2.foto" :src="item2.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-                  <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                  <ion-img v-else src="https://placehold.co/140?text=No Image Available" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                   <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;">
                     <h6 style="font-size: 16px;text-align: center;color:#1c47bc"><strong>{{ item2.nama }}</strong></h6>
                   </div>

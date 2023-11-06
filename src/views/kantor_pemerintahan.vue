@@ -19,7 +19,7 @@
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #fff;display: flex;">
               <div style="width: 35%;">
                 <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height: 120px;object-fit: cover;"></ion-img>
-                <ion-img v-else src="https://placehold.co/90" style="width:100%;height: 120px;object-fit: cover;"></ion-img>
+                <ion-img v-else src="https://placehold.co/90?text=No Image Available" style="width:100%;height: 120px;object-fit: cover;"></ion-img>
               </div>
               <div style="width:65%;margin-left: 15px;">
                 <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>{{ item.nama }} ({{ item.singkatan }})</strong></h6>

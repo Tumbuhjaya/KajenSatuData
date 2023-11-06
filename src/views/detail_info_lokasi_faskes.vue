@@ -18,7 +18,7 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #eefafd;display: flex;">
               <div style="width: 50%;">
-                <ion-img v-if="!item.foto" src="https://placehold.co/100" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+                <ion-img v-if="!item.foto" src="https://placehold.co/100?text=No Image Available" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                 <ion-img v-else-if="item.foto" :src="item.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               </div>
               <div style="width:50%;margin-left: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">

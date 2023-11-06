@@ -18,7 +18,7 @@
           <ion-col size="12">
             <div style="width: 100%;padding: 15px;">
               <ion-img v-if="produk.foto" :src="produk.foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
-              <ion-img v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
+              <ion-img v-else src="https://placehold.co/300?text=No Image Available" style="width:100%;height:300px;object-fit: cover;"></ion-img>
               <h6 style="font-size: 18px;margin-top: 15px !important;" class="custom-dark-mode"><strong>Nama produk</strong></h6>
               <h6 style="font-size: 18px;font-weight: bold;margin-top: 10px !important;margin-bottom: 10px !important;" class="custom-dark-mode">Rp {{ produk.harga }},-</h6>
               <h6 style="font-size: 14px; font-weight: normal;" class="custom-dark-mode">{{ produk.ktg }}</h6>

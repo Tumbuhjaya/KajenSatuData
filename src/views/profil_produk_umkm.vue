@@ -29,7 +29,7 @@
           <ion-col size="6" style="margin-bottom: 15px;"   v-for="(item,id) in data_produk" :key="id"  @click="$router.push('/profil/detail_produk_umkm/'+item.id_produk)">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #fff;overflow: hidden;">
               <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-              <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <ion-img v-else src="https://placehold.co/140?text=No Image Available" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 100px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
                 <h6 style="font-size: 14px;text-align: center;color:#1c47bc"><strong>{{ item.nama }}</strong></h6>
                 <h6 style="font-size: 14px;text-align: center;font-weight: normal;margin-top: 5px !important;" class="custom-dark-mode">Rp {{ item.harga }},-</h6>

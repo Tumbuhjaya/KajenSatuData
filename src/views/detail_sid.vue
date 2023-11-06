@@ -26,7 +26,7 @@
                 <h6 style="font-size: 12px;margin-top: 5px !important;font-weight: normal;" class="custom-dark-mode">{{ data.web }}</h6>
               </div>
               <div style="width: 40%;position: relative;">
-                <ion-img src="https://placehold.co/100" style="width:100%;height:160px;object-fit: cover;"></ion-img>
+                <ion-img src="https://placehold.co/100?text=No Image Available" style="width:100%;height:160px;object-fit: cover;"></ion-img>
 
                 <div style="width: 100%;padding: 10px;background-color: rgba(0, 0, 0, 0.2);position: absolute;left:0;right:0;bottom:0;">
                   <h6 style="font-size: 10px;text-align: center;" class="custom-dark-mode"><strong>{{ data.kepala }}</strong></h6>
@@ -83,7 +83,7 @@
                       <div style="width: 40%;">
                         <div style="border-radius: 8px;overflow: hidden;">
                           <ion-img v-if="item.foto" :src="item.foto" style="width:100%;height: 100px;object-fit: cover;"></ion-img>
-                          <ion-img v-else src="https://placehold.co/200" style="width:100%;height: 100px;object-fit: cover;"></ion-img>
+                          <ion-img v-else src="https://placehold.co/200?text=No Image Available" style="width:100%;height: 100px;object-fit: cover;"></ion-img>
                         </div>
                       </div>
 

@@ -38,7 +38,7 @@
         <ion-row class="list" v-if="segment == 'data1'">
           <ion-col size="12" @click="push(item.link)" v-for="(item,id) in data" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
             <ion-img v-if="item.foto" :src="item.foto" style="width:100%;"></ion-img>
-            <ion-img v-else src="https://placehold.co/600x400" style="width:100%;"></ion-img>
+            <ion-img v-else src="https://placehold.co/600x400?text=No Image Available" style="width:100%;"></ion-img>
             <h6 style="font-size: 16px;margin-top: 10px !important;color:#1c47bc"><strong>{{ item.judul }}</strong></h6>
             <h6 style="font-size: 12px;margin-top: 5px !important;font-weight: normal;">{{ item.waktu }}</h6>
           </ion-col>

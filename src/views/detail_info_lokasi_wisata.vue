@@ -17,7 +17,7 @@
         <ion-row style="margin-bottom: 15px;"   v-for="(item,id) in data" :key="id"  >
           <ion-col size="6" id="open-modal"   @click="setOpen(item2)"   v-for="(item2,id) in item" :key="id"  >
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #eefafd;overflow: hidden;">
-              <ion-img v-if="!item2.foto" src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
+              <ion-img v-if="!item2.foto" src="https://placehold.co/100?text=No Image Available" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                 <ion-img v-else-if="item2.foto" :src="item2.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                 <div style="width:100%;height: 100px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
                 <h6 style="font-size: 16px;text-align: center;color: #1c47bc;margin-bottom: 5px !important;"><strong>{{ item2.nama }}</strong></h6>

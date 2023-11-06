@@ -5,7 +5,7 @@
         <div class="box-title">
           <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #1c47bc;" @click="$router.push('/tabs-dashboard/dashboard')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">Pemerintahan</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">Kantor Pemerintahan</h6>
         </div>
       </div>
     </ion-header>
@@ -22,8 +22,8 @@
                 <ion-img v-else src="https://placehold.co/90" style="width:100%;height: 120px;object-fit: cover;"></ion-img>
               </div>
               <div style="width:65%;margin-left: 15px;">
-                <h6 style="font-size: 16px;"><strong>{{ item.nama }} ({{ item.singkatan }})</strong></h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;">{{item.web}}</h6>
+                <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>{{ item.nama }} ({{ item.singkatan }})</strong></h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;" class="custom-dark-mode">{{item.web}}</h6>
                 <!-- <h6 style="font-size: 12px;margin-top: 5px !important;">Jl. Sumbing No.2, Tanjungsari, Kec. Kajen, Kabupaten Pekalongan, Jawa Tengah Kode Pos 51161</h6> -->
               </div>
             </div>
@@ -106,5 +106,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 </style>

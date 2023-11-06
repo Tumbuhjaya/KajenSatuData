@@ -27,11 +27,11 @@
               </div>
 
               <div style="width:60%;margin-left: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 16px;"><strong>{{ user.nama }}</strong></h6>
-                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;">{{ user.desa }}</h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">{{ user.wa }}</h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">{{ user.email }}</h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;"></h6>
+                <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>{{ user.nama }}</strong></h6>
+                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;" class="custom-dark-mode">{{ user.desa }}</h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;" class="custom-dark-mode">{{ user.wa }}</h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;" class="custom-dark-mode">{{ user.email }}</h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;" class="custom-dark-mode"></h6>
               </div>
             </div>
           </ion-col>
@@ -48,19 +48,19 @@
                 <ion-item @click="$router.push('/profil/ubah_profil')">
                     <div style="display: flex;justify-content: center;align-items: center;">
                         <ion-img src="/assets/cogwheel.png" style="width: 30px;"></ion-img>
-                        <ion-label style="margin-left:15px ;">Ubah Profil</ion-label>
+                        <ion-label style="margin-left:15px ;" class="custom-dark-mode">Ubah Profil</ion-label>
                     </div>
                 </ion-item>
                 <ion-item @click="$router.push('/profil/produk_umkm')">
                     <div style="display: flex;justify-content: center;align-items: center;" >
                         <ion-img src="/assets/produk.png" style="width: 30px;"></ion-img>
-                        <ion-label style="margin-left:15px ;">Produk UMKM</ion-label>
+                        <ion-label style="margin-left:15px ;" class="custom-dark-mode">Produk UMKM</ion-label>
                     </div>
                 </ion-item>
                 <ion-item>
                     <div style="display: flex;justify-content: center;align-items: center;">
                         <ion-img src="/assets/logout.png" style="width: 30px;"></ion-img>
-                        <ion-label style="margin-left:15px ;" @click="logout">Logout</ion-label>
+                        <ion-label style="margin-left:15px ;" @click="logout" class="custom-dark-mode">Logout</ion-label>
                     </div>
                 </ion-item>
                 </ion-list>
@@ -224,5 +224,18 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+  .list-md{
+    background-color:transparent;
+  }
+  ion-item{
+          --background: transparent;
+          --border-color:transparent
+        }
 }
 </style>

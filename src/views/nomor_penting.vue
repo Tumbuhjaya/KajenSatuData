@@ -5,7 +5,7 @@
         <div class="box-title">
           <ion-icon :icon="arrowBackCircleOutline" size="large" style="position: absolute;left:0;top:0;bottom: 0;margin:auto;color: #1c47bc;" @click="$router.push('/tabs-dashboard/dashboard')"></ion-icon>
           <!-- <ion-icon :icon="arrow-back-outline"></ion-icon> -->
-          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">Telepon Penting</h6>
+          <h6 style="font-size: 20px;font-weight: bold;color: #1c47bc;">Nomor Penting</h6>
         </div>
       </div>
     </ion-header>
@@ -18,8 +18,8 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 30px;border-radius: 8px;background-color: #eefafd">
               <div style="width: 80%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 20px;font-weight: 600;">BPBD</h6>
-                <h6>(0285) 381905</h6>
+                <h6 style="font-size: 20px;font-weight: 600;" class="custom-dark-mode">BPBD</h6>
+                <h6 class="custom-dark-mode">(0285) 381905</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <ion-img src="/assets/BPBD.png" style="width: 100%;height: 80px;"></ion-img>
@@ -32,8 +32,8 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 30px;border-radius: 8px;background-color: #eefafd">
               <div style="width: 80%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 20px;font-weight: 600;">PEMADAM KEBAKARAN</h6>
-                <h6>(0285) 381513</h6>
+                <h6 style="font-size: 20px;font-weight: 600;" class="custom-dark-mode">PEMADAM KEBAKARAN</h6>
+                <h6 class="custom-dark-mode">(0285) 381513</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <ion-img src="/assets/Pemadam.png" style="width: 100%;height: 80px;"></ion-img>
@@ -46,8 +46,8 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 30px;border-radius: 8px;background-color: #eefafd">
               <div style="width: 80%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 20px;font-weight: 600;">PMI</h6>
-                <h6>(0285) 381740 / 0823 2521 1118</h6>
+                <h6 style="font-size: 20px;font-weight: 600;" class="custom-dark-mode">PMI</h6>
+                <h6 class="custom-dark-mode">(0285) 381740 / 0823 2521 1118</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <ion-img src="/assets/PMI.png" style="width: 100%;height: 80px;"></ion-img>
@@ -61,8 +61,8 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 30px;border-radius: 8px;background-color: #eefafd;">
               <div style="width: 80%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 20px;font-weight: 600;">PSC 119 SANTRI</h6>
-                <h6>0811 2512 119</h6>
+                <h6 style="font-size: 20px;font-weight: 600;" class="custom-dark-mode">PSC 119 SANTRI</h6>
+                <h6 class="custom-dark-mode">0811 2512 119</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <ion-img src="/assets/PSC santri.png" style="width: 100%;height: 80px;"></ion-img>
@@ -120,6 +120,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 
 </style>

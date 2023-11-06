@@ -168,5 +168,13 @@ ion-segment-button::part(indicator-background) {
   --ion-color-base:#1c47bc !important
 }
 
+@media (prefers-color-scheme: dark) {
+  ion-segment-button{
+    color: rgba(0,0,0,0.6)
+  }
 
+  .ion-color-success{
+    --ion-color-base:#1c47bc !important
+  }
+}
 </style>

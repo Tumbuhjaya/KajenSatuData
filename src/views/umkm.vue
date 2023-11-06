@@ -33,7 +33,7 @@
                 <ion-img v-if="item.foto" :src="item.foto"></ion-img>
                 <ion-img v-else src="/assets/store.png"></ion-img>
               </div>
-              <h6 style="margin-top: 10px !important;text-align: center;font-size: 14px;">{{item.nama}}</h6>
+              <h6 style="margin-top: 10px !important;text-align: center;font-size: 14px;" class="custom-dark-mode">{{item.nama}}</h6>
             </div>
           </ion-col>
 
@@ -311,5 +311,11 @@ ion-input.custom {
 .font-title{
   font-size: 18px;
   font-weight: bolder;
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
 }
 </style>

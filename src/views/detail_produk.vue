@@ -22,11 +22,11 @@
               
 
               <div style="width: 100%;padding: 15px 30px;background-color: #fff;position: absolute;left:0;right:0;top:280px;bottom:0;border-top-left-radius: 30px;border-top-right-radius: 30px;">
-                <h6 style="font-size: 18px;margin-top: 15px !important;">{{item.nama}}</h6>
-              <h6 style="font-size: 20px;font-weight: bold;margin-top: 5px !important;margin-bottom: 5px !important;color: #1c47bc;">{{item.harga}}</h6>
-              <h6 style="font-size: 16px; ">{{item.kecamatan}}</h6>
+                <h6 style="font-size: 18px;margin-top: 15px !important;" class="custom-dark-mode">{{item.nama}}</h6>
+              <h6 style="font-size: 20px;font-weight: bold;margin-top: 5px !important;margin-bottom: 5px !important;color: #1c47bc;" class="custom-dark-mode">{{item.harga}}</h6>
+              <h6 style="font-size: 16px; " class="custom-dark-mode">{{item.kecamatan}}</h6>
 
-              <h6 style="margin-top: 15px !important;font-weight: normal;">{{item.deskripsi}}</h6>
+              <h6 style="margin-top: 15px !important;font-weight: normal;" class="custom-dark-mode">{{item.deskripsi}}</h6>
               </div>
             </div>
           </ion-col>
@@ -130,4 +130,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 </style>

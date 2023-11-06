@@ -19,14 +19,14 @@
             <div style="width: 100%;padding: 15px;">
               <ion-img v-if="produk.foto" :src="produk.foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
               <ion-img v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
-              <h6 style="font-size: 18px;margin-top: 15px !important;"><strong>Nama produk</strong></h6>
-              <h6 style="font-size: 18px;font-weight: bold;margin-top: 10px !important;margin-bottom: 10px !important;">Rp {{ produk.harga }},-</h6>
-              <h6 style="font-size: 14px; font-weight: normal;">{{ produk.ktg }}</h6>
+              <h6 style="font-size: 18px;margin-top: 15px !important;" class="custom-dark-mode"><strong>Nama produk</strong></h6>
+              <h6 style="font-size: 18px;font-weight: bold;margin-top: 10px !important;margin-bottom: 10px !important;" class="custom-dark-mode">Rp {{ produk.harga }},-</h6>
+              <h6 style="font-size: 14px; font-weight: normal;" class="custom-dark-mode">{{ produk.ktg }}</h6>
 
-              <h6 style="margin-top: 30px !important;font-size: 18px"><strong>Rincian Produk</strong></h6>
-              <h6 style="margin-top: 10px !important;font-size: 14px;font-weight: normal;">{{ produk.deskripsi }}</h6>
+              <h6 style="margin-top: 30px !important;font-size: 18px" class="custom-dark-mode"><strong>Rincian Produk</strong></h6>
+              <h6 style="margin-top: 10px !important;font-size: 14px;font-weight: normal;" class="custom-dark-mode">{{ produk.deskripsi }}</h6>
 
-              <h6 style="margin-top: 30px !important;font-size: 18px"><strong>Penjual</strong></h6>
+              <h6 style="margin-top: 30px !important;font-size: 18px" class="custom-dark-mode"><strong>Penjual</strong></h6>
 
               <div style="width: 100%;display: flex;margin-top: 15px;">
                 <div style="width: 30%;position: relative;background-color: ;display: flex;justify-content: flex-start;">
@@ -36,8 +36,8 @@
                 </div>
 
                 <div style="width:60%;height: 80px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                  <h6 style="font-size: 16px;"><strong>{{ user.nama }}</strong></h6>
-                  <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">Kelurahan : {{ user.desa }} , Kecamatan : {{ user.kecamatan }}</h6>
+                  <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>{{ user.nama }}</strong></h6>
+                  <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;" class="custom-dark-mode">Kelurahan : {{ user.desa }} , Kecamatan : {{ user.kecamatan }}</h6>
                 </div>
               </div>
               <div style="width: 100%;height: 2px;background-color: #D3D3D3;margin-top: 15px;"></div>
@@ -167,5 +167,11 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
 }
 </style>

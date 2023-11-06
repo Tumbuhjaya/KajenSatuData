@@ -19,9 +19,9 @@
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;border-radius: 10px;background-color: #eefafd;overflow: hidden;">
               <ion-img v-if="!item2.foto" src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
                 <ion-img v-else-if="item2.foto" :src="item2.foto" style="width:100%;height:140px;object-fit: cover;"></ion-img>
-                <div style="width:100%;height: 80px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
-                <h6 style="font-size: 16px;text-align: center;color: #1c47bc;"><strong>{{ item2.nama }}</strong></h6>
-                <h6 style="font-size: 10px;text-align: center;color: #1c47bc;">{{ item2.lokasi }}</h6>
+                <div style="width:100%;height: 100px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
+                <h6 style="font-size: 16px;text-align: center;color: #1c47bc;margin-bottom: 5px !important;"><strong>{{ item2.nama }}</strong></h6>
+                <h6 style="font-size: 10px;text-align: center;" class="custom-dark-mode">{{ item2.lokasi }}</h6>
               </div>
             </div>
           </ion-col>
@@ -33,7 +33,7 @@
           <ion-toolbar>
             <ion-title>{{ nama }}</ion-title>
             <ion-buttons slot="end">
-              <ion-button @click="dismiss()">Close</ion-button>
+              <ion-button @click="dismiss()">Tutup</ion-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
@@ -45,10 +45,10 @@
                   <ion-img v-if="foto" :src="foto" style="width:100%;height:300px;object-fit: cover;"></ion-img>
                   <ion-img v-else src="https://placehold.co/300" style="width:100%;height:300px;object-fit: cover;"></ion-img>
                   <div style="width: 100%;position: absolute;left:0;right:0;bottom:0;padding:10px;background-color: rgba(255,255,255,0.5);">
-                    <h6 style="font-weight: normal;font-size: 12px;">{{ lokasi }}</h6>
+                    <h6 style="font-weight: normal;font-size: 12px;" class="custom-dark-mode">{{ lokasi }}</h6>
                   </div>
                 </div>
-                <h6 style="margin-top: 15px !important;">{{ deskripsi }}</h6>
+                <h6 style="margin-top: 15px !important;" class="custom-dark-mode">{{ deskripsi }}</h6>
                 
               </div>
             </ion-col>
@@ -176,5 +176,10 @@ ion-modal::part(backdrop) {
 ion-modal ion-toolbar {
   --background: #4c87f2;
   --color: white;
+}
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
 }
 </style>

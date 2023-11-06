@@ -21,8 +21,8 @@
           </ion-col>
 
           <ion-col size="12" style="padding: 0;">
-            <div style="width:100%;padding:30px;background-color: #FFD82B;">
-              <h6 style="margin: 0;"><strong>{{ item.ket }}</strong></h6>
+            <div style="width:100%;padding:15px 30px;background-color: #FFD82B;">
+              <h6 style="margin: 0;" class="custom-dark-mode"><strong>{{ item.ket }}</strong></h6>
             </div>
           </ion-col>
         </ion-row>
@@ -131,5 +131,9 @@ export default defineComponent({
   position: relative;
 }
 
-
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 </style>

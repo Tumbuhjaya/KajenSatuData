@@ -23,7 +23,7 @@
               </div>
               <div style="width:50%;margin-left: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 16x;color:#1c47bc"><strong>{{ item.nama }}</strong></h6>
-                <h6 style="font-size: 10px;margin-top: 5px !important;font-weight: normal;">{{ item.lokasi }}</h6>
+                <h6 class="alamat_lokasi" style="font-size: 10px;margin-top: 5px !important;font-weight: normal;">{{ item.lokasi }}</h6>
               </div>
             </div>
           </ion-col>
@@ -107,6 +107,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@media (prefers-color-scheme: dark) {
+  .alamat_lokasi{
+    color: #222428;
+  }
+}
 
 
 

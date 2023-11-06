@@ -18,8 +18,8 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 30px;border-radius: 8px;">
               <div style="width: 80%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 20px;font-weight: 600;">Facebook</h6>
-                <h6>Kabupaten Pekalongan</h6>
+                <h6 style="font-size: 20px;font-weight: 600;" class="custom-dark-mode">Facebook</h6>
+                <h6 class="custom-dark-mode">Kabupaten Pekalongan</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <ion-img src="/assets/fb.png" style="width: 100%;"></ion-img>
@@ -32,8 +32,8 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 30px;border-radius: 8px;background-color: #eefafd;">
               <div style="width: 80%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 20px;font-weight: 600;">Twitter</h6>
-                <h6>@Pemkab_Pkl</h6>
+                <h6 style="font-size: 20px;font-weight: 600;" class="custom-dark-mode">Twitter</h6>
+                <h6 class="custom-dark-mode">@Pemkab_Pkl</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <ion-img src="/assets/tube.png" style="width: 100%;"></ion-img>
@@ -46,8 +46,8 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 30px;border-radius: 8px;background-color: #eefafd;">
               <div style="width: 80%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 20px;font-weight: 600;">Instagram</h6>
-                <h6>kab_pekalongan</h6>
+                <h6 style="font-size: 20px;font-weight: 600;" class="custom-dark-mode">Instagram</h6>
+                <h6 class="custom-dark-mode">kab_pekalongan</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <ion-img src="/assets/ig.png" style="width: 100%;"></ion-img>
@@ -60,8 +60,8 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;display: flex;box-shadow: 0px 4px 4px 0px #00000040;padding: 0 30px;border-radius: 8px;background-color: #eefafd;">
               <div style="width: 80%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 20px;font-weight: 600;">Youtube</h6>
-                <h6>@Pemkab Pekalongan</h6>
+                <h6 style="font-size: 20px;font-weight: 600;" class="custom-dark-mode">Youtube</h6>
+                <h6 class="custom-dark-mode">@Pemkab Pekalongan</h6>
               </div>
               <div style="width: 20%;height: 100px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <ion-img src="/assets/tube.png" style="width: 100%;"></ion-img>
@@ -137,5 +137,9 @@ export default defineComponent({
   align-items: center;
   position: relative;
 }
-
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 </style>

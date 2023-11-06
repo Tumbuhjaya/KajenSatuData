@@ -19,12 +19,12 @@
             <ion-accordion-group>
               <ion-accordion :value="item.kec" style="margin-bottom: 15px;border-radius: 10px;"    v-for="(item,id) in kecamatan" :key="id" >
                 <ion-item slot="header" color="light">
-                  <ion-label >{{ item.kec }}</ion-label>
+                  <ion-label class="custom-dark-mode">{{ item.kec }}</ion-label>
                 </ion-item>
-                <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  <ion-list lines="full">
+                <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8;background-color: #fff;">
+                  <ion-list lines="full" >
                     <ion-item @click="$router.push('/sid/detail_by_kec/'+desa.id)"   v-for="(desa,id) in item.desa" :key="id"> 
-                      <ion-label>{{ desa.nama }}</ion-label>
+                      <ion-label class="custom-dark-mode">{{ desa.nama }}</ion-label>
                     </ion-item>
                     <!-- <ion-item>
                       <ion-label>Desa A2</ion-label>
@@ -179,5 +179,30 @@ export default defineComponent({
 
 .ion-color-light{
   --ion-color-base : #eefafd !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+/* 
+  .md body{
+    --ion-background-color:transparent
+  }
+  .list-md{
+    --ion-background-color:red;
+  } */
+  /* .md body{
+    --ion-background-color:transparent
+  } */
+
+  .list-md{
+    background:transparent;
+  }
+  ion-item{
+          --background: transparent;
+          --border-color:rgba(0, 0, 0, 0.13)
+        }
+
 }
 </style>

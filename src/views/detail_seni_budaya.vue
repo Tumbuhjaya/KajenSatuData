@@ -23,7 +23,7 @@
               
               
               <div style="width: 100%;padding: 15px 30px;background-color: #fff;position: absolute;left:0;right:0;top:280px;bottom:0;border-top-left-radius: 30px;border-top-right-radius: 30px;">
-                <h6 style="margin-top: 15px !important;font-weight: normal;">{{ isi }}</h6>
+                <h6 style="margin-top: 15px !important;font-weight: normal;" class="custom-dark-mode">{{ isi }}</h6>
               </div>
             </div>
 
@@ -118,4 +118,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@media (prefers-color-scheme: dark) {
+  
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 </style>

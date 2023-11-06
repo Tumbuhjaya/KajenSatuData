@@ -212,5 +212,22 @@ export default defineComponent({
           justify-content: center;
         }
       }
+      @media (prefers-color-scheme: dark) {
+        ion-input{
+          color: #222428;
+        }
 
+        ion-select{
+          color: #222428;
+        }
+
+        ion-item{
+          --background: transparent;
+          --border-color:transparent
+        }
+
+        ion-textarea{
+          color: #222428;
+        }
+      }
 </style>

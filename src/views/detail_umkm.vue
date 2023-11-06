@@ -27,7 +27,7 @@
 
               <div style="width:60%;margin-left: 15px;height: 140px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
                 <h6 style="font-size: 20px;color: #1c47bc;"><strong>{{ user.nama }}</strong></h6>
-                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;">Kel. {{ user.desa }} <br> Kec. {{ user.kecamatan }}</h6>
+                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;" class="custom-dark-mode">Kel. {{ user.desa }} <br> Kec. {{ user.kecamatan }}</h6>
                 <ion-button size="success" style="margin-top: 10px;" @click="go">Hubungi penjual</ion-button>
               </div>
             </div>
@@ -46,7 +46,7 @@
               <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 100px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
                 <h6 style="font-size: 14px;text-align: center;color:#1c47bc"><strong>{{item.nama}}</strong></h6>
-                <h6 style="font-size: 12px;text-align: center;font-weight: normal;margin-top: 5px !important;color:#1c47bc">{{item.harga}}</h6>
+                <h6 style="font-size: 12px;text-align: center;font-weight: normal;margin-top: 5px !important;" class="custom-dark-mode">{{item.harga}}</h6>
               </div>
             </div>
           </ion-col>
@@ -144,3 +144,11 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scopde>
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
+</style>

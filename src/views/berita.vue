@@ -49,8 +49,8 @@
         </ion-row>
         <ion-row class="list" v-if="segment == 'data2'">
           <ion-col size="12"  @click="push(item.link)"  v-for="(item,id) in pengumuman" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <h6 style="font-size: 14px;"><strong>{{ item.judul }}</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 10px !important;">{{ item.waktu }}</h6>
+            <h6 style="font-size: 14px;" class="custom-dark-mode"><strong>{{ item.judul }}</strong></h6>
+            <h6 style="font-size: 12px;margin-top: 10px !important;" class="custom-dark-mode">{{ item.waktu }}</h6>
           </ion-col>
 
           <ion-col size="12">
@@ -60,8 +60,8 @@
         </ion-row>
         <ion-row class="list" v-if="segment == 'data3'">
           <ion-col size="12"  @click="push(item.link)"  v-for="(item,id) in lelang" :key="id" style="margin-top: 15px;margin-bottom:15px;padding: 0 20px;">
-            <h6 style="font-size: 14px;"><strong>{{ item.judul }}</strong></h6>
-            <h6 style="font-size: 12px;margin-top: 10px !important;">{{ item.waktu }}</h6>
+            <h6 style="font-size: 14px;" class="custom-dark-mode"><strong>{{ item.judul }}</strong></h6>
+            <h6 style="font-size: 12px;margin-top: 10px !important;" class="custom-dark-mode">{{ item.waktu }}</h6>
           </ion-col>
 
           <ion-col size="12">
@@ -211,5 +211,17 @@ ion-segment-button::part(indicator-background) {
   --ion-color-base:#1c47bc !important
 }
 
+@media (prefers-color-scheme: dark) {
+  ion-segment-button{
+    color: rgba(0,0,0,0.6)
+  }
 
+  .ion-color-success{
+    --ion-color-base:#1c47bc !important
+  }
+  
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 </style>

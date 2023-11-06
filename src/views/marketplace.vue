@@ -98,7 +98,7 @@
               <ion-img v-else src="https://placehold.co/140" style="width:100%;height:140px;object-fit: cover;"></ion-img>
               <div style="width:100%;height: 100px;display: flex;justify-content: center;align-items: center;background-color: ;padding: 0 15px;flex-direction: column;">
                 <h6 style="font-size: 14px;text-align: center;color:#1c47bc"><strong>{{item.nama}}</strong></h6>
-                <h6 style="font-size: 12px;text-align: center;font-weight: normal;margin-top: 5px !important;">{{item.harga}}</h6>
+                <h6 style="font-size: 12px;text-align: center;font-weight: normal;margin-top: 5px !important;" class="custom-dark-mode">{{item.harga}}</h6>
               </div>
             </div>
           </ion-col>
@@ -357,5 +357,9 @@ ion-input.custom {
   font-weight: bolder;
 }
 
-
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 </style>

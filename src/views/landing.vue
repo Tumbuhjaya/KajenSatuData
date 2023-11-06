@@ -10,7 +10,7 @@
       </div>
       <div class="box-content-two">
         <div class="box-top">
-          <h6 style="text-align: center;font-size: 18px;font-weight: 600;margin-bottom: 15px !important;font-weight: normal;">Kajen Satu Data merupakan sebuah upaya Pemerintah Kabupaten Pekalongan dalam mendorong pengambilan kebijakan berdasarkan data. Untuk mewujudkan hal tersebut, maka diperlukan pemenuhan atas data pemerintah yang akurat, mutakhir, terpadu, terintegrasi, mudah diakses dan dapat dibagipakaikan kembali oleh pengguna data.</h6>
+          <h6 style="text-align: center;font-size: 18px;font-weight: 600;margin-bottom: 15px !important;font-weight: normal;" class="custom-dark-mode">Kajen Satu Data merupakan sebuah upaya Pemerintah Kabupaten Pekalongan dalam mendorong pengambilan kebijakan berdasarkan data. Untuk mewujudkan hal tersebut, maka diperlukan pemenuhan atas data pemerintah yang akurat, mutakhir, terpadu, terintegrasi, mudah diakses dan dapat dibagipakaikan kembali oleh pengguna data.</h6>
         </div>
         <div class="box-bottom">
           <ion-button style="width: 100%;"  @click="$router.push('/tabs-dashboard/dashboard')">Lanjutkan</ion-button>
@@ -83,5 +83,12 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   padding: 0 60px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+        
 }
 </style>

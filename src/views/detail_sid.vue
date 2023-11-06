@@ -19,18 +19,18 @@
             <div style="width: 100%;background-color: ;display: flex;">
               
               <div style="width:60%;padding-right: 30px;height: 160px;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;">
-                <h6 style="font-size: 16px;"><strong>{{ data.nama }}</strong></h6>
-                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;">{{ data.kec }}</h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;"></h6>
-                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;">{{ data.email }}</h6>
-                <h6 style="font-size: 12px;margin-top: 5px !important;font-weight: normal;">{{ data.web }}</h6>
+                <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>{{ data.nama }}</strong></h6>
+                <h6 style="font-size: 14px;margin-top: 10px !important;font-weight: normal;" class="custom-dark-mode">{{ data.kec }}</h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;" class="custom-dark-mode"></h6>
+                <h6 style="font-size: 14px;margin-top: 5px !important;font-weight: normal;" class="custom-dark-mode">{{ data.email }}</h6>
+                <h6 style="font-size: 12px;margin-top: 5px !important;font-weight: normal;" class="custom-dark-mode">{{ data.web }}</h6>
               </div>
               <div style="width: 40%;position: relative;">
                 <ion-img src="https://placehold.co/100" style="width:100%;height:160px;object-fit: cover;"></ion-img>
 
                 <div style="width: 100%;padding: 10px;background-color: rgba(0, 0, 0, 0.2);position: absolute;left:0;right:0;bottom:0;">
-                  <h6 style="font-size: 10px;text-align: center;"><strong>{{ data.kepala }}</strong></h6>
-                  <h6 style="font-size: 10px;margin-top: 5px !important;font-weight: normal;text-align: center;">Kepala Desa</h6>
+                  <h6 style="font-size: 10px;text-align: center;" class="custom-dark-mode"><strong>{{ data.kepala }}</strong></h6>
+                  <h6 style="font-size: 10px;margin-top: 5px !important;font-weight: normal;text-align: center;" class="custom-dark-mode">Kepala Desa</h6>
                 </div>
               </div>
             </div>
@@ -57,27 +57,27 @@
         <ion-row style="margin-top: 15px;">
           <ion-col size="12">
             <ion-accordion-group>
-              <ion-accordion value="visimisi" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="visimisi" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Visi dan Misi</ion-label>
+                  <ion-label class="custom-dark-mode">Visi dan Misi</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  <h6 style="font-size: 16px;"><strong>Visi</strong></h6>
-                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">{{ data.visi? data.visi:'-' }}</h6>
+                  <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>Visi</strong></h6>
+                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;" class="custom-dark-mode">{{ data.visi? data.visi:'-' }}</h6>
                   <!-- jika tidak ada data visi tampilkan dibawah ini -->
                   <!-- <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">-</h6> -->
-                  <h6 style="font-size: 16px;margin-top: 30px !important;"><strong>Misi</strong></h6>
-                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">{{ data.misi?data.misi:'-' }}</h6>
+                  <h6 style="font-size: 16px;margin-top: 30px !important;" class="custom-dark-mode"><strong>Misi</strong></h6>
+                  <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;" class="custom-dark-mode">{{ data.misi?data.misi:'-' }}</h6>
                   <!-- jika tidak ada data misi tampilkan dibawah ini -->
                   <!-- <h6 style="font-size: 14px;margin-top: 15px !important;font-weight: normal;">-</h6> -->
                 </div>
               </ion-accordion>
-              <ion-accordion value="pengumuman" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="pengumuman" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Pengumuman</ion-label>
+                  <ion-label class="custom-dark-mode">Pengumuman</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
-                  <h6 v-if="pengumuman.length==0" style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6 v-if="pengumuman.length==0" style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <div v-else>
                     <div style="width: 100%;display: flex;" v-for="(item,id) in pengumuman" :key="id">
                       <div style="width: 40%;">
@@ -95,60 +95,60 @@
                   </div>
                 </div>
               </ion-accordion>
-              <ion-accordion value="dusun" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="dusun" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Dusun</ion-label>
+                  <ion-label class="custom-dark-mode">Dusun</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 v-if="dusun.length==0" style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6 v-if="dusun.length==0" style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <div v-else>
                     <div v-for="(item,id) in dusun" :key="id" style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px;border-radius: 8px;background-color: #eefafd;margin-bottom:15px">
-                      <h6 style="font-size: 16px;color:#1c47bc"><strong>Dusun {{ item.nama }}</strong></h6>
-                        <h6 style="font-size: 12px;font-weight: normal;">Kepala Dusun : {{ item.kepala }}</h6>
+                      <h6 style="font-size: 16px;color:#1c47bc" class="custom-dark-mode"><strong>Dusun {{ item.nama }}</strong></h6>
+                        <h6 style="font-size: 12px;font-weight: normal;" class="custom-dark-mode">Kepala Dusun : {{ item.kepala }}</h6>
                     </div>
                   </div>
                 </div>
               </ion-accordion>
-              <ion-accordion value="perangkatdesa" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="perangkatdesa" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Perangkat Desa</ion-label>
+                  <ion-label class="custom-dark-mode">Perangkat Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6  v-if="perangkat.length==0"  style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="perangkat.length==0"  style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <div v-else>
                     <div v-for="(item,id) in perangkat" :key="id" style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px;border-radius: 8px;background-color: #eefafd;margin-bottom:15px">
-                      <h6 style="font-size: 16px;color:#1c47bc"><strong>{{ item.nama }}</strong></h6>
-                        <h6 style="font-size: 12px;font-weight: normal;">{{ item.jabatan }}</h6>
+                      <h6 style="font-size: 16px;color:#1c47bc" class="custom-dark-mode"><strong>{{ item.nama }}</strong></h6>
+                        <h6 style="font-size: 12px;font-weight: normal;" class="custom-dark-mode">{{ item.jabatan }}</h6>
                     </div>
                   </div>
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="bumdes" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="bumdes" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>BUMDes</ion-label>
+                  <ion-label class="custom-dark-mode">BUMDes</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6  v-if="bumdes.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="bumdes.length==0"   style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <div v-else>
                     <div v-for="(item,id) in bumdes" :key="id" style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px;border-radius: 8px;background-color: #eefafd;margin-bottom:15px" @click="setOpen(true)">
-                      <h6 style="font-size: 12px;"><strong>{{ item.jenis }}</strong></h6>
-                      <h6 style="font-size: 16px;margin-top: 10px !important;color:#1c47bc"><strong>{{ item.nama }}</strong></h6>
-                      <h6 style="font-size: 12px;font-weight: normal;">{{ item.alamat }}</h6>
+                      <h6 style="font-size: 12px;" class="custom-dark-mode"><strong>{{ item.jenis }}</strong></h6>
+                      <h6 style="font-size: 16px;margin-top: 10px !important;color:#1c47bc" ><strong>{{ item.nama }}</strong></h6>
+                      <h6 style="font-size: 12px;font-weight: normal;" class="custom-dark-mode">{{ item.alamat }}</h6>
                     </div>
                   </div>
                   
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="statistik" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="statistik" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Statistik</ion-label>
+                  <ion-label class="custom-dark-mode">Statistik</ion-label>
                 </ion-item>
-                <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
+                <div class="ion-padding custom-dark-mode" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
                   <h6 style="font-size: 16px;margin-bottom: 15px !important;"><strong>Berdasarkan Jenis Kelamin</strong></h6>
                   <div style="display: table;width: 100%;">
@@ -503,107 +503,107 @@
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="progbantuan" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="progbantuan" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Program Bantuan</ion-label>
+                  <ion-label class="custom-dark-mode">Program Bantuan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6  v-if="bantuan.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="bantuan.length==0"   style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
 
                   <div v-else>
                     <div v-for="(item,id) in bantuan" :key="id" style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px;border-radius: 8px;background-color: #eefafd;margin-bottom:15px">
                       
-                      <h6 style="font-size: 16px;margin-top: 10px !important;color:#1c47bc"><strong>{{ item.nama }}</strong></h6>
-                      <h6 style="font-size: 12px;font-weight: normal;margin-top: 5px !important;">{{ item.dana }}</h6>
-                      <h6 style="font-size: 12px;font-weight: normal;">({{ item.peserta }}) Peserta</h6>
+                      <h6 style="font-size: 16px;margin-top: 10px !important;color:#1c47bc" class="custom-dark-mode"><strong>{{ item.nama }}</strong></h6>
+                      <h6 style="font-size: 12px;font-weight: normal;margin-top: 5px !important;" class="custom-dark-mode">{{ item.dana }}</h6>
+                      <h6 style="font-size: 12px;font-weight: normal;" class="custom-dark-mode">({{ item.peserta }}) Peserta</h6>
                     </div>
                   </div>
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="pertanahan" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="pertanahan" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Pertanahan</ion-label>
+                  <ion-label class="custom-dark-mode">Pertanahan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6  v-if="pertanahan.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="pertanahan.length==0"   style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <ion-list lines="full" v-else>
                     <div  v-for="(item,id) in pertanahan" :key="id" >
                       <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                      <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>Nama : {{ item.nama }}</strong></h6>
+                    </ion-item>
+                    <ion-item  > 
+                      <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>Dana : {{ item.dana }}</strong></h6>
                     </ion-item>
                     <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Dana : {{ item.dana }}</strong></h6>
-                    </ion-item>
-                    <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>peserta : {{ item.peserta }}</strong></h6>
+                      <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>peserta : {{ item.peserta }}</strong></h6>
                     </ion-item>
                     </div>
                   </ion-list>
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="pembangunan" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="pembangunan" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Pembangunan</ion-label>
+                  <ion-label class="custom-dark-mode">Pembangunan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6  v-if="pembangunan.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="pembangunan.length==0"   style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <ion-list lines="full" v-else>
                     <div  v-for="(item,id) in pembangunan" :key="id" >
                       <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                      <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>Nama : {{ item.nama }}</strong></h6>
                     </ion-item>
                     </div>
                   </ion-list>
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="keuangan" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="keuangan" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Keuangan</ion-label>
+                  <ion-label class="custom-dark-mode">Keuangan</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6  v-if="keuangan.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="keuangan.length==0"   style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <ion-list lines="full" v-else>
                     <div  v-for="(item,id) in keuangan" :key="id" >
                       <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                      <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>Nama : {{ item.nama }}</strong></h6>
                     </ion-item>
                     </div>
                   </ion-list>
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="umkm" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="umkm" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>UMKM</ion-label>
+                  <ion-label class="custom-dark-mode">UMKM</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6  v-if="umkm.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="umkm.length==0"   style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <ion-list lines="full" v-else>
                     <div  v-for="(item,id) in umkm" :key="id" >
                       <ion-item  >
-                      <h6 style="font-size: 16px;"><strong>Nama : {{ item.nama }}</strong></h6>
+                      <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>Nama : {{ item.nama }}</strong></h6>
                     </ion-item>
                     </div>
                   </ion-list>
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="layanansurat" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="layanansurat" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Layanan Surat</ion-label>
+                  <ion-label class="custom-dark-mode">Layanan Surat</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <ion-list lines="full">
                     <ion-item   v-for="(item,idx) in surat" :key="idx"  @click="$router.push('/sid/layanan_surat/'+item.id_surat+'/'+id )"> 
-                      <ion-label>{{ item.nama }}</ion-label>
+                      <ion-label class="custom-dark-mode">{{ item.nama }}</ion-label>
                     </ion-item>
                     <!-- <ion-item>
                       <ion-label>Keterangan Penduduk</ion-label>
@@ -621,13 +621,13 @@
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="galerifoto" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="galerifoto" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Galeri Foto</ion-label>
+                  <ion-label class="custom-dark-mode">Galeri Foto</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6  v-if="galeri.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="galeri.length==0"   style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <ion-list lines="full" v-else>
                     <div  v-for="(item,id) in galeri" :key="id" >
                       <ion-item>
@@ -638,23 +638,23 @@
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="petadesa" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="petadesa" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Peta Desa</ion-label>
+                  <ion-label class="custom-dark-mode">Peta Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="potensidesa" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="potensidesa" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Potensi Desa</ion-label>
+                  <ion-label class="custom-dark-mode">Potensi Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6  v-if="potensi.length==0"   style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6  v-if="potensi.length==0"   style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                   <ion-list lines="full" v-else>
                     <div  v-for="(item,id) in potensi" :key="id" >
                       <ion-item>
@@ -665,13 +665,13 @@
                 </div>
               </ion-accordion>
 
-              <ion-accordion value="channeldesa" style="margin-bottom: 15px;border-radius: 10px;">
+              <ion-accordion value="channeldesa" style="margin-bottom: 15px;border-radius: 10px;background-color: #fff;">
                 <ion-item slot="header" color="light">
-                  <ion-label>Channel Desa</ion-label>
+                  <ion-label class="custom-dark-mode">Channel Desa</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" style="border-left:2px solid #f4f5f8;border-right:2px solid #f4f5f8;border-bottom:2px solid #f4f5f8">
                   <!-- jika data tidak ada tampilkan notif dibawah ini -->
-                  <h6 style="font-size: 16px;"><strong>Belum Ada Data</strong></h6>
+                  <h6 style="font-size: 16px;" class="custom-dark-mode"><strong>Belum Ada Data</strong></h6>
                 </div>
               </ion-accordion>
             </ion-accordion-group>
@@ -932,5 +932,24 @@ export default defineComponent({
 <style scoped>
 .ion-color-light{
   --ion-color-base : #eefafd !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+
+  .list-md{
+    background:transparent;
+  }
+  ion-item{
+          --background: transparent;
+          --border-color:rgba(0, 0, 0, 0.13)
+        }
+
+        /* ion-accordion{
+          background-color: #fff;
+        } */
+        
 }
 </style>

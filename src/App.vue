@@ -69,4 +69,18 @@ import { IonApp, IonRouterOutlet } from '@ionic/vue';
     height: initial !important;
     contain: initial !important;
   }
+  @media (prefers-color-scheme: dark) {
+        ion-input{
+          color: #222428 !important;
+        }
+
+        ion-select{
+          color: #222428 !important;
+        }
+
+        /* ion-item{
+          --background: transparent;
+          --border-color:transparent
+        } */
+      }
 </style>

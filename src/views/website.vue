@@ -18,12 +18,12 @@
           <ion-col size="12" style="padding: 0;">
             <div style="width: 100%;box-shadow: 0px 4px 4px 0px #00000040;padding: 20px 15px;border-radius: 8px;background-color: #eefafd">
               <div style="width: 100%;">
-                <h6 style="font-size: 20px;font-weight: 600;">{{ item.nama }}</h6>
+                <h6 style="font-size: 20px;font-weight: 600;" class="custom-dark-mode">{{ item.nama }}</h6>
               </div>
               <div style="width: 100%;margin-top: 5px;">
                 <div style="width: 100%;min-height: 25px;display: flex;justify-content: flex-start;align-items: center;">
-                  <ion-icon :icon="linkOutline" style="margin-right: 10px;"></ion-icon><p @click="pindah(item.web)"
-                  >{{ item.web }}
+                  <ion-icon :icon="linkOutline" style="margin-right: 10px;" class="custom-dark-mode"></ion-icon><p @click="pindah(item.web)"
+                  class="custom-dark-mode">{{ item.web }}
                 </p>
                 </div>
               </div>
@@ -182,4 +182,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@media (prefers-color-scheme: dark) {
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 </style>

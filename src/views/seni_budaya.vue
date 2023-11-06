@@ -204,4 +204,18 @@ ion-modal ion-toolbar {
   --background: #4c87f2;
   --color: white;
 }
+
+@media (prefers-color-scheme: dark) {
+  ion-segment-button{
+    color: rgba(0,0,0,0.6)
+  }
+
+  .ion-color-success{
+    --ion-color-base:#1c47bc !important
+  }
+  
+  .custom-dark-mode{
+    color: #222428;
+  }
+}
 </style>

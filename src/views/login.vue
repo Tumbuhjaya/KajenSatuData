@@ -283,4 +283,12 @@ ion-input{
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
   }
+  @media (prefers-color-scheme: dark) {
+    ion-item{
+          --background: #fff;
+          --border-color:rgba(0, 0, 0, 0.13);
+          color:#000;
+          font-weight:bold
+        }
+  }
 </style>

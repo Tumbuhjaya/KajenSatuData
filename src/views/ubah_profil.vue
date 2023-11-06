@@ -45,7 +45,7 @@
                     <span class="title" 
                       >Foto Produk</span
                     >
-                    <ion-item>
+                    <ion-item style="background-color: #fff;">
                       <div class="inner" style="margin-top: 15px;">
                         <img
                         src="/assets/alt-photo.svg"
@@ -286,5 +286,18 @@ ion-select{
           justify-content: center;
         }
       }
+      @media (prefers-color-scheme: dark) {
+        ion-input{
+          color: #222428;
+        }
 
+        ion-select{
+          color: #222428;
+        }
+
+        ion-item{
+          --background: transparent;
+          --border-color:transparent
+        }
+      }
 </style>
